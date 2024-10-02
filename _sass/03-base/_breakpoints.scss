@@ -1,0 +1,18 @@
+$highdensity: "only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              "only screen and (min--moz-device-pixel-ratio: 1.5)",
+              "only screen and (-o-min-device-pixel-ratio: 3/2)",
+              "only screen and (min-device-pixel-ratio: 1.5)";
+
+$mq--sm:  "only screen and (min-width: 450px)";
+$mq--md:  "only screen and (min-width: 700px)";
+$mq--800: "only screen and (min-width: 800px)";
+$mq--lg:  "only screen and (min-width: 950px)";
+$mq--1056: "only screen and (min-width: 1056px)";
+$mq--xl:  "only screen and (min-width: 1200px)";
+$mq--xxl: "only screen and (min-width: 1400px)";
+
+$mq-450-and-below: "only screen and (max-width: 450px)";
+$mq-700-and-below: "only screen and (max-width: 700px)";
+$mq-950-and-below: "only screen and (max-width: 950px)";
+$mq-1056-and-below: "only screen and (max-width: 1056px)";
+$mq-1200-and-below: "only screen and (max-width: 1200px)";

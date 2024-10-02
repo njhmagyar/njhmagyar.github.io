@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+a {
+  overflow-wrap: break-word;
+  &.no-underline {
+    text-decoration: none;
+  }
+}
+
+input, a, textarea, button, summary {
+  &:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px $cornflowerblue;
+  }
+  &.regular-box-shadow-focus:focus {
+    box-shadow: 0 0 0 2px $cornflowerblue;
+  }
+}
+
+hr {
+  border-top: 1px solid $gray--tag;
+}
+
+* :disabled {
+  opacity: .5;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+summary {
+  // Set dispaly to something other than list-item
+    // to remove the hideous default marker icon
+  @include flex($justify: space-between, $align: flex-start, $wrap: no-wrap, $gap: 1rem);
+  cursor: pointer;
+}
+
+details[open] > summary i {
+  transform: rotate(180deg);
+}

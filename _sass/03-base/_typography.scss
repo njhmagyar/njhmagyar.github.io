@@ -1,0 +1,181 @@
+
+@font-face {
+  font-family: "Merriweather-Bold";
+  font-weight: normal;
+  src: url(../fonts/Merriweather-Bold.tff);
+}
+
+@font-face {
+  font-family: "WorkSans-Bold";
+  font-weight: normal;
+  src: url(../fonts/WorkSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "WorkSans-Regular";
+  font-weight: normal;
+  src: url(../fonts/WorkSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "WorkSans-Semibold";
+  font-weight: normal;
+  src: url(../fonts/WorkSans-Semibold.ttf);
+}
+
+body {
+    font-family: 'WorkSans-Regular', sans-serif;
+    color: $navy;
+    @media print {
+      color: $black;
+    }
+}
+
+.Merriweather-Bold { font-family: 'Merriweather-Bold', serif !important; font-weight: 100; }
+.WorkSans-bold { font-family: 'WorkSans-Bold', sans-serif !important; font-weight: 100; }
+.WorkSans-Regular { font-family: 'WorkSans-Regular', sans-serif !important; font-weight: 100; }
+.WorkSans-Semibold { font-family: 'WorkSans-Semibold', sans-serif !important; font-weight: 100; }
+
+
+h1, .h1 { 
+  font-size: $h1-font-size; 
+  line-height: $h1-line-height; 
+  font-family: "Merriweather-Bold"; 
+}
+h2, .h2 { 
+  font-size: $h2-font-size; 
+  line-height: $h2-line-height; 
+  font-family: "Merriweather-Bold"; 
+}
+h3, .h3 { 
+  font-size: $h3-font-size; 
+  line-height: $h3-line-height; 
+  font-family: "Merriweather-Bold"; 
+}
+h4, .h4 { 
+  font-size: $h4-font-size; 
+  line-height: $h4-line-height; 
+  font-family: "WorkSans-bold"; 
+}
+p, .p   {
+  font-size: .95rem;
+  line-height: 1.4rem;
+  @media #{$mq--md} {
+    font-size: $p-font-size;
+    line-height: $p-line-height;
+  }
+}
+
+.line-height--1rem {
+  line-height: 1rem !important;
+}
+
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }
+.text--pre-wrap { white-space: pre-wrap; }
+
+.text--logotype {
+  @extend .WorkSans-bold;
+  text-transform: uppercase;
+  font-style: italic;
+}
+
+.text--body {
+  @extend .p;
+  @extend .WorkSans-Regular;
+  font-style: normal;
+}
+
+.text--italic {
+  font-style: italic;
+}
+
+.text--link {
+  color: $emerald;
+  text-decoration: underline;
+  transition: all .3s ease;
+  &:hover, &:focus {
+    color: $emerald--dark;
+  }
+}
+
+.text--large { font-size: 1.6rem; line-height: 2.5rem; }
+.text--medium { font-size: 1rem; line-height: 1.4rem; }
+.text--small { font-size: .9rem; line-height: 1.15rem; }
+.text--small--print { 
+  @media print {
+    font-size: $small-print-font-size; 
+    line-height: $small-print-line-height; 
+  }
+}
+.text--extra-small { font-size: .8rem; line-height: 1.2rem; }
+
+.text--bold { @extend .WorkSans-bold; }
+.text--semibold { @extend .WorkSans-Semibold; }
+.text--light { font-weight: 300; }
+.text--strikethrough { text-decoration: line-through;}
+
+.align--center { text-align: center !important; }
+.align--left { text-align: left !important; }
+.align--right { text-align: right !important; }
+.text--center {
+    text-align: center !important;
+}
+
+.text--red { color: $red; }
+.text--emerald { color: $emerald; }
+.text--navy-hover { color: $navy--hover; }
+.text--navy { color: $navy; }
+.text--white { color: $white; }
+
+.nhm-event-name {
+  @media #{$mq-700-and-below} {
+    font-size: $h2-font-size;
+    line-height: $h2-line-height;
+  }
+}
+
+.nhm-mega-font {
+  margin: 0;
+  @extend .WorkSans-bold;
+  line-height: 2.5rem;
+
+  &.mobile-centered {
+    text-align: center;
+
+    @media #{$mq--lg} {
+      text-align: left;
+    }
+  }
+
+  @media #{$mq--sm} {
+    font-size: $mega-font-size--mobile;
+    line-height: $mega-font-size--mobile;
+  }
+
+  @media #{$mq--lg} {
+    font-size: $mega-font-size;
+    line-height: $mega-font-size;
+  }
+
+  &.mega-font-line-height--lg {
+    @media #{$mq--lg} {
+      line-height: $mega-font-line-height;
+    }
+  }
+}
+
+.truncate {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  &.w-100 {
+    width: 100px;
+  }
+  &.mobile-only {
+    @media #{$mq--sm} {
+      overflow: visible;
+    }
+  }
+}

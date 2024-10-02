@@ -1,0 +1,6 @@
+.nhm-header {
+  width: 100%;
+  @media #{$mq--lg} {
+    @include flex($align: center, $justify: center);
+  }
+}

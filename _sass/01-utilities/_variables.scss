@@ -1,0 +1,131 @@
+
+$bronze: #DF8755;
+$bronze--hover: #F5D1BE;
+$cornflowerblue: #3fa5e7;
+$emerald: #038179;
+$emerald--hover: #d4ecea;
+$emerald--dark: #035C56;
+$gold: #FCE033;
+$gold--hover: #FFF097;
+$gray--bg: #F0F2F6;
+$gray--bg--faded: rgb(240, 242, 246, .5);
+$gray--hover: #F6F8FC;
+$gray--tag: #E6EBF1;
+$gray--skeleton: #D4DAE2;
+$gray--rgb: rgb(154, 168, 186);
+$gray: #CBD2DB;
+$gray--mid: #818181;
+$navy: #001830;
+$navy--hover: #4C667E;
+$red: #FF0F4A;
+$red-hover: #FFD1d0;
+$silver: #D2D2D2;
+$silver--hover: #EEEEEE;
+$white: #FFFFFF;
+$black: #000000;
+
+// Schedule palette
+$schedule-red--dark: #CE513C;
+$schedule-red--med: #EF7564;
+$schedule-red--light: #EEB3AB;
+$schedule-orange--dark: #E79217;
+$schedule-orange--med: #FFAE3F;
+$schedule-orange--light: #FBD19C;
+$schedule-yellow--dark: #E6C606;
+$schedule-yellow--med: #F5DD2A;
+$schedule-yellow--light: #F5E992;
+$schedule-mint-green--dark: #4ED482;
+$schedule-mint-green--med: #6DEBA9;
+$schedule-mint-green--light: #B3F1D0;
+$schedule-green--dark: #5BAB44;
+$schedule-green--med: #7BC76C;
+$schedule-green--light: #B6DDB0;
+$schedule-turquoise--dark: #06ADCC;
+$schedule-turquoise--med: #26CBE4;
+$schedule-turquoise--light: #8EDFEA;
+$schedule-blue--dark: #026AA7;
+$schedule-blue--med: #5CA4CF;
+$schedule-blue--light: #8BBDD9;
+$schedule-purple--dark: #A76CC1;
+$schedule-purple--med: #CD8CE4;
+$schedule-purple--light: #DEBFEA;
+$schedule-pink--dark: #E567AF;
+$schedule-pink--med: #FE8ED3;
+$schedule-pink--light: #F9C2E4;
+$schedule-grey--dark: #061E41;
+$schedule-grey--med: #334463;
+$schedule-grey--light: #506079;
+
+
+$card-padding: 1rem;
+$card-radius: 4px;
+$card-border: 1.5px solid $gray--tag;
+$card-shadow: 0 1.5px 0 0 rgba(230, 235, 241, 100);
+$modal-shadow:  0 2px 8px rgba(0, 0, 0, 0.33);
+$mini-menu-shadow:  0 2px 4px rgba(0, 0, 0, 0.15);
+
+$tag-padding: .4rem;
+$tag-padding--small: .2rem;
+$tag-radius: 2px;
+
+$font-weight-bold: 800;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-semibold: 500;
+
+$WorkSans-Regular: 'WorkSans-Regular', sans-serif;
+$WorkSans-Semibold: 'WorkSans-Semibold', sans-serif;
+$WorkSans-bold: 'WorkSans-bold', sans-serif;
+
+$z-connection-search-list: 1;
+$z-competition-card: 1;
+$z-tooltip-mask: 1;
+$z-tooltip-index: 2;
+$z-navbar-nav: 9;
+$z-admin-page-header: 9;
+$z-admin-nav-wrapper: 10;
+$z-navbar-brand: 10;
+$z-breadcrumbs: 10;
+$z-menububble: 10;
+$z-mini-menu: 11;
+$z-navbar-toggler: 11;
+$z-schedule-search-list: 11;
+$z-dropdown-list: 11;
+$z-header: 100;
+$z-notifications: 101;
+$z-skip-to-main: 101;
+
+// Typography
+$mega-font-size: 3rem;
+$mega-font-size--mobile: 3rem;
+$h1-font-size: 2rem;
+$h2-font-size: 1.5rem;
+$h3-font-size: 1.25rem;
+$h4-font-size: 1.1rem;
+$p-font-size: 1rem;
+$h1-print-font-size: 24pt;
+$h2-print-font-size: 20pt;
+$h3-print-font-size: 16pt;
+$h4-print-font-size: 14pt;
+$p-print-font-size: 13pt;
+$small-print-font-size: 8pt;
+
+$mega-font-line-height: 4rem;
+$mega-font-line-height--mobile: 4rem;
+$h1-line-height: 2.5rem;
+$h2-line-height: 2rem;
+$h3-line-height: 1.5rem;
+$h4-line-height: 1.6rem;
+$p-line-height: 1.5rem;
+$h1-print-line-height: 36pt;
+$h2-print-line-height: 30pt;
+$h3-print-line-height: 24pt;
+$h4-print-line-height: 21pt;
+$p-print-line-height: 19pt;
+$small-print-line-height: 12pt;
+
+$h1-font-weight: 100;
+$h2-font-weight: 100;
+$h3-font-weight: 100;
+$h4-font-weight: 100;
+$p-font-weight: 100;

@@ -1,0 +1,33 @@
+.nhm-footer-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  @media print {
+    display: none;
+  }
+}
+
+.nhm-footer {
+  &.black {
+    color: $white;
+    background: $black;
+  }
+}
+
+.nhm-footer-logo-wrapper {
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.nhm-footer__logo {
+  height: 27px;
+  display: block;
+  margin: 0 auto;
+}
+
+.nhm-footer__copyright-text {
+  text-align: center;
+  font-size: .7rem;
+  color: $white;
+  a { color: $white; text-decoration: none; }
+}

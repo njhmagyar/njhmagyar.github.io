@@ -1,3 +1,14 @@
 ---
 title: Nathan Haynes-Magyar
 ---
+<ul>
+  {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
+  {% for project in featured_projects %}
+  <li>
+    <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
+    <h3>Tech Stack: {{ project.stack }}</h3>
+    <h3>My Roles: {{ project.roles }}</h3>
+    <p>{{ project.content | markdownify }}</p>
+  </li>
+  {% endfor %}
+</ul>
