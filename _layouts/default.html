@@ -10,8 +10,18 @@
 </head>
 
 <body>
-  {% include navigation.html %}
-  {{ content }}
+  <div class="main-wrapper">
+    <a class="skip-to-main" href="#main">Skip to main content</a>
+    {% include navigation.html %}
+    <main class="nhm-main" id="main" role="main">
+      {{ content }}
+    </main>
+    <div class="nhm-footer-wrapper">
+      <footer class="nhm-footer black py-3">
+        <p class="nhm-footer__copyright-text">&copy; Nathan Haynes-Magyar 2024</p>
+      </footer>
+    </div>
+  </div>
 </body>
 
 </html>

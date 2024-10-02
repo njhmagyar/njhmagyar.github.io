@@ -1,12 +1,10 @@
 ---
-title: Projects
+title: Nathan Haynes-Magyar
 ---
 <section class="nhm-wrapper w-700">
-  <h1>Projects</h1>
-  
   <ul class="unstyled-list">
-    {% assign ordered_projects = site.projects | sort:"order" %}
-    {% for project in ordered_projects %}
+    {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
+    {% for project in featured_projects %}
     <li>
       <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
       <h3>Tech Stack: {{ project.stack }}</h3>
