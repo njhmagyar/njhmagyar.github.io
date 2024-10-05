@@ -129,11 +129,10 @@ td.small-screen-hidden {
   padding-top: 5rem;
 }
 
-.bg-navy { background: $navy; color: $white; }
+.bg-black { background: $black; color: $white; }
 .bg-gray-tag { background: $gray--tag; }
-.bg-emerald { background: $emerald; }
-.bg-emerald-light { background: $emerald--hover !important; }
-.bg-gold-hover { background: $gold--hover; }
+.bg-blue { background: $blue; }
+.bg-fuscia { background: $fuscia; }
 .bg-white { background: $white; }
 
 .d-none { display: none; }
@@ -179,11 +178,11 @@ td.small-screen-hidden {
 }
 .print--landscape {
   @media print {
+    width: 276mm;
+    height: 190mm;
     @page {
       size: landscape
     }
-    width: 276mm;
-    height: 190mm;
   }
 }
 
@@ -222,6 +221,7 @@ td.small-screen-hidden {
 }
 
 .rounded { border-radius: $card-radius; }
+.rounded--mega { border-radius: 1.5rem; }
 .rounded--top-left { border-top-left-radius: $card-radius; }
 .rounded--top-right { border-top-right-radius: $card-radius; }
 
@@ -255,6 +255,7 @@ td.small-screen-hidden {
 .mw-300 { max-width: 300px; }
 .mw-450 { max-width: 450px; }
 .mw-680 { max-width: 680px; }
+.mw-700 { max-width: 700px; }
 .max-height-300 { max-height: 300px; }
 .min-width-100 { min-width: 100px; }
 .min-width-175 { min-width: 175px; }
@@ -342,6 +343,7 @@ td.small-screen-hidden {
 .pb-5 { padding-bottom: 5rem !important; }
 .pb-6 { padding-bottom: 6rem !important; }
 .pb-7 { padding-bottom: 7rem !important; }
+.pb-152px { padding-bottom: 152px !important; }
 .pb-233px { padding-bottom: 233px !important; }
 
 .pl-0 { padding-left: 0 !important; }
@@ -359,6 +361,7 @@ td.small-screen-hidden {
 .pt-3 { padding-top: 3rem !important; }
 .pt-4 { padding-top: 4rem !important; }
 .pt-5 { padding-top: 5rem !important; }
+.pt-56p { padding-top: 56px !important; }
 .pt-6 { padding-top: 6rem !important; }
 .pt-7 { padding-top: 7rem !important; }
 
@@ -375,3 +378,10 @@ td.small-screen-hidden {
 .py-5 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
 
 .overflow--scroll { overflow: scroll; }
+
+.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}

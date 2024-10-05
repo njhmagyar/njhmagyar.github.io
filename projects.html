@@ -1,17 +1,28 @@
 ---
 title: Projects
 ---
-<section class="nhm-wrapper w-700">
+<section class="nhm-wrapper">
   <h1>Projects</h1>
   
   <ul class="unstyled-list">
     {% assign ordered_projects = site.projects | sort:"order" %}
     {% for project in ordered_projects %}
-    <li>
-      <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
-      <h3>Tech Stack: {{ project.stack }}</h3>
-      <h3>My Roles: {{ project.roles }}</h3>
-      <p>{{ project.content | markdownify }}</p>
+    <li class="nhm-card--horizontal mb-3">
+      <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded"/>
+      <div>
+        <h2 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a></h2>
+        <div class="d-flex justify-start align-center">
+          <ul class="nhm-tag-list">
+            {% for role in project.roles %}
+            <li class="nhm-tag-list__item">{{ role }}</li>
+            {% endfor %}
+            {% for language in project.stack %}
+            <li class="nhm-tag-list__item">{{ language }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <p>{{ project.tagline }}</p>
+      </div>
     </li>
     {% endfor %}
   </ul>

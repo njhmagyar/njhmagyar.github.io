@@ -36,13 +36,13 @@
 }
 
 .nhm-sidebar__subnav-link {
-  @extend .WorkSans-Semibold;
+  @extend .DMSans-Semibold;
   text-decoration: none;
   color: $white;
   display: block;
   padding: .5rem 1rem;
   &:hover {
-    color: $red;
+    color: $fuscia;
   }
   &.active {
     background-color: rgba(255,255,255,.2);
@@ -81,5 +81,31 @@
     &.reversed {
       grid-template-columns: 1fr 3fr;
     }
+  }
+}
+
+.nhm-hero {
+  text-align: center;
+  @media #{$mq--md} {
+    text-align: left;
+    @include flex($justify: space-between, $align: center, $wrap: nowrap);
+  }
+  &.mobile-image-first {
+    @media #{$mq-700-and-below} {
+      @include flex($direction: column-reverse, $justify: center, $align: center);
+    }
+  }
+}
+
+.nhm-hero__text {
+  @media #{$mq--md} {
+    max-width: 50%;
+  }
+}
+
+.nhm-hero__image {
+  max-width: 50%;
+  @media #{$mq--md} {
+    max-width: 33%;
   }
 }

@@ -1,16 +1,40 @@
 ---
 title: Nathan Haynes-Magyar
 ---
-<section class="nhm-wrapper w-700">
-  <ul class="unstyled-list">
+<section class="nhm-wrapper">
+  <div class="nhm-hero mobile-image-first my-5">
+    <div class="nhm-hero__text">
+      <h1 class="nhm-mega-font">Hi! I'm Nathan.</h1>
+      <p>I'm passionate about education and using my 
+        skills as a full stack developer, UX designer,
+        and researcher to create beautiful, engaging
+        experiences for learners.
+      </p>
+    </div>
+    <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait.png" alt="">
+  </div>
+  <h2 class="h1 text--center mt-5">Featured Projects</h2>
+  <ul class="nhm-card-grid two-columns mb-5">
     {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
     {% for project in featured_projects %}
-    <li>
-      <h2><a href="{{ project.url }}">{{ project.name }}</a></h2>
-      <h3>Tech Stack: {{ project.stack }}</h3>
-      <h3>My Roles: {{ project.roles }}</h3>
-      <p>{{ project.content | markdownify }}</p>
+    <li class="nhm-card-grid__item">
+      <img class="mw-100p rounded" src="{{ project.cover_image }}" alt="" />
+      <h3><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a></h3>
+      <div class="d-flex justify-start align-center">
+        <ul class="nhm-tag-list">
+          {% for role in project.roles %}
+          <li class="nhm-tag-list__item">{{ role }}</li>
+          {% endfor %}
+          {% for language in project.stack %}
+          <li class="nhm-tag-list__item">{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <p>{{ project.tagline }}</p>
     </li>
     {% endfor %}
   </ul>
+  <p class="mb-5 text--center">
+    <a class="nhm-btn--blue" href="/projects">View All Projects</a>
+  </p>
 </section>

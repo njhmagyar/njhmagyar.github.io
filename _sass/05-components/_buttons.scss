@@ -1,13 +1,13 @@
 %btn-text {
   font-size: 0.9rem !important;
   font-weight: $font-weight-semibold !important;
-  font-family: Montserrat-Semibold, sans-serif !important;
+  font-family: DMSans-Semibold, sans-serif !important;
 }
 
 %btn-text--regular {
   font-size: 0.9rem !important;
   font-weight: $font-weight-semibold !important;
-  font-family: Montserrat-Regular, sans-serif !important;
+  font-family: DMSans-Regular, sans-serif !important;
 }
 
 %btn {
@@ -24,7 +24,7 @@
   white-space: nowrap;
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 2px $cornflowerblue;
+    box-shadow: 0 0 0 2px $blue;
   }
 }
 
@@ -40,12 +40,12 @@
   @extend %btn-text--regular;
 }
 
-.tm-btn--no-style {
+.nhm-btn--no-style {
   @extend %btn;
   padding: 0;
   border: 0;
   &.errors {
-    color: $red;
+    color: $fuscia;
   }
   &.h3 {
     font-size: $h3-font-size !important;
@@ -56,17 +56,17 @@
     line-height: $h4-line-height !important;;
   }
   &.help-text {
-    @extend .WorkSans-Regular;
+    @extend .DMSans-Regular;
     font-size: 0.8rem !important;
     line-height: 1.3rem !important;
   }
   &.text--link {
     text-decoration: underline;
-    color: $emerald;
+    color: $blue;
   }
 }
 
-.tm-btn--with-icon {
+.nhm-btn--with-icon {
   @extend %btn, %btn-flex;
   color: inherit;
   svg {
@@ -79,152 +79,149 @@
   }
 }
 
-.tm-btn--circular {
+.nhm-btn--circular {
   width: 35px;
   height: 35px;
   border-radius: 35px;
   @include flex($justify: center, $align: center);
 }
 
-.tm-btn--blue {
+.nhm-btn--blue {
   @extend %btn;
-  background: $navy;
+  background: $black;
   color: $white;
 }
 
-.tm-btn--red {
+.nhm-btn--fuscia {
   @extend %btn;
-  background: $red;
+  background: $fuscia;
   color: $white;
 }
 
-.tm-btn--gray {
-  @extend %btn;
-  background: $gray;
-  color: $navy;
-}
-
-.tm-btn--gray-tag {
+.nhm-btn--gray {
   @extend %btn;
   background: $gray--tag;
-  color: $navy;
+  color: $black;
 }
 
-.tm-btn--green {
+.nhm-btn--gray-tag {
   @extend %btn;
-  background: $emerald;
+  background: $gray--tag;
+  color: $black;
+}
+
+.nhm-btn--blue {
+  @extend %btn;
+  background: $blue;
   color: $white;
 }
 
-.tm-btn--white {
+.nhm-btn--white {
   @extend %btn;
   background: $white;
-  color: $navy;
-  &.green-text {
-    color: $emerald;
+  color: $black;
+  &.blue-text {
+    color: $blue;
   }
   &.soft-border {
     border: 1px solid $gray--tag;
     &:hover,
     &:focus {
-      background-color: $gray--hover;
+      background-color: $gray--tag;
     }
   }
 }
 
-.tm-btn--red--outline {
+.nhm-btn--fuscia--outline {
   @extend %btn;
-  border-color: $red;
-  color: $red;
+  border-color: $fuscia;
+  color: $fuscia;
 }
 
-.tm-btn--outline {
+.nhm-btn--outline {
   @extend %btn;
   border-color: $white;
   color: $white;
 }
 
-.tm-btn--outline--blue {
+.nhm-btn--outline--blue {
   @extend %btn;
-  border-color: $navy;
-  color: $navy;
+  border-color: $black;
+  color: $black;
 }
 
-.tm-btn--outline--red {
+.nhm-btn--outline--fuscia {
   @extend %btn;
-  border-color: $red;
-  color: $red;
+  border-color: $fuscia;
+  color: $fuscia;
 }
 
-.tm-btn--outline--green {
+.nhm-btn--outline--blue {
   @extend %btn;
-  border-color: $emerald;
-  color: $emerald;
+  border-color: $blue;
+  color: $blue;
 }
 
-.tm-btn--outline--grey {
+.nhm-btn--outline--grey {
   @extend %btn;
   border-color: $gray--tag;
-  color: $navy;
+  color: $black;
 }
 
-.tm-btn--link {
+.nhm-btn--link {
   @extend %btn;
   &.blue {
-    color: $navy;
-  }
-  &.green {
-    color: $emerald;
+    color: $blue;
   }
 }
 
-.tm-btn--small {
+.nhm-btn--small {
   @extend %btn;
   font-size: 0.8rem !important;
   line-height: 1.2rem;
   padding: 0.15rem 0.3rem;
 }
 
-.tm-btn--green--transparent {
+.nhm-btn--blue--transparent {
   @extend %btn;
-  color: $emerald;
+  color: $blue;
 }
 
-.tm-btn--red--transparent {
+.nhm-btn--fuscia--transparent {
   @extend %btn;
-  color: $red;
-  fill: $red;
+  color: $fuscia;
+  fill: $fuscia;
 }
 
-.tm-btn--gray--transparent {
+.nhm-btn--gray--transparent {
   @extend %btn;
-  color: $gray;
+  color: $gray--tag;
   margin-left: -0.25rem;
 }
 
-.tm-btn--blue--transparent {
+.nhm-btn--blue--transparent {
   @extend %btn;
-  color: $navy;
+  color: $black;
   &:hover,
   &:focus {
-    color: $red;
+    color: $fuscia;
   }
 }
 
-.tm-btn--amenity-description {
-  @extend .tm-btn--blue--transparent;
+.nhm-btn--amenity-description {
+  @extend .nhm-btn--blue--transparent;
   min-width: 150px;
   text-align: right;
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
     &:hover {
-      color: $navy;
+      color: $black;
     }
   }
 }
 
-.tm-btn--add-new {
+.nhm-btn--add-new {
   @extend %btn;
   @include add-new();
 }
@@ -235,7 +232,7 @@
   }
 }
 
-.tm-btn--loading-spinner {
+.nhm-btn--loading-spinner {
   svg {
     animation: spin 1s linear infinite;
     margin: 0.4rem auto;
@@ -246,7 +243,7 @@
   }
 }
 
-.tm-btn--remove-registration-item {
+.nhm-btn--remove-registration-item {
   @extend %btn;
   position: absolute;
   top: 0;
@@ -256,7 +253,7 @@
   width: 100%;
   height: 100%;
   @include flex($justify: center, $align: center);
-  background: $gray--hover;
+  background: $gray--tag;
   opacity: 0;
   &:hover,
   &:focus {
@@ -264,7 +261,7 @@
   }
 }
 
-.tm-btn-group {
+.nhm-btn-group {
   @include flex($align: center, $justify: center, $wrap: wrap);
   > *[class^="tm-btn"] {
     margin: 0.5rem;
@@ -272,17 +269,17 @@
 }
 
 .cart-item-count {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 2rem;
+  background: $fuscia;
+  color: $white;
+  @include flex($justify: center, $align: center);
+  @extend .DMSans-bold;
+  font-size: 0.6rem;
   @media #{$mq--lg} {
     position: absolute;
     top: -0.5rem;
     right: -0.5rem;
   }
-  width: 1rem;
-  height: 1rem;
-  border-radius: 2rem;
-  background: $red;
-  color: $white;
-  @include flex($justify: center, $align: center);
-  @extend .WorkSans-bold;
-  font-size: 0.6rem;
 }

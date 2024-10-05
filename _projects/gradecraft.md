@@ -1,9 +1,10 @@
 ---
 name: GradeCraft
-stack: Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS
-roles: Software Developer, Project Lead
-order: 5
+tagline: GradeCraft is a gameful learning management system in which learner choice and autonomy reign free. 
+stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]
+roles: [Software Developer, Project Lead]
+duration: May 2021 - Present
+order: 4
 featured: false
+thumbnail_image:
 ---
-GradeCraft is a gameful learning management system in which
-learner choice and autonomy reign free. 

@@ -27,8 +27,8 @@
 @mixin add-new {
   @include flex($justify: center, $align: center);
   background: $gray--tag;
-  border: 2px dashed $navy;
+  border: 2px dashed $black;
   border-radius: $card-radius;
   font-weight: $font-weight-semibold;
-  &:hover, &:focus { color: $red; }
+  &:hover, &:focus { color: $fuscia; }
 }

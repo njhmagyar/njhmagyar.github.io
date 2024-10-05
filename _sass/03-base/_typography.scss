@@ -1,61 +1,61 @@
 
 @font-face {
-  font-family: "Merriweather-Bold";
+  font-family: "DMSerifDisplay-Regular";
   font-weight: normal;
-  src: url(../fonts/Merriweather-Bold.ttf);
+  src: url(../fonts/DMSerifDisplay-Regular.ttf);
 }
 
 @font-face {
-  font-family: "WorkSans-Bold";
+  font-family: "DMSans-Bold";
   font-weight: normal;
-  src: url(../fonts/WorkSans-Bold.ttf);
+  src: url(../fonts/DMSans-Bold.ttf);
 }
 
 @font-face {
-  font-family: "WorkSans-Regular";
+  font-family: "DMSans-Regular";
   font-weight: normal;
-  src: url(../fonts/WorkSans-Regular.ttf);
+  src: url(../fonts/DMSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: "WorkSans-Semibold";
+  font-family: "DMSans-Semibold";
   font-weight: normal;
-  src: url(../fonts/WorkSans-Semibold.ttf);
+  src: url(../fonts/DMSans-Semibold.ttf);
 }
 
 body {
-    font-family: 'WorkSans-Regular', sans-serif;
-    color: $navy;
+    font-family: 'DMSans-Regular', sans-serif;
+    color: $black;
     @media print {
       color: $black;
     }
 }
 
-.Merriweather-Bold { font-family: 'Merriweather-Bold', serif !important; font-weight: 100; }
-.WorkSans-bold { font-family: 'WorkSans-Bold', sans-serif !important; font-weight: 100; }
-.WorkSans-Regular { font-family: 'WorkSans-Regular', sans-serif !important; font-weight: 100; }
-.WorkSans-Semibold { font-family: 'WorkSans-Semibold', sans-serif !important; font-weight: 100; }
+.DMSerifDisplay-Regular { font-family: 'DMSerifDisplay-Regular', serif !important; font-weight: 100; }
+.DMSans-bold { font-family: 'DMSans-Bold', sans-serif !important; font-weight: 100; }
+.DMSans-Regular { font-family: 'DMSans-Regular', sans-serif !important; font-weight: 100; }
+.DMSans-Semibold { font-family: 'DMSans-Semibold', sans-serif !important; font-weight: 100; }
 
 
 h1, .h1 { 
   font-size: $h1-font-size; 
   line-height: $h1-line-height; 
-  font-family: "Merriweather-Bold"; 
+  font-family: "DMSerifDisplay-Regular"; 
 }
 h2, .h2 { 
   font-size: $h2-font-size; 
   line-height: $h2-line-height; 
-  font-family: "Merriweather-Bold"; 
+  font-family: "DMSerifDisplay-Regular"; 
 }
 h3, .h3 { 
   font-size: $h3-font-size; 
   line-height: $h3-line-height; 
-  font-family: "Merriweather-Bold"; 
+  font-family: "DMSerifDisplay-Regular"; 
 }
 h4, .h4 { 
   font-size: $h4-font-size; 
   line-height: $h4-line-height; 
-  font-family: "WorkSans-bold"; 
+  font-family: "DMSans-bold"; 
 }
 p, .p   {
   font-size: .95rem;
@@ -75,14 +75,14 @@ p, .p   {
 .text--pre-wrap { white-space: pre-wrap; }
 
 .text--logotype {
-  @extend .WorkSans-bold;
+  @extend .DMSans-bold;
   text-transform: uppercase;
   font-style: italic;
 }
 
 .text--body {
   @extend .p;
-  @extend .WorkSans-Regular;
+  @extend .DMSans-Regular;
   font-style: normal;
 }
 
@@ -91,11 +91,11 @@ p, .p   {
 }
 
 .text--link {
-  color: $emerald;
+  color: $blue;
   text-decoration: underline;
   transition: all .3s ease;
   &:hover, &:focus {
-    color: $emerald--dark;
+    color: $fuscia;
   }
 }
 
@@ -110,8 +110,8 @@ p, .p   {
 }
 .text--extra-small { font-size: .8rem; line-height: 1.2rem; }
 
-.text--bold { @extend .WorkSans-bold; }
-.text--semibold { @extend .WorkSans-Semibold; }
+.text--bold { @extend .DMSans-bold; }
+.text--semibold { @extend .DMSans-Semibold; }
 .text--light { font-weight: 300; }
 .text--strikethrough { text-decoration: line-through;}
 
@@ -122,11 +122,17 @@ p, .p   {
     text-align: center !important;
 }
 
-.text--red { color: $red; }
-.text--emerald { color: $emerald; }
-.text--navy-hover { color: $navy--hover; }
-.text--navy { color: $navy; }
+.text--black { color: $black; }
+.text--blue { color: $blue; }
+.text--fuscia { color: $fuscia; }
 .text--white { color: $white; }
+
+.hover--blue {
+  &:focus,
+  &:hover {
+    color: $blue;
+  }
+}
 
 .nhm-event-name {
   @media #{$mq-700-and-below} {
@@ -137,7 +143,7 @@ p, .p   {
 
 .nhm-mega-font {
   margin: 0;
-  @extend .WorkSans-bold;
+  @extend .DMSerifDisplay-Regular;
   line-height: 2.5rem;
 
   &.mobile-centered {
@@ -177,5 +183,16 @@ p, .p   {
     @media #{$mq--sm} {
       overflow: visible;
     }
+  }
+}
+
+.nhm-icon-wrapper {
+  background: $blue--hover;
+  width: 35px;
+  height: 35px;
+  border-radius: 35px;
+  @include flex($justify: center, $align: center);
+  i {
+    color: $blue;
   }
 }

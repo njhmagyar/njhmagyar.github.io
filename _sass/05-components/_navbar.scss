@@ -11,37 +11,42 @@
 }
 
 .nhm-navbar-brand {
-  padding: 1rem 1rem 1rem 1.5rem;
+  @extend .DMSerifDisplay-Regular;
+  border: 1px solid $black;
+  padding: .25rem;
   background: $white;
   z-index: $z-navbar-brand;
-  max-width: 75%;
-  @include flex($justify: flex-start, $align: center, $wrap: nowrap);
-
-  .nhm-logo {
-    height: 27px;
-  }
+  font-size: 1.2rem;
+  transition: all .3s ease;
 
   @media #{$mq--lg} {
-    padding: 1rem 0 1rem 0;
     margin-right: 1rem;
   }
 
-  &:focus {
-    background: $gray--bg;
+  &:focus,
+  &:hover {
+    color: $blue;
+    border-color: $blue;
+  }
+}
+
+.nhm-navbar--mobile-wrapper {
+  padding: .5rem;
+  @include flex($justify: space-between, $align: center, $wrap: nowrap);
+  @media #{$mq--lg} {
+    padding: 0;
   }
 }
 
 .nhm-navbar-toggler {
   @extend %btn;
-  font-size: 1.5rem;
-  color: $white;
+  color: $black;
   width: 35px;
   text-align: center;
   padding: 0;
-  position: absolute;
-  right: .75rem;
-  top: 1rem;
-  z-index: $z-navbar-toggler;
+  i {
+    font-size: 1.3rem;
+  }
 
   &:focus {
     outline: none;
@@ -105,17 +110,18 @@
   @include flex($justify: space-between);
   transition: all .3s ease;
   font-weight: $font-weight-semibold;
-  font-family: Montserrat-Semibold, sans-serif;
+  font-family: DMSans-Semibold, sans-serif;
   text-decoration: none;
   font-size: .9rem;
   width: 100%;
   padding: .75rem 1.5rem;
   background: $white;
   border: none;
+  color: $black;
 
   &:hover,
   &:focus {
-    background: $gray--bg;
+    color: $blue
   }
 
   .fa-chevron-down {
@@ -132,7 +138,8 @@
   }
 
   &.active {
-    background: $gray--bg;
+    background: $blue--hover;
+    color: $blue;
   }
 }
 
@@ -199,13 +206,13 @@
     }
 
     &.alert {
-      background: $red;
-      border: 2px solid $red;
+      background: $fuscia;
+      border: 2px solid $fuscia;
     }
 
     &:hover,
     &:focus {
-      background: $navy;
+      background: $black;
       border: 2px solid $white;
     }
   }
@@ -231,7 +238,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: $red;
+      background: $fuscia;
 
       @media #{$mq--lg} {
         background: transparent;
@@ -313,7 +320,7 @@
     border-radius: $card-radius;
     background: $white;
     min-width: 200px;
-    color: $navy;
+    color: $black;
     border: 1px solid $gray--tag;
     box-shadow: 0 2px 4px rgba(202, 206, 212, 100);
 
@@ -388,7 +395,7 @@
   font-size: .8rem;
   line-height: 1.2rem;
   text-decoration: none;
-  color: $navy;
+  color: $black;
 }
 
 .notification__mark-as-read-btn {
@@ -406,7 +413,7 @@
 }
 
 .nhm-nav__mini-menu-item__link {
-  @extend .WorkSans-Semibold;
+  @extend .DMSans-Semibold;
   display: block;
   width: 100%;
   text-decoration: none;
@@ -417,11 +424,11 @@
 
   &:hover,
   &:focus {
-    color: $red;
+    color: $fuscia;
   }
 
   @media #{$mq--lg} {
-    color: $navy;
+    color: $black;
   }
 }
 
@@ -436,7 +443,7 @@
 }
 
 .nhm-sidenav-list__item__link {
-  color: $navy;
+  color: $black;
   transition: all .3s ease;
   font-weight: $font-weight-semibold;
   font-family: Montserrat-Semibold, sans-serif;
@@ -449,12 +456,12 @@
 
   &:hover,
   &:focus {
-    color: $red;
+    color: $fuscia;
   }
 
   &.active {
-    background: $red-hover;
-    color: $red;
+    background: $blue--hover;
+    color: $blue;
   }
 }
 

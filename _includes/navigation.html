@@ -1,17 +1,19 @@
-<header class="nhm-header fixed">
+<header class="nhm-header fixed bg-white">
   <nav class="nhm-navbar" data-target="nav-wrapper">
-    <a href="/" class="nhm-navbar-brand">NHM</a>
-    <button 
-      class="tm-navbar-toggler large-screen-hidden" 
-      aria-controls="navbarMenu" 
-      aria-expanded="false"
-      aria-label="Toggle navigation" 
-      data-action="nav-toggle" 
-      data-mobile-nav-item>
-      <i class="fas fa-bars"></i>
-    </button>
+    <div class="nhm-navbar--mobile-wrapper">
+      <a href="/" class="nhm-navbar-brand no-underline text--black">NHM</a>
+      <button 
+        class="nhm-navbar-toggler large-screen-hidden" 
+        aria-controls="navbarMenu" 
+        aria-expanded="false"
+        aria-label="Toggle navigation" 
+        data-action="nav-toggle" 
+        data-mobile-nav-item>
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
     <ul 
-      class="nhm-navbar-nav"
+      class="nhm-navbar-nav mobile-hidden"
       id="navbarMenu"
       data-target="main-navigation">
       {% for item in site.data.navigation %}
