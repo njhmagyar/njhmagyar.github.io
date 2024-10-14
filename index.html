@@ -13,7 +13,7 @@ title: Nathan Haynes-Magyar
     </div>
     <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait.png" alt="">
   </div>
-  <h2 class="h1 text--center mt-5">Featured Projects</h2>
+  <h2 class="h1 text--center mt-5">Featured Work</h2>
   <ul class="nhm-card-grid two-columns mb-5">
     {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
     {% for project in featured_projects %}
@@ -35,6 +35,6 @@ title: Nathan Haynes-Magyar
     {% endfor %}
   </ul>
   <p class="mb-5 text--center">
-    <a class="nhm-btn--blue" href="/projects">View All Projects</a>
+    <a class="nhm-btn--blue" href="/my-work">View All Work</a>
   </p>
 </section>

@@ -108,4 +108,9 @@
   @media #{$mq--md} {
     max-width: 33%;
   }
+  &.mw-43 {
+    @media #{$mq--md} {
+      max-width: 43%;
+    }
+  }
 }

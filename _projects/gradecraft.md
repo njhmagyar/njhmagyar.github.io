@@ -6,5 +6,6 @@ roles: [Software Developer, Project Lead]
 duration: May 2021 - Present
 order: 4
 featured: false
-thumbnail_image:
+thumbnail_image: /assets/images/gradecraft-thumbnail.png
+logo_image: /assets/images/gradecraft-logo.png
 ---

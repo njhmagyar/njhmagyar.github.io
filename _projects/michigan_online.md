@@ -6,5 +6,6 @@ roles: [UX Designer, Frontend Developer]
 duration: November 2017 - April 2021
 order: 5
 featured: false
-thumbnail_image:
+thumbnail_image: /assets/images/michigan-online-thumbnail.png
+logo_image: /assets/images/michigan-online-logo.png
 ---
