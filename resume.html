@@ -1,0 +1,58 @@
+---
+title: Resume
+---
+<div class="nhm-wrapper">
+  <div class="nhm-hero mobile-image-first my-5">
+    <div class="nhm-hero__text">
+      <h1 class="nhm-mega-font">Nathan<br>Haynes-Magyar</h1>
+    </div>
+    <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait--resume.png" alt="">
+  </div>
+  <ul class="unstyled-list nhm-tab-list mb-5">
+    {% assign ordered_resumes = site.resumes | sort:"order" %}
+    {% for resume in ordered_resumes %}
+    <li class="nhm-tab-list__item">
+      <button class="nhm-tab-trigger" aria-controls="{{ resume.pid }}" data-tab-trigger="{{ resume.pid }}">{{ resume.job_title }}</button>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="unstyled-list nhm-tab">
+    {% assign ordered_resumes = site.resumes | sort:"order" %}
+    {% for resume in ordered_resumes %}
+    <li id="{{ resume.pid }}" data-tab hidden>
+      <article>
+        <div class="resume-wrapper">
+          <div class="resume-main">
+            <h2 class="mt-0">Experience</h2>
+            {% assign sections = site.resume_sections | where: "resume", resume.pid | sort:"order" %}
+            {% for section in sections %}
+            <div class="resume-section__header">
+              <h3 class="mb-0">{{ section.name }}</h3>
+              <p class="mb-0"><em>{{ section.duration }}</em></p>
+            </div>
+            <p class="d-flex w-100 justify-between mt-point-five"><em>{{ section.employer }}</em><em>{{ section.location }}</em></p>
+            <div class="resume-section__skills-wrapper">{{ section.content }}</div>
+             {% endfor %}
+          </div>
+          <aside class="resume-aside">
+            <h2 class="mt-0">Tools</h2>
+            <ul>
+              {% for tool in resume.tools %}
+              <li><p class="mt-0 mb-point-five">{{ tool }}</p></li>
+              {% endfor %}
+            </ul>
+            <h2>Skills</h2>
+            <ul>
+              {% for skill in resume.skills %}
+              <li><p class="mt-0 mb-point-five">{{ skill }}</p></li>
+              {% endfor %}
+            </ul>
+          </aside>
+        </div>
+      </article>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<script src="/assets/js/tabs.js"></script>

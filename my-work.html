@@ -15,7 +15,7 @@ title: My Work
     {% assign ordered_projects = site.projects | sort:"order" %}
     {% for project in ordered_projects %}
     <li class="nhm-card--horizontal responsive-margin-bottom">
-      <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded"/>
+      <a href="{{ project.url }}" class="nhm-card__image-wrapper"><img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded" alt="{{ project.name }}"/></a>
       <div>
         <h2 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a></h2>
         <div class="d-flex justify-start align-center">

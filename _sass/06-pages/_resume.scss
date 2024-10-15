@@ -1,0 +1,25 @@
+.resume-wrapper {
+  @media #{$mq--md} {
+    @include flex($wrap: nowrap, $align: flex-start);
+  }
+}
+
+.resume-main {
+  @media #{$mq--md} {
+    margin-right: 1rem;
+    flex: 1;
+  }
+}
+
+.resume-section__header {
+  @media #{$mq--md} {
+    @include flex($wrap: nowrap, $align: flex-end, $justify: space-between);
+  }
+}
+
+.resume-section__skills-wrapper {
+  ul li {
+    @extend .p;
+    margin: 0 0 .5rem 0;
+  }
+}

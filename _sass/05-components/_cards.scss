@@ -64,13 +64,18 @@
   }
 }
 
+.nhm-card__image-wrapper {
+  display: block;
+  margin-bottom: 1rem;
+  max-width: 100%;
+  @media #{$mq--md} {
+    margin: 0 1rem 0 0;
+    max-width: 33%;
+  }
+}
+
 .nhm-card__image {
   max-width: 100%;
-  margin-bottom: 1rem;
-  @media #{$mq--md} {
-    max-width: 33%;
-    margin: 0 1rem 0 0;
-  }
 }
 
 .nhm-tag {
