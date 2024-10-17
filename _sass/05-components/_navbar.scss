@@ -109,7 +109,7 @@
 .nhm-nav-link {
   @include flex($justify: space-between);
   transition: all .3s ease;
-  font-family: DMSans-Semibold, sans-serif;
+  font-family: 'DMSans-Semibold', sans-serif;
   text-decoration: none;
   font-size: .9rem;
   width: 100%;
