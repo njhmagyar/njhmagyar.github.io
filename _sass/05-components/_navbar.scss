@@ -109,7 +109,6 @@
 .nhm-nav-link {
   @include flex($justify: space-between);
   transition: all .3s ease;
-  font-weight: $font-weight-semibold;
   font-family: DMSans-Semibold, sans-serif;
   text-decoration: none;
   font-size: .9rem;
@@ -155,7 +154,7 @@
   @include flex($justify: flex-start);
   transition: all .3s ease;
   color: $white;
-  font-weight: $font-weight-semibold;
+  font-family: DMSans-Semibold, sans-serif !important;
   font-size: .9rem;
   padding: .75rem 1.5rem;
   border: none;
@@ -444,8 +443,7 @@
 .nhm-sidenav-list__item__link {
   color: $black;
   transition: all .3s ease;
-  font-weight: $font-weight-semibold;
-  font-family: Montserrat-Semibold, sans-serif;
+  font-family: DMSans-Semibold, sans-serif !important;
   text-decoration: none;
   font-size: .9rem;
   width: 100%;

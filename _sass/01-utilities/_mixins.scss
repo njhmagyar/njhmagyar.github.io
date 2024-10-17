@@ -23,12 +23,3 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-@mixin add-new {
-  @include flex($justify: center, $align: center);
-  background: $gray--tag;
-  border: 2px dashed $black;
-  border-radius: $card-radius;
-  font-weight: $font-weight-semibold;
-  &:hover, &:focus { color: $fuscia; }
-}
