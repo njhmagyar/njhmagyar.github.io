@@ -3,7 +3,11 @@ layout: default
 project: Codespec
 ---
 <article class="nhm-wrapper w-700">
-  <img src="{{ page.image }}" class="w-100 rounded my-3" alt="" />
+  <div class="mt-3 mb-2">
+    <a href="/my-work" class="text--link no-underline">My Work</a> /
+    <a href="/projects/{{page.category}}" class="text--link no-underline">Twirlmate</a>
+  </div>
+  <img src="{{ page.image }}" class="w-100 rounded mb-3" alt="" />
   <h1 class="mt-0">{{ page.title }}</h1>
   {{ content }}
 </article>
