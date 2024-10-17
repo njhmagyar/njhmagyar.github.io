@@ -18,9 +18,9 @@
 }
 
 @font-face {
-  font-family: "DMSans-Semibold";
+  font-family: "DMSans-SemiBold";
   font-weight: normal;
-  src: url(../fonts/DMSans-Semibold.ttf);
+  src: url(../fonts/DMSans-SemiBold.ttf);
 }
 
 body {
@@ -34,7 +34,7 @@ body {
 .DMSerifDisplay-Regular { font-family: 'DMSerifDisplay-Regular', serif !important; font-weight: 100; }
 .DMSans-bold { font-family: 'DMSans-Bold', sans-serif !important; font-weight: 100; }
 .DMSans-Regular { font-family: 'DMSans-Regular', sans-serif !important; font-weight: 100; }
-.DMSans-Semibold { font-family: 'DMSans-Semibold', sans-serif !important; font-weight: 100; }
+.DMSans-SemiBold { font-family: 'DMSans-SemiBold', sans-serif !important; font-weight: 100; }
 
 
 h1, .h1 { 
@@ -111,7 +111,7 @@ p, .p   {
 .text--extra-small { font-size: .8rem; line-height: 1.2rem; }
 
 .text--bold { @extend .DMSans-bold; }
-.text--semibold { @extend .DMSans-Semibold; }
+.text--semibold { @extend .DMSans-SemiBold; }
 .text--light { font-weight: 300; }
 .text--strikethrough { text-decoration: line-through;}
 
