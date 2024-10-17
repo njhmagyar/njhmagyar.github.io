@@ -7,11 +7,8 @@
   }
 }
 
-.nhm-footer {
-  &.black {
-    color: $white;
-    background: $black;
-  }
+.nhm-footer__inner-wrapper {
+  border-top: 1px solid $black;
 }
 
 .nhm-footer-logo-wrapper {
@@ -27,6 +24,5 @@
 
 .nhm-footer__copyright-text {
   text-align: center;
-  color: $white;
-  a { color: $white; text-decoration: none; }
+  a { color: $black; text-decoration: none; }
 }

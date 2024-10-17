@@ -1,21 +1,25 @@
 ---
 title: Resume
 ---
-<div class="nhm-wrapper">
-  <div class="nhm-hero mobile-image-first my-5">
-    <div class="nhm-hero__text">
-      <h1 class="nhm-mega-font">Nathan<br>Haynes-Magyar</h1>
+<section class="bg-yellow--light">
+  <div class="nhm-wrapper">
+    <div class="nhm-hero mobile-image-first py-5">
+      <div class="nhm-hero__text">
+        <h1 class="nhm-mega-font">Nathan<br>Haynes-Magyar</h1>
+      </div>
+      <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait--resume.png" alt="">
     </div>
-    <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait--resume.png" alt="">
+    <ul class="unstyled-list nhm-tab-list mb-5">
+      {% assign ordered_resumes = site.resumes | sort:"order" %}
+      {% for resume in ordered_resumes %}
+      <li class="nhm-tab-list__item">
+        <button class="nhm-tab-trigger" aria-controls="{{ resume.pid }}" data-tab-trigger="{{ resume.pid }}">{{ resume.job_title }}</button>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-  <ul class="unstyled-list nhm-tab-list mb-5">
-    {% assign ordered_resumes = site.resumes | sort:"order" %}
-    {% for resume in ordered_resumes %}
-    <li class="nhm-tab-list__item">
-      <button class="nhm-tab-trigger" aria-controls="{{ resume.pid }}" data-tab-trigger="{{ resume.pid }}">{{ resume.job_title }}</button>
-    </li>
-    {% endfor %}
-  </ul>
+</section>
+<div class="nhm-wrapper">
   <ul class="unstyled-list nhm-tab">
     {% assign ordered_resumes = site.resumes | sort:"order" %}
     {% for resume in ordered_resumes %}

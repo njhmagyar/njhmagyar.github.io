@@ -12,7 +12,7 @@
 
 %btn {
   @extend %btn-text;
-  padding: 0.5rem 0.75rem;
+  padding: 1rem 2rem;
   border-radius: $card-radius;
   background: transparent;
   border: 2px solid transparent;
@@ -175,13 +175,6 @@
   }
 }
 
-.nhm-btn--small {
-  @extend %btn;
-  font-size: 0.8rem !important;
-  line-height: 1.2rem;
-  padding: 0.15rem 0.3rem;
-}
-
 .nhm-btn--blue--transparent {
   @extend %btn;
   color: $blue;
@@ -282,4 +275,11 @@
     top: -0.5rem;
     right: -0.5rem;
   }
+}
+
+.nhm-btn--small {
+  @extend %btn;
+  font-size: 0.8rem !important;
+  line-height: 1.2rem;
+  padding: 0.15rem 0.3rem;
 }

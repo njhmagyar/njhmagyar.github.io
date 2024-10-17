@@ -1,5 +1,6 @@
 ---
 name: Codespec
+project_url: https://www.codespec.org/
 tagline: Codespec is a computer programming practice environment that offers a gentle slope of 5 problem types
 stack: [Python/Django, JavaScript/Vue, HTML, SCSS]
 roles: [Lead Developer, UX Designer]
@@ -9,4 +10,5 @@ featured: true
 cover_image: /assets/images/codespec-cover.png
 thumbnail_image: /assets/images/codespec-thumbnail.png
 logo_image: /assets/images/codespec-logo.png
+hero_image: /assets/images/codespec-hero.png
 ---

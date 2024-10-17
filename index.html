@@ -1,18 +1,22 @@
 ---
 title: Nathan Haynes-Magyar
 ---
-<section class="nhm-wrapper">
-  <div class="nhm-hero mobile-image-first my-5">
-    <div class="nhm-hero__text">
-      <h1 class="nhm-mega-font">Hi! I'm Nathan.</h1>
-      <p>I'm passionate about education and using my 
-        skills as a full stack developer, UX designer,
-        and researcher to create beautiful, engaging
-        experiences for learners.
-      </p>
+<section class="bg-blue--light">
+  <div class="nhm-wrapper">
+    <div class="nhm-hero mobile-image-first py-5">
+      <div class="nhm-hero__text">
+        <h1 class="nhm-mega-font">Hi! I'm Nathan.</h1>
+        <p>I'm passionate about education and using my 
+          skills as a full stack developer, UX designer,
+          and researcher to create beautiful, engaging
+          experiences for learners.
+        </p>
+      </div>
+      <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait.png" alt="">
     </div>
-    <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait.png" alt="">
   </div>
+</section>
+<section class="nhm-wrapper">
   <h2 class="h1 text--center mt-5">Featured Work</h2>
   <ul class="nhm-card-grid two-columns mb-5">
     {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
@@ -34,7 +38,7 @@ title: Nathan Haynes-Magyar
     </li>
     {% endfor %}
   </ul>
-  <p class="mb-5 text--center">
+  <p class="mb-10 text--center">
     <a class="nhm-btn--blue" href="/my-work">View All Work</a>
   </p>
 </section>

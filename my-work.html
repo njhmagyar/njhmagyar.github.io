@@ -1,16 +1,20 @@
 ---
 title: My Work
 ---
-<section class="nhm-wrapper">
-  <div class="nhm-hero mobile-image-first mt-5 mb-10">
-    <div class="nhm-hero__text">
-      <h1 class="nhm-mega-font">My Work</h1>
-      <p>Product, design, development. I enjoy doing it all.
-      </p>
+<section class="bg-green--light">
+  <div class="nhm-wrapper">
+    <div class="nhm-hero mobile-image-first py-5 mb-10">
+      <div class="nhm-hero__text">
+        <h1 class="nhm-mega-font">My Work</h1>
+        <p>Product, design, development. I enjoy doing it all.
+        </p>
+      </div>
+      <img class="nhm-hero__image mw-43 mb-2--700-and-below" src="assets/images/self-portrait--my-work.png" alt="">
     </div>
-    <img class="nhm-hero__image mw-43 mb-2--700-and-below" src="assets/images/self-portrait--my-work.png" alt="">
   </div>
-  
+</section>
+
+<section class="nhm-wrapper">
   <ul class="unstyled-list">
     {% assign ordered_projects = site.projects | sort:"order" %}
     {% for project in ordered_projects %}

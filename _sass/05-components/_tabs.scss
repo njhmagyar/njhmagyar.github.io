@@ -4,7 +4,6 @@
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  background: $white;
 
   @media #{$mq--md} {
     @include flex($justify: flex-start, $align: center, $wrap: wrap);
@@ -28,13 +27,13 @@
   border-bottom: 1px solid $gray--tag;
 
   &.active {
-    color: $blue;
-    border-bottom: 2px solid $blue;
+    border-bottom: 1px solid $black;
   }
 
   &:hover,
   &:focus {
-    background-color: $blue--hover;
+    color: $blue;
+    border-bottom: 1px solid $black;
   }
   &:focus {
     box-shadow: none;
