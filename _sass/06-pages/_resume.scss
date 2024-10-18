@@ -11,6 +11,10 @@
   }
 }
 
+.resume-aside {
+  max-width: 25%;
+}
+
 .resume-section__header {
   @media #{$mq--md} {
     @include flex($wrap: nowrap, $align: flex-end, $justify: space-between);
