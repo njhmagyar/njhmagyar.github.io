@@ -12,7 +12,9 @@
 }
 
 .resume-aside {
-  max-width: 25%;
+  @media #{$mq--md} {
+    max-width: 25%;
+  }
 }
 
 .resume-section__header {
