@@ -64,7 +64,7 @@
   height: 100vh;
   overflow: hidden;
   position: absolute;
-  top: 55px;
+  top: 47px;
   left: 0;
   right: 0;
   width: 100%;
@@ -116,6 +116,7 @@
   padding: .75rem 1.5rem;
   background: $white;
   border: none;
+  border-left: 5px solid transparent;
   color: $black;
 
   &:hover,
@@ -135,9 +136,12 @@
   @media #{$mq--lg} {
     padding: 1.25rem;
   }
-
   &.active {
-    border-bottom: 1px solid $black;
+    border-left: 5px solid $black;
+    @media #{$mq--lg} {
+      border-left: none;
+      border-bottom: 1px solid $black;
+    }
   }
 }
 
