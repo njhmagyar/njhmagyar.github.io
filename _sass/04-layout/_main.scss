@@ -90,8 +90,8 @@
     text-align: left;
     @include flex($justify: space-between, $align: center, $wrap: nowrap);
   }
-  &.mobile-image-first {
-    @media #{$mq-700-and-below} {
+  @media #{$mq-700-and-below} {
+    &.mobile-image-first {
       @include flex($direction: column-reverse, $justify: center, $align: center);
     }
   }

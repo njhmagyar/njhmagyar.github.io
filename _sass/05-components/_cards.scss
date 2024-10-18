@@ -92,7 +92,11 @@
 }
 
 .nhm-card__image {
-  max-width: 100%;
+  width: 100%;
+  &.mxh-200 {
+    max-height: 200px;
+    object-fit: cover;
+  }
 }
 
 .nhm-tag {

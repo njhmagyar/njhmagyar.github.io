@@ -57,7 +57,7 @@ layout: default
     {% for post in filtered_posts %}
     <li class="nhm-card-grid__item">
       <a href="{{ post.url }}" class="nhm-card__link" aria-label="{{ post.title }}">
-        <img class="nhm-card__image" src="{{ post.image }}" alt="">
+        <img class="nhm-card__image mxh-200 rounded" src="{{ post.image }}" alt="">
         <div class="nhm-card--vertical__body pt-1">
           <h3 class="mt-0">{{ post.title }}</h3>
           <ul class="nhm-tag-list">
