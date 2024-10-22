@@ -1,5 +1,5 @@
 ---
-resume: ux_designer
+resume: product_manager
 order: 5
 name: Senior UX Designer
 employer: University of Michigan Center for Academic Innovation

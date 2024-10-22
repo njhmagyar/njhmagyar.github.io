@@ -1,5 +1,5 @@
 ---
-resume: ux_designer
+resume: product_manager
 order: 6
 name: Intermediate UX Designer
 employer: University of Michigan Center for Academic Innovation
