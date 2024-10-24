@@ -12,7 +12,7 @@ location: Ann Arbor, MI
 - Steers feature development work through all phases of the product life cycle, from conceptualization and research, to design and usability testing, to development, analysis, and iteration.
 - Partners with UX Designers to translate designs into development requirements and distribute implementation responsibilities.
 - Collaborates with UX Researchers to set priorities, define research questions, refine protocols and prototypes, and connect feature updates back to originating research findings.
-- Supervises 3 junior- and senior-level software developers, providing bi-annual performance reviews and professional development guidance.
+- Supervises 4 junior- and senior-level software developers, providing bi-annual performance reviews and professional development guidance.
 - Defined promotion criteria for the software developer career pathway at the organization, supported by developer-specific competencies.
 - Writes clean, concise, flexible Ruby on Rails and VueJS code to maintain and expand gameful learning management system features.
 

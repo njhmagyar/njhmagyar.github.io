@@ -2,6 +2,6 @@
 job_title: Software Developer
 order: 3
 pid: software_developer
-tools: [VSCode, Stripe API, OpenShift, Docker, Heroku, AWS]
-skills: [Python/Django, JavaScript/Vue, HTML, CSS/SCSS, Ruby/Rails, Git]
+tools: [Stripe API, Rollbar, ApexCharts.js, CodeMirror, Heroku, AWS, VSCode, GitHub, BitBucket, OpenShift, Docker]
+skills: [Python/Django, JavaScript/Vue, HTML, CSS/SCSS, Ruby/Rails, PostgreSQL, Git]
 ---
