@@ -97,7 +97,6 @@ p, .p   {
 .text--link {
   color: $blue;
   text-decoration: underline;
-  transition: all .3s ease;
   &:hover, &:focus {
     color: $fuscia;
   }

@@ -44,7 +44,6 @@
   padding: $card-padding;
   border: $card-border;
   background-color: $white;
-  transition: all .3s ease;
   &.interactive {
     &:hover, &:focus {
       box-shadow: $box-shadow 0px 3px 8px;
@@ -73,7 +72,6 @@
 .nhm-card__link {
   text-decoration: none;
   color: $black;
-  transition: all .3s ease;
   &:hover, &:focus {
     h1, h2, h3, h4, h5 {
       color: $blue;
