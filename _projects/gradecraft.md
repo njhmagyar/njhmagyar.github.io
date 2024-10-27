@@ -11,3 +11,14 @@ thumbnail_image: /assets/images/gradecraft-thumbnail.png
 logo_image: /assets/images/gradecraft-logo.png
 hero_image: /assets/images/gradecraft-hero.png
 ---
+
+## Ask Me About
+{:.align--center}
+
+- Planning and executing an ongoing effort to convert legacy Angular 1 code to Vue 3.
+
+- Contributing to the platform's LTI (learning tools interoperability) upgrade from 1.1 to 1.3.
+
+- Guiding UX Designers through the user research process to inform designs for a new multi-part assignment feature.
+
+- Optimizing subqueries in Ruby on Rails to boost page performance and enhance the user experience.

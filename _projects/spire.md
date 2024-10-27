@@ -11,3 +11,14 @@ thumbnail_image: /assets/images/spire-thumbnail.png
 logo_image: /assets/images/spire-logo.png
 hero_image: /assets/images/spire-hero.png
 ---
+
+## Ask Me About
+{:.align--center}
+
+- Leading a team of designers and developers to deliver a new feature set that supports students in tracking and visualizing progress towards meeting recommended career path requirements.
+
+- Writing non-persisted model objects in Ruby to calculate student career progress in an efficient, scalable manner.
+
+- Leading the technical side of a sitewide rebranding effort, requiring a complete SCSS rewrite.
+
+- Using the competency-based learning management system we built for internal purposes, helping fellow developers understand and track their own career growth and advancement.
