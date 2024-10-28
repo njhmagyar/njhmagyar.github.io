@@ -91,6 +91,7 @@
 
 .nhm-card__image {
   width: 100%;
+  min-height: 200px;
   &.mxh-200 {
     max-height: 200px;
     object-fit: cover;
