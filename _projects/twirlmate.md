@@ -28,4 +28,18 @@ illustrations: [
   /assets/images/twirlmate/illustrations/trophy.png,
   /assets/images/twirlmate/illustrations/stretching.png
 ]
+screenshots: [
+  /assets/images/twirlmate-hero.png,
+  /assets/images/twirlmate/screenshots/homepage.png,
+  /assets/images/twirlmate/screenshots/event-calendar.png,
+  /assets/images/twirlmate/screenshots/event-detail.png,
+  /assets/images/twirlmate/screenshots/discipline-list.png,
+  /assets/images/twirlmate/screenshots/pricing.png,
+  /assets/images/twirlmate/screenshots/resources.png,
+  /assets/images/twirlmate/screenshots/blog.png,
+  /assets/images/twirlmate/screenshots/help-article.png,
+  /assets/images/twirlmate/screenshots/people-list.png,
+  /assets/images/twirlmate/screenshots/user-profile.png
+]
+read_more: [Codespec,Michigan Online]
 ---

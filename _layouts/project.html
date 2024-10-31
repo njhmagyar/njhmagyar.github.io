@@ -46,7 +46,27 @@ layout: default
     </div>
   </div>
 
+  {% if page.screenshots %}
+  <div class="slideshow-container mt-5 mb-2">
+  
+    {% for screenshot in page.screenshots %}
+    <div class="mySlides fade">
+      <img src="{{ screenshot }}" style="width:100%" class="rounded">
+    </div>
+    {% endfor %}
+  
+    <!-- Next and previous buttons -->
+    <button class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="next" onclick="plusSlides(1)"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <div style="text-align:center" class="mb-5">
+    {% for screenshot in page.screenshots %}
+    <button class="dot" onclick="currentSlide({{ forloop.index }})" aria-label="Slide {{ forloop.index }}"></button>
+    {% endfor %}
+  </div>
+  {% else %}
   <img src="{{ page.hero_image }}" class="my-5 w-100 nhm-card p-0" />
+  {% endif %}
     
   {{ content }}
     
@@ -74,11 +94,39 @@ layout: default
   {% endif %}
 
   {% if page.illustrations %}
-  <h2 class="text--center my-5">Illustrations</h2>
+  <h2 class="text--center mt-5 mb-2">Illustrations</h2>
   <ul class="unstyled-list nhm-masonry-grid">
     {% for illustration in page.illustrations %}
     <li class="tile">
-      <img src="{{ illustration }}" >
+      <img src="{{ illustration }}" class="rounded">
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.read_more %}
+  <h2 class="text--center mt-5 mb-2">Other Work</h2>
+  <ul class="nhm-card-grid two-columns">
+    {% for project_name in page.read_more %}
+    {% assign project = site.projects
+    | where_exp:"project", "project.name == project_name"
+    | first %}
+    <li class="nhm-card-grid__item">
+      <a href="{{ project.url }}">
+        <img class="mw-100p rounded" src="{{ project.hero_image }}" alt="" />
+      </a>
+      <h3><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a></h3>
+      <div class="d-flex justify-start align-center">
+        <ul class="nhm-tag-list">
+          {% for role in project.roles %}
+          <li class="nhm-tag-list__item">{{ role }}</li>
+          {% endfor %}
+          {% for language in project.stack %}
+          <li class="nhm-tag-list__item">{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <p>{{ project.tagline }}</p>
     </li>
     {% endfor %}
   </ul>

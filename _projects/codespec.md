@@ -21,4 +21,16 @@ illustrations: [
   /assets/images/codespec/illustrations/map.png,
   /assets/images/codespec/illustrations/lightbulb.png
 ]
+screenshots: [
+  /assets/images/codespec-hero.png,
+  /assets/images/codespec/screenshots/homepage.png,
+  /assets/images/codespec/screenshots/console.png,
+  /assets/images/codespec/screenshots/problem-bank.png,
+  /assets/images/codespec/screenshots/problem-preview.png,
+  /assets/images/codespec/screenshots/unit-test-feedback.png,
+  /assets/images/codespec/screenshots/workbook-list.png,
+  /assets/images/codespec/screenshots/workbook-console.png,
+  /assets/images/codespec/screenshots/survey-console.png,
+]
+read_more: [Twirlmate,Michigan Online]
 ---

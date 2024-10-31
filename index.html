@@ -22,7 +22,9 @@ title: Nathan Haynes-Magyar
     {% assign featured_projects = site.projects | where: "featured", "true" | sort:"order" %}
     {% for project in featured_projects %}
     <li class="nhm-card-grid__item">
-      <img class="mw-100p rounded" src="{{ project.cover_image }}" alt="" />
+      <a href="{{ project.url }}">
+        <img class="mw-100p rounded" src="{{ project.cover_image }}" alt="" />
+      </a>
       <h3><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a></h3>
       <div class="d-flex justify-start align-center">
         <ul class="nhm-tag-list">

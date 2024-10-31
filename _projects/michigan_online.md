@@ -27,6 +27,20 @@ illustrations: [
   /assets/images/michigan-online/illustrations/science.png,
   /assets/images/michigan-online/illustrations/tech.png
 ]
+screenshots: [
+  /assets/images/michigan-online-hero.png,
+  /assets/images/michigan-online/screenshots/homepage-1.png,
+  /assets/images/michigan-online/screenshots/homepage-2.png,
+  /assets/images/michigan-online/screenshots/homepage-3.png,
+  /assets/images/michigan-online/screenshots/homepage-4.png,
+  /assets/images/michigan-online/screenshots/course-detail-1.png,
+  /assets/images/michigan-online/screenshots/course-detail-2.png,
+  /assets/images/michigan-online/screenshots/my-learning.png,
+  /assets/images/michigan-online/screenshots/content-library-1.png,
+  /assets/images/michigan-online/screenshots/content-library-2.png,
+  /assets/images/michigan-online/screenshots/content-item-detail.png,
+]
+read_more: [Twirlmate,Codespec]
 ---
 
 ## Ask Me About

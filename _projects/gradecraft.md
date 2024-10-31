@@ -10,6 +10,7 @@ featured: false
 thumbnail_image: /assets/images/gradecraft-thumbnail.png
 logo_image: /assets/images/gradecraft-logo.png
 hero_image: /assets/images/gradecraft-hero.png
+read_more: [Twirlmate,Codespec]
 ---
 
 ## Ask Me About

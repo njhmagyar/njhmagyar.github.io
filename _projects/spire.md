@@ -10,6 +10,7 @@ featured: false
 thumbnail_image: /assets/images/spire-thumbnail.png
 logo_image: /assets/images/spire-logo.png
 hero_image: /assets/images/spire-hero.png
+read_more: [Twirlmate,Codespec]
 ---
 
 ## Ask Me About
