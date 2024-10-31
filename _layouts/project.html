@@ -72,4 +72,15 @@ layout: default
     {% endfor %}
   </ul>
   {% endif %}
+
+  {% if page.illustrations %}
+  <h2 class="text--center my-5">Illustrations</h2>
+  <ul class="unstyled-list nhm-masonry-grid">
+    {% for illustration in page.illustrations %}
+    <li class="tile">
+      <img src="{{ illustration }}" >
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 </article>
