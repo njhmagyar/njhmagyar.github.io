@@ -17,16 +17,16 @@ description: "Read about how I broke the competition registration process down i
 {:.mt-3}
 When I set out to design an event registration system for the sport of competitive baton twirling, I thought to myself, “How hard could it be? All you need to collect are two general types of information: who is participating, and what are they participating in.” 
 
-However, I quickly realized there is far more to this process. For starters, the registration journey begins way before a person is actually ready to fill out the entry form. Also, during the registration process there’s a lot of information to collect for a given participant that must be collected in a certain order. And when it comes to getting users all the way to the finish line of their purchase, there are several points at which they might get stuck or drop off.
+However, I quickly realized there is far more to this process. For starters, the registration journey begins long before a person is actually ready to fill out the entry form. Also, during the registration process there’s a lot of information to collect for a given participant, and the order in which it's collected is important. Finally, when it comes to getting users all the way to the finish line of their purchase, there are several points at which they might get stuck or drop off.
 
-To wrap my head around this ballooning complexity, I needed to map out the overarching journey people were going to take both as customers and users to register via Twirlmate. Here’s how I did it.
+To wrap my head around this ballooning complexity, I needed to map out the overarching journey people were going to take to register via Twirlmate. Here’s how I did it.
 
 ## The Process
 {:.mt-3}
 
 ### Develop personas
 {:.mt-2}
-The first step was to clarify who’s journey this was going to be. Characteristics I considered included:
+The first step was to clarify whose journey this was going to be. Characteristics I considered included:
 
 - Age
 
@@ -44,12 +44,11 @@ The first step was to clarify who’s journey this was going to be. Characterist
 
 ![Athlete](/assets/images/twirlmate/registration-journey/twirlmate-persona--lisa.png "Experienced Professional"){:.w-100.rounded.mb-1}
 
-
-To arrive at the above personas, I drew on my personal experience as a former competitor and current judge. Direct observation at baton contests tells me that the sport is heavily dominated by middle school and high school-aged girls, and most parents in attendance are moms. If someone is a coach in the sport, they most likely twirled themselves in their youth and now wear multiple hats as a parent, judge, and event organizer as well. Finally, because the sport still runs almost entirely on mail-in entries and pen/paper scoresheets, the average comfort level with technology is most likely very low.
+To arrive at the above personas, I drew on my personal experience as a former competitor and current judge. Direct observation at baton contests tells me that the sport is heavily dominated by middle school and high school-aged girls, and most parents in attendance are moms. If someone is a coach in the sport, they most likely twirled themselves in their youth and now wear multiple hats as a parent, judge, and event organizer as well. Finally, because the sport still runs almost entirely on mail-in entries and pen/paper scoresheets, the average comfort level with technology is most likely on the lower side.
 
 ### Define the customer journey
 {:.mt-3}
-Next, keeping all these people in mind, I brainstormed the major phases of the customer journey. I did so by reflecting on my own experience as a former athlete and observing others’ behavior in baton twirling Facebook groups.
+Next, keeping all these people in mind, I outlined the major phases of the customer journey. I did so by reflecting on my own experience as a former athlete and observing others’ behavior in baton twirling Facebook groups.
 
 The stages I identified included:
 
@@ -57,7 +56,7 @@ The stages I identified included:
 
 **1) Discover** – Customers start by finding out about an event, typically through word of mouth, organic web search, social media, or an email announcement.
 
-**2) Gather**  – Next, customers need to evaluate whether or not to attend by more thoroughly reviewing the details of an event: location, date and time, what’s offered, any special rules or restrictions, etc.
+**2) Gather**  – Next, customers need to evaluate whether or not to attend by more thoroughly reviewing the details of an event: location, date and time, what’s offered, cost, any special rules or restrictions, etc.
 
 **3) Register** – If they decide to register their athlete, they fill out a form and pay.
 
@@ -71,7 +70,7 @@ The previous stages were a great starting point but they needed to be more speci
 
 **1)	Discover** – User sees a Facebook post announcing a save-the-date for a contest happening near them later in the year. They mark the date in their family calendar. 
 
-**2)	Gather** - A few months later, they see another Facebook post announcing registration is now open. They click the link to view the contest information and make a mental note to register before the deadline but don’t start the process yet.
+**2)	Gather** - A few months later, they see another Facebook post announcing registration is now open for the contest. They click on the post to view more information and make a mental note to register before the deadline--but they don’t start to register yet.
 
 **3)	Register** - Finally, they see another Facebook post reminding people that the deadline to register is tomorrow. They stop what they’re doing and return to Twirlmate to register.
 
@@ -102,7 +101,7 @@ I asked myself, "What actions must the user take, and in what order?" I came to 
 
 #### Registration
 
-**i.	Registration page navigation** – Depending on which page they entered Twirlmate through, users must navigate to the event’s registration page.
+**i.	Registration page navigation** – Depending on which page through which they entered Twirlmate, users must navigate to the event’s registration page.
 {:.pl-2}
 
 **ii.	Participant selection** – Once there, they start the registration process by selecting from a list of athletes they can manage.
@@ -126,46 +125,46 @@ Next I reviewed the narrative for places where the user could get stuck or confu
 
 ![Registration UX map with Points of Friction](/assets/images/twirlmate/registration-journey/registration-ux-map-friction.png "Registration UX map with Points of Friction"){:.w-100.rounded.my-3}
 
--	**Account Holder Profile:** Users might wonder if this is where they’re meant to enter their information or their athlete’s. How might we clarify we’re asking for the account holder’s information?
+-	**Account Holder Profile:** Users might wonder if this is where they’re meant to enter their information or their athlete’s. _How might we clarify we’re asking for the account holder’s information?_
 
--	**Relationships:** Users might search for someone who doesn’t have a Twirlmate account yet. How might we help users connect with people outside of Twirlmate?
+-	**Relationships:** Users might search for someone who doesn’t have a Twirlmate account yet. _How might we help users connect with people outside of Twirlmate?_
 
--	**Relationships:** If someone else creates a duet with the user’s athlete, they wouldn’t readily know it. How might we alert Twirlmate users when there’s new information relevant to their athlete?
+-	**Relationships:** If someone else creates a duet with the user’s athlete, they wouldn’t readily know it. _How might we alert Twirlmate users when there’s new information relevant to their athlete?_
 
--	**Participant Selection:** Users might not have all of their athletes created before they go to register. How might we help users create additional athletes during the registration process?
+-	**Participant Selection:** Users might not have all of their athletes created before they go to register. _How might we help users create additional athletes during the registration process?_
 
--	**Participant Selection:** Users might want to register more than one participant. How might we facilitate multi-participant registration?
+-	**Participant Selection:** Users might want to register more than one participant. _How might we facilitate multi-participant registration?_
 
--	**Discipline Selection:** Users might accidentally choose the wrong discipline, age division, or skill level. How might we reduce the likelihood of human error in the registration process?
+-	**Discipline Selection:** Users might accidentally choose the wrong discipline, age division, or skill level. _How might we reduce the likelihood of human error in the registration process?_
 
--	**Add to Cart:** Users might want to add, edit, or remove an item from their entry. How might we help users easily modify their entry after it’s been added to their cart?
+-	**Add to Cart:** Users might want to add, edit, or remove an item from their entry. _How might we help users easily modify their entry after it’s been added to their cart?_
 
--	**Payment:** Users’ payment could fail for any number of reasons (declined card, insufficient funds, etc). How might we help people recover from failed payments?
+-	**Payment:** Users’ payment could fail for any number of reasons (declined card, insufficient funds, etc). _How might we help people recover from failed payments?_
 
 ### Reduce points of friction
 
 Then I focused on the points that required new steps in the journey and added the following:
 
--	**Invitations:** during account setup, if users don’t find someone they’re looking for they can send them an email invitation to join Twirlmate.
+-	**Invitations:** during account setup, if users don’t find someone they’re looking for they can send them an email invitation to join Twirlmate. It would then be up to the invitee to form the relationship in the system.
 
--	**Participant Selection:** during registration, if users haven’t added all of their athletes ahead of time, they can create additional athlete, duet, and trio profiles in the moment.
+-	**Just-in-time Participant Creation:** during registration, if users haven’t added all of their athletes ahead of time, they can create additional athlete, duet, and trio profiles in the moment.
 
--	**Multi-participant Registration:** if users are registering more than 1 person, they can repeat the participant/discipline selection steps and bundle all entries together before adding everything to their cart.
+-	**Multi-Oarticipant Registration:** if users are registering more than 1 person, they can repeat the participant/discipline selection steps and bundle all entries together before adding everything to their cart.
 
--	**Add to Cart:** if users want to modify something about their entry, they can easily link back to its editable version. They can also delete it entirely from the cart.
+-	**Edit My Cart:** if users want to modify something about their entry, they can easily link back to its editable version. They can also delete it entirely from the cart.
 
--	**Payment:** if the user’s payment fails, they receive an email explaining what happened and a link to try checking out again.
+-	**Payment Failure Alerts:** if the user’s payment fails, they receive an email explaining what happened and a link to try checking out again.
 
 
 ## The Solution
-Putting it all together, the result is a comprehensive general depiction of the steps a Twirlmate user must take during the registration process. In reality there’s even more nuance to the sequence of events, as additional requirements come and go depending on the user’s role in the system. But this artifact provides a base from which all of those can extend.
+Putting it all together, the result is a high-level map of the steps a Twirlmate user must take during the registration process. In reality there’s even more nuance to the sequence of events, as additional requirements come and go depending on the user’s role in the system. But this artifact provides a base from which all of those can extend.
 
 ![Registration UX map with Side Journeys to Reduce Fricion](/assets/images/twirlmate/registration-journey/registration-ux-map-w-side-journeys.png "Registration UX map with Side Journeys"){:.w-100.rounded.my-3}
 
 ## Next Steps
-To carry this work forward, I continued thinking about other personas and how their journey would align with/deviate from what I had so far and ultimately used the artifact to guide the interface design process.
+To carry this work forward, I continued thinking about other personas and how their journey would align with/deviate from what I had so far. I ultimately used this artifact to guide the interface design and development processes.
 
-In the future I plan to periodically review, update, and refine the journey to reflect the customer experience.
+In the future I plan to periodically review, update, and refine the journey to reflect the latest customer experience.
 
 
 ## Lessons Learned
