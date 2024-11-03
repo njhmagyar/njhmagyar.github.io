@@ -45,7 +45,7 @@ Next, I scoured the internet for products that were either serving the same popu
 
 - **[Edabit](https://edabit.com/)** - A gamified programming practice platform that focuses on bite-sized challenges in C#, C++, Java, JavaScript, PHP, and Python.
 
-- **[Codewars](https://www.codewars.com/)** - A highly social, mastery-focused programming practice platform where learners complete challneges called "kata" to level-up their skills in over 55 languages.
+- **[Codewars](https://www.codewars.com/)** - A highly social, mastery-focused programming practice platform where learners complete challenges called "kata" to level-up their skills in over 55 languages.
 
 - **[LeetCode](https://leetcode.com/)** - A technical interview preparation tool with over 3500 problems in 14 languages.
 
@@ -64,7 +64,9 @@ In reality there were many more indirect competitors than those listed here. I a
 ### Establish parameters and perform a UX audit
 {:.mt-3}
 
-Next, I determined the scope of the analysis. Codespec's most important user experience would be that of the problem solving interface, so I planned to start there. I first explored each competitor's programming interface to get a sense for the overall structure and experience. This led me to 4 general feature categories on which I would perform a more detailed analysis: the problem instructions/prompt area, problem solving methods, help options, and feedback.
+Next, I determined the scope of the analysis. Codespec's most important user experience would be that of the problem solving interface, so I started there. 
+
+I explored each competitor's programming interface to get a sense for the overall structure and experience. This led me to 4 general feature categories on which I would perform a more detailed analysis: the problem instructions/prompt area, problem solving methods, help options, and feedback.
 
 To complete the deeper audit, I created a table of features and documented my findings with screenshots from each application.
 
@@ -76,7 +78,7 @@ Codewars' interface (below) felt the most social. Their UI is packed with metada
 
 ![Codewars Screenshot with Feature Annotations](/assets/images/codespec/comparative-analysis/codewars-audit.png "Codewars Screenshot with Feature Annotations"){:.w-100.my-3}
 
-Leetcode's interface (below) was well-organized, highly polished, and flexible. It makes room for the most important sections of information, such as the instructions and IDE. But it also allows users to reconfigure/personalize the space to meet their needs. But again, the lack of block-based options means this product is less accessible to programmers who are just starting out.
+Leetcode's interface (below) was well-organized, highly polished, and flexible. It makes room for the most important sections of information, such as the instructions and IDE. And it allows users to reconfigure/personalize the space to meet their needs. However, the lack of block-based options means this product is less accessible to programmers who are just starting out.
 
 ![Leetcode Screenshot with Feature Annotations](/assets/images/codespec/comparative-analysis/leetcode-audit.png "Leetcode Screenshot with Feature Annotations"){:.w-100.my-3}
 
@@ -113,7 +115,7 @@ Given that most platforms didn't offer block-based ways of solving problems, blo
 ### Answer the research questions
 {:.mt-3}
 
-At the conclusion of the analysis, I had collected enough information to answer the original research questions.
+At the conclusion of the analysis, I was able to answer the original research questions.
 
 1. **Who are Codespec's top direct and indirect competitors?** Direct competitors include programming practice and technical interview preparation tools. Indirector competitors range from computer science ebook platforms to subject-agnostic online course websites.
 
@@ -130,19 +132,19 @@ Armed with new knowledge about how competitors provide problem instructions, pro
 
 ![Codespec Prototype](/assets/images/codespec/comparative-analysis/codespec.png "Codespec Prototype"){:.w-100.mb-1}
 
-### Next Steps
+## Next Steps
 {:.mt-3}
 
 To follow up on these findings, I could continue to delve more deeply into one of the general feature categories, such as help options, or explore other areas of their products. It will also be good to update this analysis occasionally as each competitor continues to evolve.
 
-### Lessons Learned
+## Lessons Learned
 {:.mt-3}
 
-#### Comparative analysis can be done at many scales
+### Comparative analysis can be done at many scales
 
 Identifying and evaluating competitors is a useful step in the design process, whether you're just starting out with a new product or you're looking to add a very specific feature. It can reveal both commonalities and opportunities for differentiation.
 
-#### Everybody benefits
+### Everybody benefits
 
 Studying the competitive landscape is useful for design, development, and business purposes, as it can inform everything from color, typography and layout, to a feature's behavior, to how it's marketed to target users. This analysis was mostly for interface and feature research, but the approach could easily be adapted to answer other types of questions.
 {:.mb-5}

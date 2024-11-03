@@ -24,8 +24,11 @@
 }
 
 .resume-section__skills-wrapper {
-  ul li {
-    @extend .p;
-    margin: 0 0 .5rem 0;
+  ul {
+    @extend .unstyled-list;
+    li {
+      @extend .p;
+      margin: 0 0 .5rem 0;
+    }
   }
 }

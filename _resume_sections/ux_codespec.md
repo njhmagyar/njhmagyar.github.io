@@ -1,14 +1,15 @@
 ---
 resume: ux_designer
 order: 2
-name: UX Designer, Co-Founder
+name: Co-Founder, UX Designer, Developer
 employer: Codespec
 duration: January 2021 - Present
 location: Pittsburgh, PA
 ---
 
-- Designed a flexible, scaffolded programming practice interface grounded in computer science education research. My co-founder is now piloting the app at Carnegie Mellon University.
-- Prototyped authoring and analytics tools for e-books, surveys, quiz questions, and practice problems.
-- Iteratively conceptualized help features based on academic research and learner feedback to reduce frustration and maximize learning.
-- Performed comparative analysis of direct and indirect competitors in the programming practice space to inform feature design and development.
-- Drafted documentation and onboarding materials that use plain language and clear, concise copy.
+- Collaborated with an academic researcher to **design a robust, scaffolded programming practice interface** grounded in computer science education research, now being piloted at Carnegie Mellon University.
+
+- Crafted **intuitive authoring and analytics tools** for e-books, surveys, quizzes, and practice problems. Iteratively conceptualized help features based on academic research and usability feedback to help learners quickly get unstuck during a practice problem while still maximizing educational outcomes. 
+
+- Received **$10,000** as the winners of the 2022 University of Michigan Learning Levers Competition.
+

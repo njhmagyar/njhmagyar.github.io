@@ -37,34 +37,64 @@ title: Resume
             <p class="d-flex w-100 justify-between mt-point-five"><em>{{ section.employer }}</em><em>{{ section.location }}</em></p>
             <div class="resume-section__skills-wrapper">{{ section.content }}</div>
              {% endfor %}
+            <h2 class="mt-2">Education</h2>
+            <ul class="unstyled-list">
+              <li>
+                <p><strong>Master of Science in Information: Human-Computer Interaction (4.0)</strong>
+                <br>University of Michigan School of Information</p>
+              </li>
+              <li>
+                <p><strong>Bachelor of Arts in Organizational Studies and Spanish (3.9)</strong>
+                <br>University of Michigan College of Literature, Science & Arts</p>
+              </li>
+              <li>
+                <p><strong>Bachelor of Fine Arts in Performance Acting (3.9)</strong>
+                <br>University of Michigan School of Music, Theatre & Dance</p>
+              </li>
+            </ul>
           </div>
           <aside class="resume-aside">
-            <h2 class="mt-0">Tools</h2>
-            <ul>
-              {% for tool in resume.tools %}
-              <li><p class="mt-0 mb-point-five">{{ tool }}</p></li>
-              {% endfor %}
+            {% if resume.resume %}
+            <a class="nhm-btn--blue w-100 mb-2" href="{{ resume.resume }}" download>Download PDF</a>
+            {% endif %}
+            <h2 class="mt-0">Skills</h2>
+            <h3 class="mb-point-five">Design</h3>
+            <ul class="unstyled-list">
+              <li><p class="mt-0 mb-point-five">Prototyping</p></li>
+              <li><p class="mt-0 mb-point-five">Wireframing</p></li>
+              <li><p class="mt-0 mb-point-five">Personas</p></li>
+              <li><p class="mt-0 mb-point-five">Illustration</p></li>
+              <li><p class="mt-0 mb-point-five">Logo Design</p></li>
+              <li><p class="mt-0 mb-point-five">Brand Development</p></li>
             </ul>
-            <h2>Skills</h2>
-            <ul>
-              {% for skill in resume.skills %}
-              <li><p class="mt-0 mb-point-five">{{ skill }}</p></li>
-              {% endfor %}
+            <h3 class="mb-point-five">Development</h3> 
+            <ul class="unstyled-list">
+              <li><p class="mt-0 mb-point-five">Python/Django</p></li> 
+              <li><p class="mt-0 mb-point-five">Ruby/Rails</p></li> 
+              <li><p class="mt-0 mb-point-five">JavaScript/VueJS</p></li> 
+              <li><p class="mt-0 mb-point-five">HTML</p></li> 
+              <li><p class="mt-0 mb-point-five">SCSS</p></li>
             </ul>
-            <h2>Education</h2>
-            <ul>
-              <li>
-                <p><strong>Master of Science in Information: Human-Computer Interaction (4.0)</strong></p>
-                <p>University of Michigan School of Information</p>
-              </li>
-              <li>
-                <p><strong>Bachelor of Arts in Organizational Studies and Spanish (3.9)</strong></p>
-                <p>University of Michigan College of Literature, Science & Arts</p>
-              </li>
-              <li>
-                <p><strong>Bachelor of Fine Arts in Performance Acting (3.9)</strong></p>
-                <p>University of Michigan School of Music, Theatre & Dance</p>
-              </li>
+            <h3 class="mb-point-five">Research</h3>
+            <ul class="unstyled-list">
+              <li><p class="mt-0 mb-point-five">Usability Testing</p></li>
+              <li><p class="mt-0 mb-point-five">Protocol Development</p></li>
+              <li><p class="mt-0 mb-point-five">Survey Design</p></li>
+              <li><p class="mt-0 mb-point-five">Focus Groups</p></li>
+              <li><p class="mt-0 mb-point-five">User Interviews</p></li>
+            </ul>
+            <h3 class="mb-point-five">Project Management</h3>
+            <ul class="unstyled-list">
+              <li><p class="mt-0 mb-point-five">Project Scoping</p></li>
+              <li><p class="mt-0 mb-point-five">Stakeholder Management</p></li>
+              <li><p class="mt-0 mb-point-five">Public Speaking</p></li>
+            </ul>
+            <h3 class="mb-point-five">Foreign Languages</h3>
+            <ul class="unstyled-list">
+              <li><p class="mt-0 mb-point-five">Spanish (Advanced)</p></li>
+              <li><p class="mt-0 mb-point-five">French (Intermediate)</p></li>
+              <li><p class="mt-0 mb-point-five">Korean (Novice)</p></li>
+              <li><p class="mt-0 mb-point-five">Italian (Novice)</p></li>
             </ul>
           </aside>
         </div>
