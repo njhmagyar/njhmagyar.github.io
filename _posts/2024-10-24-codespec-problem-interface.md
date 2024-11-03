@@ -16,7 +16,7 @@ description: "How I collaborated with an academic researcher to design Codespec'
 ## The Problem
 {:.mt-3}
 
-Learning to program comes with a unique set of challenges; among them: learning to think logically/programmatically, using correct syntax, and mastering fundamental concepts such as variables and data types.
+Learning to program comes with a unique set of challenges, including: learning to think logically/programmatically, using correct syntax, and mastering fundamental concepts such as variables and data types.
 
 Most challenging of all, however, is that learners have to overcome many of these obstacles simultaneously.
 

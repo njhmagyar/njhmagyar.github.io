@@ -98,5 +98,6 @@ We are currently in the process of collecting feedback on this updated approach.
 {:.mt-3}
 
 ### Keep learners focused on learning
-One of the biggest challenges with any educational technology is helping the learner stay more engaged with whatever it is they're learning, and less encumbered by the system they're using. The original set of help options were too great in number and too unfamiliar to learners. The revised set does a better job of getting them unstuck and moving them onto their next task.
+One of the biggest challenges with any educational technology is helping the learner stay more engaged with whatever it is they're learning, and less encumbered by the system they're using. The original set of help options were too great in number and too unfamiliar to learners. The revised set, we hope, does a better job of getting them unstuck and moving them onto their next task.
+{:.mb-3}
 
