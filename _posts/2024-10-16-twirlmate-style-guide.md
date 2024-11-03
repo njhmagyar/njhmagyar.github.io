@@ -26,33 +26,37 @@ components to create the exact look and feel I was going for.
 But like many applications that grow to a certain size and age, eventually its appearance
 began to subtly shift underneath itself. A few things stood out immediately:
 
-- Three primary button styles
+- **Three primary button styles:** the interface lacked visual consistency when it came to signaling the primary action on the page.
 
-- Too many similar tints and shades, particularly gray tones
+- **Too many similar gray tints and shades:** stylesheet variables needed to be consolidated.
 
-![Three primary buttons](/assets/images/twirlmate/style-guide/primary-buttons.png "3 Primary Buttons"){:.w-100.rounded.mt-3}
+![Three primary buttons](/assets/images/twirlmate/style-guide/primary-buttons.png "3 Primary Buttons"){:.w-100.rounded.my-1}
+
+Here's what I did to address these discrepancies.
 
 ## The Process
 {:.mt-3}
 
-Here's what I did to address these discrepancies.
-
 ### Style Audit
 {:.mt-3}
 
-Before jumping to solutions, I first took stock of the application's current state.
+Before jumping into Figma, I took stock of the application's current state.
 
 I conducted an audit of all buttons and color variables, and noted any discrepancies, conflicts, and redundancies.
 
-![Audit of primary, secondary, and tertiary buttons](/assets/images/twirlmate/style-guide/button-audit.png "Button Audit"){:.w-100.rounded.my-3}
+I found that solid red buttons were being used for both primary actions and destructive actions, such as deletions, creating potential visual confusion for users about the consequences of clicking on a button.
 
-![Audit of gray color variables](/assets/images/twirlmate/style-guide/color-audit.png "Gray Color Audit"){:.w-100.rounded.my-3}
+![Audit of primary, secondary, and tertiary buttons](/assets/images/twirlmate/style-guide/button-audit.png "Button Audit"){:.w-100.rounded.my-1}
+
+I also identified gray tints and shades that were either unused or very similar to each other.
+
+![Audit of gray color variables](/assets/images/twirlmate/style-guide/color-audit.png "Gray Color Audit"){:.w-100.rounded.my-1}
 
 
 ### Style Consolidation
 {:.mt-3}
 
-I then reduced the current set of styles by defining which primary button
+I then streamlined the current set of styles by defining which primary button
 would reign supreme, the context in which red buttons should be used,
 and which tints and shades were going to stay or go.
 
@@ -90,7 +94,7 @@ I'll start by adding them to the guide before applying them to a mock-up.
 ## Lessons Learned
 {:.mt-3}
 
-1) Big things are achieved with small steps
+### Big things are achieved with small steps
 
 At the outset of this task, I was a bit overwhelmed by the prospect of defining
 every single component's styles in the guide. I dealt with this by taking an incremental
@@ -98,15 +102,15 @@ approach, deciding that a first draft doesn't have to be exhaustive but instead 
 something that grows over time. "Chunking" work like this will be a useful strategy
 to remember when faced with large tasks in the future.
 
-2) Move slower right now to acclerate later
+### Move slower right now to acclerate later
 
 As I was building out the guide, I noticed how long it was taking me to thoroughly
 define each components' states (e.g., default, hover, focused, error, disabled, etc).
 Part of me worried about the time I was losing that I could have been spending on 
 other tasks that have greater outward-facing value, such as building a new feature. But I
-ultimately felt that the up front investment would yield great returns in the future, as
+ultimately felt that the up-front investment would yield greater returns in the future, as
 I'd be able to design new features more quickly and easily. And if anyone else ever comes
-along to work on the project with me, they'll already have everything they need to get up and running.
+along to work on the project with me as a designer, they'll already have everything they need to get up and running.
 {:.mb-5}
 
 
