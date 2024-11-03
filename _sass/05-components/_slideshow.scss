@@ -86,8 +86,9 @@
 .dot {
   cursor: pointer;
   display: block;
-  height: 15px;
-  width: 15px;
+  height: 15px !important;
+  width: 15px !important;
+  padding: 0 !important;
   margin: 0 2px;
   background-color: $blue--hover;
   border-radius: 50%;
