@@ -13,4 +13,4 @@ location: Ann Arbor, MI
 
 - **Collaborated with a backend developer** to translate Michigan Online designs into technical requirements. Personally handled the HTML and Jinja templating, SCSS, and JavaScript development.
 
-- Worked closely with a student fellowship coordinator to **create a fun, enriching, inclusive experience** for student employees, including an end-of-summer campus-wide scavenger hunt and team bonding retreat.
+- Worked closely with a student fellowship coordinator to **create a fun, enriching, inclusive experience for student employees,** including an end-of-summer campus-wide scavenger hunt and team bonding retreat.

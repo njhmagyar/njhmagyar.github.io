@@ -7,11 +7,12 @@ duration: January 2019 - April 2021
 location: Ann Arbor, MI
 ---
 
-- Supervised a Junior UX Designer and UX Design Student Fellows, providing them with structure and feedback on their work to maximize success.
-- Conducted focus groups with university students to inform the naming and information hierarchy of a "collections" feature, a bundle of mixed media online education resources, and used findings to inform subsequent designs.
-- Iteratively designed the MVP of Atlas' schedule builder, which over 90% of undergraduate students at the university now use to plan their course schedules; iterations were based on usability test findings obtained through "guerilla testing," engaging with students on campus for brief interaction and information hierarchy feedback as they walked to class.
-- Prepared and facilitated professional development workshops for the UXD team on topics such as SVG animation and the basics of Vue JS.
-- Partnered with organizational leadership to set quarterly project objectives and key results, scope and organize work into sprints, and communicate progress to stakeholders.
+- **Conducted focus groups** with university students and **assembled click-by-click prototypes** for Michigan Online, the University of Michigan’s online learning experience catalog. As of October 2024, the platform contains over 300 learning experiences and more than 200,000 people have created accounts.
+
+- **Ran usability tests** with 10 Michigan Online learners from 8 different countries to determine the optimal layout of the course detail page and preferred information hierarchy for course metadata.
+
+- **Explored numerous interaction options with creativity and curiosity** to resolve a complex Michigan Online UX challenge: most courses are available on multiple platforms (Coursera, edX, or Future Learn). The course detail page needed to communicate these options and the differences between them in a compact but complete way before ultimately directing the user to their desired platform. The final solution was a modal that displayed the options and outbound links, as well as a separate page that explained key platform differences.
+
 
 
 
