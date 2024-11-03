@@ -3,7 +3,7 @@ resume: product_manager
 order: 5
 name: Senior UX Designer
 employer: University of Michigan Center for Academic Innovation
-duration: January 2019 - April 2020
+duration: January 2019 - April 2021
 location: Ann Arbor, MI
 ---
 

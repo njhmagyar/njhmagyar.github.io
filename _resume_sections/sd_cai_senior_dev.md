@@ -3,7 +3,7 @@ resume: software_developer
 order: 4
 name: Senior Software Developer
 employer: University of Michigan Center for Academic Innovation
-duration: May 2021 - May 2023
+duration: May 2021 - March 2023
 location: Ann Arbor, MI
 ---
 

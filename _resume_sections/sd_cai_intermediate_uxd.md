@@ -3,7 +3,7 @@ resume: software_developer
 order: 6
 name: Intermediate UX Designer
 employer: University of Michigan Center for Academic Innovation
-duration: November 2017 - January 2019
+duration: November 2017 - December 2018
 location: Ann Arbor, MI
 ---
 

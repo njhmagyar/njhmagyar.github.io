@@ -5,7 +5,7 @@ tagline: Michigan Online is the University of Michigan's catalog of online learn
 stack: [Python/Django, JavaScript/Vue, HTML, SASS]
 roles: [UX Designer, Frontend Developer]
 duration: November 2017 - April 2021
-order: 5
+order: 3
 featured: false
 thumbnail_image: /assets/images/michigan-online-thumbnail.png
 logo_image: /assets/images/michigan-online-logo.png

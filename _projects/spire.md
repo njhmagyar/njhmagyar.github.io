@@ -1,11 +1,11 @@
 ---
 name: Spire
 project_url: https://spire.ai.umich.edu/
-tagline: Spire is a competency-based learning platform that empowers learners to chronicle their undergraduate stories and prepare to tell them to prospective employers.
+tagline: Spire is a competency-based learning platform that empowers learners to record their curricular and co-curricular growth/experiences for reference during their job search.
 stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]
 roles: [Software Developer, Project Lead]
 duration: May 2021 - Present
-order: 3
+order: 4
 featured: false
 thumbnail_image: /assets/images/spire-thumbnail.png
 logo_image: /assets/images/spire-logo.png

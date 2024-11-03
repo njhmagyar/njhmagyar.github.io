@@ -31,15 +31,17 @@ Discontent with the honor system, combined with Twirlmate's role as an event reg
 ### Design a survey
 {:.mt-3}
 
-Because there are many organizations in the sport and each of them define which wins "count" differently, I knew there was no way I could immediately jump into designs. Instead of put together a survey with the following goals in mind:
+Because there are many organizations in the sport and each of them define which wins "count" differently, I knew there was no way I could immediately jump into designs. I had an initial idea for a solution, but I needed to gather more information from the community first. So I put together a survey with the following goals in mind:
 
-- Explain my initial idea for win tracking and solicit community feedback/reactions
+- **Explain** my initial idea for win tracking and solicit feedback
 
-- Understand community members' current win tracking processes
+- **Understand** community members' current win tracking processes
 
-- Gauge community member sentiment towards the idea of a public win tracking system
+- **Gauge** community member sentiment towards the idea of a public win tracking system
 
-![Survey Screenshot](/assets/images/twirlmate/win-tracking/survey.png "Survey"){:.w-100.rounded.mt-3.mb-1}
+Here's the set of questions I used for the survey. I sent it to 78 email newsletter subscribers and collected responses for one week:
+
+![Survey Screenshot](/assets/images/twirlmate/win-tracking/survey.png "Survey"){:.w-100.rounded.mt-3.mb-3}
 
 When drafting the questions and response options, I kept the following survey design principles in mind:
 
@@ -52,42 +54,54 @@ When drafting the questions and response options, I kept the following survey de
 ### Analyze responses
 {:.mt-3}
 
-I received 39 responses, on which I performed quantitative and qualitative analysis.
+I received 39 responses, on which I performed quantitative analysis.
 
-![Survey Screenshot](/assets/images/twirlmate/win-tracking/current-win-tracking-system.png "Survey"){:.w-100.rounded.mt-3.mb-1}
+Interestly, there was an even split between respondents who used digital versus analog systems for tracking wins:
 
-![Survey Screenshot](/assets/images/twirlmate/win-tracking/win-tracking-details.png "Survey"){:.w-100.rounded.mt-3.mb-1}
+![Survey Screenshot](/assets/images/twirlmate/win-tracking/current-win-tracking-system.png "Survey"){:.w-100.rounded.my-1}
 
-![Survey Screenshot](/assets/images/twirlmate/win-tracking/visibility-preferences.png "Survey"){:.w-100.rounded.mt-3.mb-1}
+There was a wide range in the type of information people collected as a part of their win tracking effort. But the most common data points included the disicpline, contest date, level, placement, and contest name:
 
-For the free response questions, people raised excellent points such as:
+![Survey Screenshot](/assets/images/twirlmate/win-tracking/win-tracking-details.png "Survey"){:.w-100.rounded.my-1}
 
-- "Could wins just be visible to contest directors?"
+Finally, the majority of respondents were in favor of athletes' wins being partially or fully visible to others:
 
-- "If the system is public and voluntary, some people will continue to under-report."
+![Survey Screenshot](/assets/images/twirlmate/win-tracking/visibility-preferences.png "Survey"){:.w-100.rounded.my-1}
 
-- "Would only wins be published? Or maybe [those who place in the] top 5?"
+Reasons in favor of public wins included:
+
+- "Having everything public keeps people honest."
+
+- "As stated in the NBTA rule book we are on the honor system. If a contestant is counting wins correctly and honestly then they have nothing to hide."
+
+- "I’m in between yes and no. I think there should be some access to the public, especially contest directors, to verify accuracy, but also believe athletes deserve some privacy when it comes to their competitive history."
+
+Those against it said:
+
+- "I am saying private because, as you may know, some people get crazy. They may think they saw some thing they didn’t and they may be talking about it when they shouldn’t be, etc."
+
+- "It has always been private in my history."
 
 
 ### Synthesize Findings
 {:.mt-3}
 
-I then drew conclusions from the analysis:
+I then drew the following conclusions from the analysis:
 
-- **People aren't afraid of technology:** There was an even split between digital and analog win tracking systems, which showed that many community members are already using modern tools to track wins, which bodes well for a Twirlmate-supported solution.
+- **People aren't afraid of technology:** The even split between digital and analog win tracking systems, showed that many community members are already using modern tools to track wins, which bodes well for a Twirlmate-supported solution.
 
 - **Details Matter:** People track a variety of metadata points about their athletes' competitive wins and history. The ideal win tracking system would accomodate as many of these characteristics as possible, with particular emphasis given to the most common ones.
 
-- **Transparency is desirable:** 71% of respondents preferred a semi-public or fully-public system, arguing the transparency would reduce anxieties about others being dishonest.
+- **Transparency is desirable:** 71% of respondents preferred a semi-public or fully-public system, arguing the transparency would keep everyone more honest.
 
 ## The Solution
 {:.mt-3}
 
-I carried forward my research findings into a first round of designs. I went with the majority of respondents who desired for athlete wins to be totally public, exposing them on a new "athlete profile" page:
+I carried forward my research findings into a first round of designs, which consisted of two pages. The first page was a fully public "athlete profile" that displayed only the individual's wins:
 
 ![Survey Screenshot](/assets/images/twirlmate/win-tracking/public-athlete-profile.png "Survey"){:.w-100.rounded.mt-2.mb-1}
 
-Then on a separate, more private page visible only to the account holder who manages a given athlete, they would be able to see a complete history of all their competitive performances/results:
+The second page was private, only visible to the account holder who manages a given athlete. It displayed a complete history of the athlete's competitive performances/results:
 
 ![Survey Screenshot](/assets/images/twirlmate/win-tracking/private-athlete-history.png "Survey"){:.w-100.rounded.mt-2.mb-1}
 
@@ -95,7 +109,7 @@ Then on a separate, more private page visible only to the account holder who man
 ## Next Steps
 {:.mt-3}
 
-To continue validating and refinding the designs, I plan to conduct usability tests with parents, coaches, and athletes.
+To continue validating and refining the designs, I plan to conduct usability tests with parents, coaches, and athletes.
 
 ## Lessons Learned
 {:.mt-3}
@@ -103,5 +117,5 @@ To continue validating and refinding the designs, I plan to conduct usability te
 ### The Power of Visuals
 {:.mt-3}
 
-My survey didn't include any images that captured my initial idea for the feature. The advantage of this was that respondents weren't biased by my input. The downside though was that they may have had a harder time understanding what I was talking about. In the future it might be better to include a reference image so respondents can provide more high quality, relevant feedback.
+My survey didn't include any images of my initial idea for the feature. The advantage of this was that respondents weren't biased by my input. The downside though was that they may have had a harder time understanding what I was talking about. In the future it might be better to include a reference image so respondents can provide more high quality, relevant feedback.
 {:.mb-5}

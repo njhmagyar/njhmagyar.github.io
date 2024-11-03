@@ -5,7 +5,7 @@ tagline: GradeCraft is a gameful learning management system in which learner cho
 stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]
 roles: [Software Developer, Project Lead]
 duration: May 2021 - Present
-order: 4
+order: 5
 featured: false
 thumbnail_image: /assets/images/gradecraft-thumbnail.png
 logo_image: /assets/images/gradecraft-logo.png

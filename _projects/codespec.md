@@ -1,7 +1,7 @@
 ---
 name: Codespec
 project_url: https://www.codespec.org/
-tagline: Codespec is a computer programming practice environment that supports learners of all skill levels by offering 5 ways to solve each problem
+tagline: Codespec is a computer programming practice environment that supports learners of all skill levels by offering 5 ways to solve each problem.
 stack: [Python/Django, JavaScript/Vue, HTML, SCSS]
 roles: [Co-Founder, Lead Developer, UX Designer]
 duration: January 2021 - Present
