@@ -7,7 +7,7 @@ duration: January 2020 - Present
 location: Pittsburgh, PA
 ---
 
-- **Translated broad concepts** for a baton twirling competition management system into concrete designs. In October 2024, I piloted the system with 97 users who generated $16,155 in registration fees.
+- **Translated broad concepts** for a baton twirling competition management system into concrete designs. In 2024, I piloted the system with 3 competitions and 197 users, who generated $27,284 in registration fees.
 
 - Surveyed 39 baton twirling community members on their win-tracking habits and preferences, then **performed quantitative and qualitative analyses** to inform narrow feature design decisions.
 

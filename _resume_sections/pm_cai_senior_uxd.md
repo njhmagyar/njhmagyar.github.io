@@ -7,7 +7,7 @@ duration: January 2019 - April 2021
 location: Ann Arbor, MI
 ---
 
-- **Conducted focus groups** with university students and **assembled click-by-click prototypes** for Michigan Online, the University of Michigan’s online learning experience catalog. As of October 2024, the platform contains over 300 learning experiences and more than 200,000 people have created accounts.
+- **Conducted focus groups** with university students and **assembled click-by-click prototypes** for Michigan Online, the University of Michigan’s online learning experience catalog. As of January 2025, the platform contains over 300 learning experiences and more than 200,000 people have created accounts.
 
 - **Ran usability tests** with 10 Michigan Online learners from 8 different countries to determine the optimal layout of the course detail page and preferred information hierarchy for course metadata.
 

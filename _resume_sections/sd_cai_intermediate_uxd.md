@@ -7,7 +7,7 @@ duration: November 2017 - December 2018
 location: Ann Arbor, MI
 ---
 
-- Teamed up with learning experience designers to **identify feature gaps** in Coursera and edX, **generate and prioritize ideas** to fill those gaps with LTI (learning tools interoperability) plug-ins, and collect design feedback on prototypes, leading to a suite of tools now used by thousands of learners on Coursera and edX.
+- **Identified feature gaps** in Coursera and edX with learning experience designers and iteratively designed LTl (learning tools interoperability) plug-ins to address pedagogical needs. The result was Gamut, a suite of tools with a cohesive brand now used by thousands of learners on Coursera and edX.
 
 - **Collaborated with a backend developer** to translate Michigan Online designs into technical requirements. Personally handled the HTML and Jinja templating, SCSS, and JavaScript development.
 
