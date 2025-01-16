@@ -56,7 +56,7 @@ When drafting the questions and response options, I kept the following survey de
 
 I received 39 responses, on which I performed quantitative analysis.
 
-Interestly, there was an even split between respondents who used digital versus analog systems for tracking wins:
+Interestingly, there was an even split between respondents who used digital versus analog systems for tracking wins:
 
 ![Survey Screenshot](/assets/images/twirlmate/win-tracking/current-win-tracking-system.png "Survey"){:.w-100.rounded.my-1}
 
