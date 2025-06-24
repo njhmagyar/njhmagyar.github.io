@@ -1,17 +1,16 @@
 ---
 resume: ux_designer
-order: 1
+order: 2
 name: Founder, UX Designer, Developer
 employer: Twirlmate
 duration: January 2020 - Present
 location: Pittsburgh, PA
 ---
 
-- **Translated broad concepts** for a baton twirling competition management system into concrete designs. In 2024, I piloted the system with 3 competitions and 197 users, who generated $27,284 in registration fees.
+- Built a consumer-facing multi-vendor platform for competitive baton twirling using mobile-first design principles, serving 1,700+ users in its first year.
 
-- Surveyed 39 baton twirling community members on their win-tracking habits and preferences, then **performed quantitative and qualitative analyses** to inform narrow feature design decisions.
+- Designed intuitive, linear account and event setup flows to drive successful onboarding and task completion.
 
-- Defined a **flexible, cohesive, and accessible design system** using atomic Figma components and styles.
+- Interviewed event organizers, collecting feature requirements and pain points, to create research-informed user experiences that aligned with their mental models of high stakes tasks (e.g., result tabulation).
 
-- Identified opportunities to **insert fun and delight into the user experience.** For example, detailed illustrations and a spinning baton loading indicator that appears whenever a user submits a form.
 

@@ -9,34 +9,30 @@ title: Resume
       </div>
       <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait--resume.png" alt="">
     </div>
-    <ul class="unstyled-list nhm-tab-list mb-5">
-      {% assign ordered_resumes = site.resumes | sort:"order" %}
-      {% for resume in ordered_resumes %}
-      <li class="nhm-tab-list__item">
-        <button class="nhm-tab-trigger" aria-controls="{{ resume.pid }}" data-tab-trigger="{{ resume.pid }}">{{ resume.job_title }}</button>
-      </li>
-      {% endfor %}
-    </ul>
   </div>
 </section>
 <div class="nhm-wrapper mb-5">
   <ul class="unstyled-list nhm-tab">
     {% assign ordered_resumes = site.resumes | sort:"order" %}
     {% for resume in ordered_resumes %}
-    <li id="{{ resume.pid }}" data-tab hidden>
+    {% if resume.published == true %}
+    <li>
       <article>
-        <p class="align--center mb-5">Educational technology designer, developer, and entrepreneur with experience leading user research sessions
-        and an instinct for creating simple, intuitive features that delight learners and achieve business goals</p>
+        <p class="my-5">
+          I'm a product designer and full-stack developer with 8+ years of experience creating gamified,
+          learner-centered tools. I turn complex systems into delightful experiences—from mobile-first interfaces to scalable
+          content platforms. I thrive in fast-paced, mission-driven teams that value experimentation and playful polish.
+        </p>
         <div class="resume-wrapper">
           <div class="resume-main">
             <h2 class="mt-0">Experience</h2>
             {% assign sections = site.resume_sections | where: "resume", resume.pid | sort:"order" %}
             {% for section in sections %}
             <div class="resume-section__header">
-              <h3 class="mb-0">{{ section.name }}</h3>
-              <p class="mb-0"><em>{{ section.duration }}</em></p>
+              <h3 class="mb-0">{{ section.employer }}</h3>
+              <p class="mb-0"><em>{{ section.lcation }}</em></p>
             </div>
-            <p class="d-flex w-100 justify-between mt-point-five"><em>{{ section.employer }}</em><em>{{ section.location }}</em></p>
+            <p class="d-flex w-100 justify-between mt-point-five"><em>{{ section.name }}</em><em>{{ section.duration }}</em></p>
             <div class="resume-section__skills-wrapper">{{ section.content }}</div>
              {% endfor %}
             <h2 class="mt-2">Education</h2>
@@ -60,58 +56,37 @@ title: Resume
             <a class="nhm-btn--blue w-100 mb-2" href="{{ resume.resume }}" download>Download PDF</a>
             {% endif %}
             <h2 class="mt-0">Skills</h2>
-            <h3 class="mb-point-five">Tools</h3>
+            <h3 class="mb-point-five">UX & Product Design</h3>
             <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Illustrator</p></li>
               <li><p class="mt-0 mb-point-five">Figma</p></li>
-              <li><p class="mt-0 mb-point-five">AfterEffects</p></li>
-              <li><p class="mt-0 mb-point-five">Qualtrics</p></li>
-              <li><p class="mt-0 mb-point-five">Otter.ai</p></li>
+              <li><p class="mt-0 mb-point-five">Mobile UX</p></li>
+              <li><p class="mt-0 mb-point-five">Gamification</p></li>
+              <li><p class="mt-0 mb-point-five">A/B Testing</p></li>
+              <li><p class="mt-0 mb-point-five">Information Architecture</p></li>
             </ul>
-            <h3 class="mb-point-five">Design</h3>
+            <h3 class="mb-point-five">Tech (fluent)</h3>
             <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Prototyping</p></li>
-              <li><p class="mt-0 mb-point-five">Wireframing</p></li>
-              <li><p class="mt-0 mb-point-five">Personas</p></li>
-              <li><p class="mt-0 mb-point-five">Illustration</p></li>
-              <li><p class="mt-0 mb-point-five">Logo Design</p></li>
-              <li><p class="mt-0 mb-point-five">Brand Development</p></li>
+              <li><p class="mt-0 mb-point-five">CSS</p></li>
+              <li><p class="mt-0 mb-point-five">Vue.js</p></li>
+              <li><p class="mt-0 mb-point-five">Django</p></li>
+              <li><p class="mt-0 mb-point-five">PostgreSQL</p></li>
+              <li><p class="mt-0 mb-point-five">REST APIs</p></li>
+              <li><p class="mt-0 mb-point-five">Git</p></li>
+              <li><p class="mt-0 mb-point-five">WCAG Accessibility</p></li>
             </ul>
-            <h3 class="mb-point-five">Development</h3> 
+            <h3 class="mb-point-five">Cross-Functional</h3> 
             <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Python/Django</p></li> 
-              <li><p class="mt-0 mb-point-five">Ruby/Rails</p></li> 
-              <li><p class="mt-0 mb-point-five">JavaScript/VueJS</p></li> 
-              <li><p class="mt-0 mb-point-five">HTML</p></li> 
-              <li><p class="mt-0 mb-point-five">SCSS</p></li>
-            </ul>
-            <h3 class="mb-point-five">Research</h3>
-            <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Usability Testing</p></li>
-              <li><p class="mt-0 mb-point-five">Protocol Development</p></li>
-              <li><p class="mt-0 mb-point-five">Survey Design</p></li>
-              <li><p class="mt-0 mb-point-five">Focus Groups</p></li>
-              <li><p class="mt-0 mb-point-five">User Interviews</p></li>
-            </ul>
-            <h3 class="mb-point-five">Project Management</h3>
-            <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Project Scoping</p></li>
-              <li><p class="mt-0 mb-point-five">Stakeholder Management</p></li>
-              <li><p class="mt-0 mb-point-five">Public Speaking</p></li>
-            </ul>
-            <h3 class="mb-point-five">Foreign Languages</h3>
-            <ul class="unstyled-list">
-              <li><p class="mt-0 mb-point-five">Spanish (Advanced)</p></li>
-              <li><p class="mt-0 mb-point-five">French (Intermediate)</p></li>
-              <li><p class="mt-0 mb-point-five">Korean (Novice)</p></li>
-              <li><p class="mt-0 mb-point-five">Italian (Novice)</p></li>
+              <li><p class="mt-0 mb-point-five">Design Systems</p></li> 
+              <li><p class="mt-0 mb-point-five">Research & Usability Testing</p></li> 
+              <li><p class="mt-0 mb-point-five">Agile</p></li> 
+              <li><p class="mt-0 mb-point-five">Mentorship</p></li> 
+              <li><p class="mt-0 mb-point-five">Product Strategy</p></li>
             </ul>
           </aside>
         </div>
       </article>
     </li>
+    {% endif %}
     {% endfor %}
   </ul>
 </div>
-
-<script src="/assets/js/tabs.js"></script>

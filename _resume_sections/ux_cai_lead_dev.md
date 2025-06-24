@@ -1,18 +1,21 @@
 ---
 resume: ux_designer
-order: 3
-name: Lead Software Developer
+order: 1
+name: Lead Software Developer, previously Senior UX Designer
 employer: University of Michigan Center for Academic Innovation
-duration: April 2023 - Present
+duration: 2017 - Present
 location: Ann Arbor, MI
 ---
 
-- **Leads an interdisciplinary team** of designers, developers, and behavioral scientists on Spire, a competency-based learning web application that serves over 3,000 students across 3 schools at the University of Michigan. Recently launched a new feature that helps students map skills gained from courses to desired career paths, providing design feedback and shaping technical requirements.
+- Partners with design and research teams to define product roadmaps, sprint scopes, and success metrics.
 
-- Supervises 4 junior- and senior-level software developers, providing bi-annual performance reviews and professional development guidance to **support, energize and grow software development team skills.**
+- Mentors early-career devs and designers, conducts hiring, and defines internal career pathways.
 
-- Defined promotion criteria for the software developer career pathway at the organization, supported by developer-specific competencies.
+- Designed & built a modular CMS interface used to manage 300+ courses and serve 200K+ users, balancing editorial UX with backend scalability. Currently using internal qualitative feedback to deliver the next version.
 
-- Writes clean, concise, flexible Ruby on Rails and VueJS code to maintain and expand gameful learning management system features. Architects reusable, performant technical solutions to **meet student needs.**
+- Developed a personalized progress email system that nudges users toward next steps, increasing progression through the app's core user engagement funnel and driving behavior towards sticky actions.
+
+- Coordinated multiple workstreams and drove the design/development of a feature that advertises 3rd party content, improving stakeholder satisfaction with internal tooling and positioning for rapid experimentation.
+
 
 
