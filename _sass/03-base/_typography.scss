@@ -6,6 +6,12 @@
 }
 
 @font-face {
+  font-family: "Nunito";
+  font-weight: normal;
+  src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+
+@font-face {
   font-family: "DMSans-Bold";
   font-weight: normal;
   src: url(../fonts/DMSans-Bold.ttf);
@@ -24,16 +30,16 @@
 }
 
 body {
-    font-family: 'DMSans-Regular', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  color: $black;
+  @media print {
     color: $black;
-    @media print {
-      color: $black;
-    }
+  }
 }
 
 .DMSerifDisplay-Regular { font-family: 'DMSerifDisplay-Regular', serif !important; font-weight: 100; }
 .DMSans-bold { font-family: 'DMSans-Bold', sans-serif !important; font-weight: 100; }
-.DMSans-Regular { font-family: 'DMSans-Regular', sans-serif !important; font-weight: 100; }
+.Nunito { font-family: 'Nunito', sans-serif !important; font-weight: 100; }
 .DMSans-SemiBold { font-family: 'DMSans-SemiBold', sans-serif !important; font-weight: 100; }
 
 strong {
@@ -86,7 +92,7 @@ p, .p   {
 
 .text--body {
   @extend .p;
-  @extend .DMSans-Regular;
+  @extend .Nunito;
   font-style: normal;
 }
 
