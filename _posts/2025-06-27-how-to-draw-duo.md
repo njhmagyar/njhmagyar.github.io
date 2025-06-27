@@ -6,7 +6,7 @@ description: "4 easy steps to draw your favorite unhinged owl"
 permalink: /blog/how-to-draw-duo/
 ---
 
-Did you know all Duolingo characters are made of three basic shapes? Rounded rectangles, half circles, and rounded triangles! This not only makes them super easy to draw, but also underscores how pervasive simplicity is in their product. 
+Did you know all Duolingo characters are made of three basic shapes? Rounded rectangles, half circles, and rounded triangles! This not only makes them super easy to draw, but also underscores the company's commitment to simplicity at all levels of the product. 
 
 After reading through [Duolingo's brand and design guidelines](https://design.duolingo.com/), I was inspired to teach others how to draw Duo himself!
 
