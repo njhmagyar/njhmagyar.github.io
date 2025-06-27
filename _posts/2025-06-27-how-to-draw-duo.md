@@ -8,7 +8,7 @@ permalink: /blog/how-to-draw-duo/
 
 Did you know all Duolingo characters are made of three basic shapes? Rounded rectangles, half circles, and rounded triangles! This not only makes them super easy to draw, but also underscores how pervasive simplicity is in their product. 
 
-After reading through Duolingo's brand and design guidelines, I was inspired to teach others how to draw Duo himself!
+After reading through [Duolingo's brand and design guidelines](https://design.duolingo.com/), I was inspired to teach others how to draw Duo himself!
 
 If you'd like to follow along, feel free to download the guide:
 
