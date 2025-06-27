@@ -1,14 +1,29 @@
 ---
 title: Blog
 ---
-<section class="nhm-wrapper w-700">
-  <h1>Latest Posts</h1>
-  
+<section class="bg-fuscia--light">
+  <div class="nhm-wrapper">
+    <div class="nhm-hero mobile-image-first py-5">
+      <div class="nhm-hero__text">
+        <h1 class="nhm-mega-font">Blog</h1>
+      </div>
+      <img class="nhm-hero__image mb-2--700-and-below" src="/assets/images/self-portrait--blog.png" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="nhm-wrapper my-5">
   <ul class="unstyled-list">
-    {% for post in site.posts %}
+    {% assign blog_posts = site.posts | where: 'is_case_study', false %}
+    {% for post in blog_posts %}
     <li>
-      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-      {{ post.excerpt }}
+      <a href="{{ post.url }}" class="nhm-post-card text--black hover--blue no-underline">
+        <img src="{{ post.image }}" class="nhm-post-card__image"/>
+        <div class="nhm-post-card__body">
+          <h2 class="my-0">{{ post.title }}</h2>
+          <p>{{ post.description }}</p>
+        </div>
+      </a>
     </li>
     {% endfor %}
   </ul>

@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "Using Comparative Analysis to Inform Feature Design and Direction"
+is_case_study: true
 category: codespec
 roles: [UX Research, UX Design]
 project: Codespec

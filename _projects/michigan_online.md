@@ -1,5 +1,6 @@
 ---
 name: Michigan Online
+permalink: projects/michigan-online/
 project_url: https://online.umich.edu/
 tagline: Michigan Online is the University of Michigan's catalog of online learning experiences.
 stack: [Python/Django, JavaScript/Vue, HTML, SASS]

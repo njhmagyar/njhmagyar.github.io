@@ -7,7 +7,7 @@ title: Resume
       <div class="nhm-hero__text">
         <h1 class="nhm-mega-font">Nathan<br>Haynes-Magyar</h1>
       </div>
-      <img class="nhm-hero__image mb-2--700-and-below" src="assets/images/self-portrait--resume.png" alt="">
+      <img class="nhm-hero__image mb-2--700-and-below" src="/assets/images/self-portrait--resume.png" alt="">
     </div>
   </div>
 </section>
@@ -29,10 +29,12 @@ title: Resume
             {% assign sections = site.resume_sections | where: "resume", resume.pid | sort:"order" %}
             {% for section in sections %}
             <div class="resume-section__header">
-              <h3 class="mb-0">{{ section.employer }}</h3>
-              <p class="mb-0"><em>{{ section.lcation }}</em></p>
+              <h3 class="p--lg Nunito-bold mb-0">{{ section.employer }}</h3>
             </div>
-            <p class="d-flex w-100 justify-between mt-point-five"><em>{{ section.name }}</em><em>{{ section.duration }}</em></p>
+            <div class="d-flex--md-and-up w-100 justify-between mt-point-five">
+              <p class="my-0"><em>{{ section.name }}</em></p>
+              <p class="my-0"><em>{{ section.duration }}</em></p>
+            </div>
             <div class="resume-section__skills-wrapper">{{ section.content }}</div>
              {% endfor %}
             <h2 class="mt-2">Education</h2>
@@ -56,7 +58,7 @@ title: Resume
             <a class="nhm-btn--blue w-100 mb-2" href="{{ resume.resume }}" download>Download PDF</a>
             {% endif %}
             <h2 class="mt-0">Skills</h2>
-            <h3 class="mb-point-five">UX & Product Design</h3>
+            <h3 class="p--lg Nunito-bold mb-point-five">UX & Product Design</h3>
             <ul class="unstyled-list">
               <li><p class="mt-0 mb-point-five">Figma</p></li>
               <li><p class="mt-0 mb-point-five">Mobile UX</p></li>
@@ -64,7 +66,7 @@ title: Resume
               <li><p class="mt-0 mb-point-five">A/B Testing</p></li>
               <li><p class="mt-0 mb-point-five">Information Architecture</p></li>
             </ul>
-            <h3 class="mb-point-five">Tech (fluent)</h3>
+            <h3 class="p--lg Nunito-bold mb-point-five">Tech (fluent)</h3>
             <ul class="unstyled-list">
               <li><p class="mt-0 mb-point-five">CSS</p></li>
               <li><p class="mt-0 mb-point-five">Vue.js</p></li>
@@ -74,7 +76,7 @@ title: Resume
               <li><p class="mt-0 mb-point-five">Git</p></li>
               <li><p class="mt-0 mb-point-five">WCAG Accessibility</p></li>
             </ul>
-            <h3 class="mb-point-five">Cross-Functional</h3> 
+            <h3 class="p--lg Nunito-bold mb-point-five">Cross-Functional</h3> 
             <ul class="unstyled-list">
               <li><p class="mt-0 mb-point-five">Design Systems</p></li> 
               <li><p class="mt-0 mb-point-five">Research & Usability Testing</p></li> 

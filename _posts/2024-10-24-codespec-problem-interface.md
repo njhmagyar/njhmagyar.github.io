@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "Designing a Research-Based Programming Practice Interface"
+is_case_study: true
 category: codespec
 roles: [UX Design, Full Stack Development]
 project: Codespec

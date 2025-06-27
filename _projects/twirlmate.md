@@ -1,5 +1,6 @@
 ---
 name: Twirlmate
+permalink: projects/twirlmate/
 project_url: https://www.twirlmate.com/
 tagline: Twirlmate is your partner in baton twirling competitions and events, coaches and groups, information and analytics, and news.
 stack: [Python/Django, JavaScript/Vue, HTML, SCSS]

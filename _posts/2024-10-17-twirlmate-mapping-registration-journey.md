@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "Mapping the Registration Journey"
+is_case_study: true
 category: twirlmate
 roles: [UX Design, Product Management]
 project: Twirlmate

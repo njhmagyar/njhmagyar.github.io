@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "Discovery and Requirements for Win Tracking"
+is_case_study: true
 category: twirlmate
 roles: [UX Research, UX Design]
 project: Twirlmate

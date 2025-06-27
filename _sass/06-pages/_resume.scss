@@ -1,4 +1,5 @@
 .resume-wrapper {
+  @include flex($direction: column-reverse, $align: stretch);
   @media #{$mq--md} {
     @include flex($wrap: nowrap, $align: flex-start);
   }
@@ -6,14 +7,16 @@
 
 .resume-main {
   @media #{$mq--md} {
-    margin-right: 1rem;
+    margin-right: 3rem;
     flex: 1;
   }
 }
 
 .resume-aside {
+  margin-bottom: 3rem;
   @media #{$mq--md} {
     max-width: 25%;
+    margin-bottomm: 0;
   }
 }
 
@@ -25,10 +28,8 @@
 
 .resume-section__skills-wrapper {
   ul {
-    @extend .unstyled-list;
     li {
       @extend .p;
-      margin: 0 0 .5rem 0;
     }
   }
 }

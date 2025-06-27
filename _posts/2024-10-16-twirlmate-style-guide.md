@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "The Making of Twirlmate's Brand and Style Guide"
+is_case_study: true
 category: twirlmate
 roles: [UX Design, Branding, Graphic Design]
 project: Twirlmate

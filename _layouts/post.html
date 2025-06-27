@@ -1,14 +1,18 @@
 ---
 layout: default
-project: Codespec
 ---
 <article class="nhm-wrapper w-700">
-  <div class="mt-3 mb-2">
-    <a href="/my-work" class="text--link no-underline">My Work</a> /
+  {% if page.project %}
+  <div class="mt-3">
     <a href="/projects/{{page.category}}" class="text--link no-underline">{{ page.project }}</a>
   </div>
-  <img src="{{ page.image }}" class="w-100 rounded mb-3" alt="" />
+  {% endif %}
+  <img src="{{ page.image }}" class="w-100 rounded my-3" alt="" />
   <h1 class="mt-0">{{ page.title }}</h1>
   {{ content }}
+  {% if page.project and page.category %}
   <p class="align--center mb-5"><a href="/projects/{{page.category}}" class="no-underline">Back to {{ page.project }}</a></p>
+  {% else %}
+  <p class="align--center mb-5"><a href="/blog" class="no-underline">Back to Blog</a></p>
+  {% endif %}
 </article>

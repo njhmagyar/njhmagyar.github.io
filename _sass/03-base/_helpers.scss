@@ -133,6 +133,8 @@ td.small-screen-hidden {
 .bg-gray-tag { background: $gray--tag; }
 .bg-blue { background: $blue; }
 .bg-blue--light { background: $blue--hover-2; }
+.bg-fuscia { background: $fuscia; }
+.bg-fuscia--light { background: $fuscia--hover; }
 .bg-green--light { background: $green--hover-2; }
 .bg-beige--light { background: $beige--hover-2; }
 .bg-yellow--light { background: $yellow--hover-2; }
@@ -253,6 +255,11 @@ td.small-screen-hidden {
 .w-100px { width: 100px; display: inline-block; }
 .w-150px { width: 150px; }
 .w-100-minus-150px { width: calc(100% - 150px); }
+.w-50--md-and-up {
+  @media #{$mq--md} {
+    width: 50%;
+  }
+}
 .mw-100p { max-width: 100% !important; }
 .mw-100 { max-width: 100px !important; }
 .mw-175 { max-width: 175px; }

@@ -17,10 +17,11 @@
       id="navbarMenu"
       data-target="main-navigation">
       {% for item in site.data.navigation %}
+      {% assign url_length = item.link | size %}
       <li class="nhm-nav-item">
         <a 
           href="{{ item.link }}" 
-          class="nhm-nav-link {% if page.url==item.link %}active{% endif %}">
+          class="nhm-nav-link {% if url_length > 1 and page.url contains item.link %}active{% endif %}">
           {{ item.name }}
         </a>
       </li>

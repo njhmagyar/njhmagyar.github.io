@@ -1,5 +1,6 @@
 ---
 name: GradeCraft
+permalink: projects/gradecraft/
 project_url: https://gradecraft.umich.edu/
 tagline: GradeCraft is a gameful learning management system in which learner choice and autonomy reign free. 
 stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]

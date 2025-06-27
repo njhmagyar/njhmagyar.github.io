@@ -1,5 +1,7 @@
 ---
+permalink: pretty
 title:  "Iterating to Reduce Frustration and Maximize Learning"
+is_case_study: true
 category: codespec
 roles: [UX Research, UX Design]
 project: Codespec
