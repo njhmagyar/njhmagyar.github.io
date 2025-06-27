@@ -12,9 +12,9 @@ After reading through [Duolingo's brand and design guidelines](https://design.du
 
 If you'd like to follow along, feel free to download the guide:
 
-![Page 1](/assets/images/how-to-draw-duo-1.png "Page 1"){:.w-100.w-50--md-and-up.rounded}
-![Page 2](/assets/images/how-to-draw-duo-2.png "Page 2"){:.w-100.w-50--md-and-up.rounded}
-{: .d-flex--md-and-up.mb-5}
+![Page 1](/assets/images/how-to-draw-duo-1.png "Page 1"){:.w-100.w-50--md-and-up.rounded.box-shadow.border-1-gray-tag}
+![Page 2](/assets/images/how-to-draw-duo-2.png "Page 2"){:.w-100.w-50--md-and-up.rounded.box-shadow.border-1-gray-tag}
+{: .nhm-responsive-image-grid.two-columns.mb-5}
 
 [Download Guide](/assets/images/How%20to%20Draw%20Duo.pdf){:.nhm-btn--blue.d-inline-block.mb-3}
 {:.align--center}
@@ -39,7 +39,7 @@ This may come in the form of floating feet, a soft shadow, or more nuanced shape
 
 ![Details](/assets/images/how-to-draw-duo-step-3.png "Details"){:.w-100.rounded.mb-5}
 
-## Step 4: Put it owl together
+## Step 4: Put it <span style="color:#78c93d;">owl</span> together
 
 Having practiced drawing each element separately, you're now ready to combine them all! And while you're at it, throw some color in there.
 

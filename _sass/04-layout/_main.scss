@@ -152,3 +152,15 @@
     }
   }
 }
+
+.nhm-responsive-image-grid {
+  @media #{$mq--md} {
+    @include flex($justify: space-between, $align: flex-start, $wrap: wrap);
+    gap: 1rem;
+    &.two-columns {
+      img {
+        max-width: calc(50% - 1rem);
+      }
+    }
+  }
+}

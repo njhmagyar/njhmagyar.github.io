@@ -397,3 +397,13 @@ td.small-screen-hidden {
   left: 0;
   right: 0;
 }
+
+.box-shadow {
+  box-shadow: 7px 7px 11px 1px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 7px 7px 11px 1px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 7px 7px 11px 1px rgba(0, 0, 0, 0.12);
+}
+
+.border-1-gray-tag {
+  border: 1px solid $gray--tag;
+}
