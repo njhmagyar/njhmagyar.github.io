@@ -1,6 +1,6 @@
 title: Nathan Haynes-Magyar
 description: >- # this means to ignore newlines until "baseurl:"
-  Full stack developer and user experience designer
+  UX Designer and Full Stack Developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  njhmagyar
@@ -13,6 +13,8 @@ plugins:
 
 collections:
   projects:
+    output: true
+  illustration_sets:
     output: true
   resumes:
     output: true

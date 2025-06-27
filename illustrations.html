@@ -1,0 +1,26 @@
+---
+title: Illustrations
+---
+<section class="bg-green--light">
+  <div class="nhm-wrapper">
+    <div class="nhm-hero mobile-image-first py-5 mb-10">
+      <div class="nhm-hero__text">
+        <h1 class="nhm-mega-font">Illustrations</h1>
+      </div>
+      <img class="nhm-hero__image mw-43 mb-2--700-and-below" src="assets/images/self-portrait--my-work.png" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="nhm-wrapper">
+  {% for illustration_set in site.illustration_sets %}
+  <h2 class="text--center mt-5 mb-2">{{ illustration_set.name }}</h2>
+  <ul class="unstyled-list nhm-masonry-grid">
+    {% for illustration in illustration_set.illustrations %}
+    <li class="tile">
+      <img src="{{ illustration }}" class="rounded">
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</section>

@@ -93,17 +93,6 @@ layout: default
   </ul>
   {% endif %}
 
-  {% if page.illustrations %}
-  <h2 class="text--center mt-5 mb-2">Illustrations</h2>
-  <ul class="unstyled-list nhm-masonry-grid">
-    {% for illustration in page.illustrations %}
-    <li class="tile">
-      <img src="{{ illustration }}" class="rounded">
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-
   {% if page.read_more %}
   <h2 class="text--center mt-5 mb-2">Other Work</h2>
   <ul class="nhm-card-grid two-columns">
