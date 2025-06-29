@@ -107,6 +107,7 @@
   max-width: 50%;
   @media #{$mq--md} {
     max-width: 33%;
+    max-height: 332px;
   }
   &.mw-43 {
     @media #{$mq--md} {

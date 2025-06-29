@@ -1,4 +1,5 @@
 .resume-wrapper {
+  margin-bottom: 3rem;
   @include flex($direction: column-reverse, $align: stretch);
   @media #{$mq--md} {
     @include flex($wrap: nowrap, $align: flex-start);
@@ -13,9 +14,8 @@
 }
 
 .resume-aside {
-  margin-bottom: 3rem;
   @media #{$mq--md} {
-    max-width: 25%;
+    width: 25%;
     margin-bottomm: 0;
   }
 }

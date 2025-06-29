@@ -1,13 +1,17 @@
 ---
 title: Resume
 ---
-<section class="bg-yellow--light">
+<section class="bg-gray--light">
   <div class="nhm-wrapper">
     <div class="nhm-hero mobile-image-first py-5">
       <div class="nhm-hero__text">
         <h1 class="nhm-mega-font">Nathan<br>Haynes-Magyar</h1>
+        <p class="p--lg">
+          Product Designer &</br>
+          Full Stack Developer
+        </p>
       </div>
-      <img class="nhm-hero__image mb-2--700-and-below" src="/assets/images/self-portrait--resume.png" alt="">
+      <img class="nhm-hero__image mb-2--700-and-below" src="/assets/images/nhm-shake.svg" alt="">
     </div>
   </div>
 </section>
@@ -18,11 +22,18 @@ title: Resume
     {% if resume.published == true %}
     <li>
       <article>
-        <p class="my-5">
-          I'm a product designer and full-stack developer with 8+ years of experience creating gamified,
-          learner-centered tools. I turn complex systems into delightful experiences—from mobile-first interfaces to scalable
-          content platforms. I thrive in fast-paced, mission-driven teams that value experimentation and playful polish.
-        </p>
+        <div class="resume-wrapper mt-5">
+          <p class="resume-main my-0">
+            I'm a product designer and full-stack developer with 8+ years of experience creating gamified,
+            learner-centered tools. I turn complex systems into delightful experiences—from mobile-first interfaces to scalable
+            content platforms. I thrive in fast-paced, mission-driven teams that value experimentation and playful polish.
+          </p>
+          <div class="resume-aside">
+            {% if resume.resume %}
+            <a class="nhm-btn--blue w-100 mb-2" href="{{ resume.resume }}" download>Download PDF</a>
+            {% endif %}
+          </div>
+        </div>
         <div class="resume-wrapper">
           <div class="resume-main">
             <h2 class="mt-0">Experience</h2>
@@ -53,10 +64,7 @@ title: Resume
               </li>
             </ul>
           </div>
-          <aside class="resume-aside">
-            {% if resume.resume %}
-            <a class="nhm-btn--blue w-100 mb-2" href="{{ resume.resume }}" download>Download PDF</a>
-            {% endif %}
+          <aside class="resume-aside mb-3">
             <h2 class="mt-0">Skills</h2>
             <h3 class="p--lg Nunito-bold mb-point-five">UX & Product Design</h3>
             <ul class="unstyled-list">
