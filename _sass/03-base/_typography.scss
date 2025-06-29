@@ -149,6 +149,7 @@ p, .p   {
 
 .text--black { color: $black; }
 .text--blue { color: $blue; }
+.text--gray { color: $gray; }
 .text--fuscia { color: $fuscia; }
 .text--white { color: $white; }
 
@@ -220,4 +221,11 @@ p, .p   {
   i {
     color: $blue;
   }
+}
+
+.nhm-quote {
+  font-size: 2rem;
+  line-height: 3rem;
+  border-left: 1px solid $black;
+  padding-left: 1rem;
 }
