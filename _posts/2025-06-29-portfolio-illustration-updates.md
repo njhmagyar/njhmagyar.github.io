@@ -33,7 +33,7 @@ In addition to remaining professional, warm and friendly, I wanted to instantly 
 - strong artistic ability and attention to detail
 {:.p.mt-0.mb-3}
 
-## Iteration 1
+## Iteration 1 - Make It Playful
 
 For the first iteration, I drew inspiration from the reference image below to explore a whimsical line-based, dual-chromatic style:
 
@@ -44,7 +44,7 @@ For the first iteration, I drew inspiration from the reference image below to ex
 While they achieved a simple, playful look, the "quick and sketchy" nature of the figures didn't convey enough detail for me.
 {:.mb-3}
 
-## Iteration 2
+## Iteration 2 - Make It Playful AND Detailed
 
 During a second iteration, I reviewed [Duolingo's character design recommendations](https://design.duolingo.com/illustration/characters), which helped me understand how to create engaging facial expressions and dynamic poses from simple shapes.
 
@@ -54,7 +54,7 @@ During a second iteration, I reviewed [Duolingo's character design recommendatio
 
 ![Poses figures with expressions and full color.](/assets/images/portfolio-illustration-updates-v2.png "Poses figures with expressions and full color."){:.w-100.mb-3}
 
-## Final Details
+## Final Details - Create Supporting Visuals
 
 Satisfied with the new playful style, I crafted a set of supporting icons/visuals to underscore the theme of each page (e.g., home, about, illustrations, etc).
 
