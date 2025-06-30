@@ -46,7 +46,7 @@ While they achieved a simple, playful look, the "quick and sketchy" nature of th
 
 ## Iteration 2
 
-During a second iteration, I reviewed [Duolingo's character design recommendations](https://design.duolingo.com/illustration/characters), which helped me understand how to create intricate facial expressions and poses from simple shapes.
+During a second iteration, I reviewed [Duolingo's character design recommendations](https://design.duolingo.com/illustration/characters), which helped me understand how to create engaging facial expressions and dynamic poses from simple shapes.
 
 ![Facial expressions.](/assets/images/portfolio-illustration-updates-v2-expressions.png "Facial expressions."){:.w-100.mb-1.rounded}
 
@@ -62,6 +62,6 @@ Satisfied with the new playful style, I crafted a set of supporting icons/visual
 
 ## The Result
 
-After bringing the figures and supporting icons together in casual, semi-random rotations, I sprinked in some additional shapes for subtle movement and personality. And voila!
+After bringing the figures and supporting icons together in casual, semi-random rotations, I sprinkled in some additional shapes for subtle movement and personality. And voila!
 
 ![Final flat design self-portraits with more personality and detail](/assets/images/portfolio-illustration-updates-final.png "Final flat design self-portraits with more personality and detail"){:.w-100.mb-3}
