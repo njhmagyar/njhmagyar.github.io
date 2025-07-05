@@ -8,6 +8,9 @@
     max-width: 1056px;
     margin: 0 auto;
   }
+  @media #{$mq--1056} {
+    padding: 0;
+  }
 }
 
 .nhm-navbar-brand {

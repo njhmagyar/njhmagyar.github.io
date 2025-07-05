@@ -1,9 +1,11 @@
 ---
-name: Spire
+supertitle: Spire
+title: Using monthly progress emails to increase user engagement with a competency-based learning platform
 permalink: projects/spire/
 project_url: https://spire.ai.umich.edu/
 tagline: Spire is a competency-based learning platform that empowers learners to record their curricular and co-curricular growth/experiences for reference during their job search.
 stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]
+tools: [Ruby/Rails, HTML/HAML, Feature Scoping, Requirements Gathering]
 roles: [Software Developer, Project Lead]
 duration: May 2021 - Present
 order: 4
@@ -12,6 +14,7 @@ thumbnail_image: /assets/images/spire-thumbnail.png
 logo_image: /assets/images/spire-logo.png
 hero_image: /assets/images/spire-hero.png
 read_more: [Twirlmate,Codespec]
+published: false
 ---
 
 ## Ask Me About

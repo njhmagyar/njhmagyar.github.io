@@ -135,12 +135,17 @@ p, .p   {
 }
 .text--extra-small { font-size: .8rem; line-height: 1.2rem; }
 
-.text--bold { @extend .DMSans-bold; }
+.text--bold { @extend .Nunito-bold; }
 .text--semibold { @extend .DMSans-SemiBold; }
 .text--light { font-weight: 300; }
 .text--strikethrough { text-decoration: line-through;}
 
 .align--center { text-align: center !important; }
+.align--center--700-and-up {
+  @media #{$mq--md} {
+    text-align: center !important;
+  }
+}
 .align--left { text-align: left !important; }
 .align--right { text-align: right !important; }
 .text--center {

@@ -10,6 +10,9 @@
 
     @media #{$mq--md} {
       grid-template-columns: repeat(2, 1fr);
+      &.three-columns {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
 
     @media #{$mq--lg} {
@@ -52,6 +55,11 @@
 }
 
 .nhm-card--horizontal {
+  &.image-last--mobile {
+    @media #{$mq-700-and-below} {
+      @include flex($direction: column-reverse);
+    }
+  }
   @media #{$mq--md} {
     @include flex($justify: flex-start, $align: flex-start, $wrap: nowrap);
     &:nth-child(even) {
@@ -61,11 +69,13 @@
       }
     }
   }
-  &.responsive-margin-bottom {
-    margin-bottom: 6rem;
-    @media #{$mq--md} {
-      margin-bottom: 12rem;
-    }
+}
+
+.responsive-margin-bottom {
+  margin-bottom: 6rem;
+
+  @media #{$mq--md} {
+    margin-bottom: 12rem;
   }
 }
 

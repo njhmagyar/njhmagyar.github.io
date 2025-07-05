@@ -1,9 +1,11 @@
 ---
-name: Michigan Online
+supertitle: Michigan Online
+title: Driving the product lifecycle to feature 3rd party content on a course catalog
 permalink: projects/michigan-online/
 project_url: https://online.umich.edu/
 tagline: Michigan Online is the University of Michigan's catalog of online learning experiences.
 stack: [Python/Django, JavaScript/Vue, HTML, SASS]
+tools: [Python/Django, JavaScript/Vue.js, Requirements Gathering, Agile]
 roles: [UX Designer, Frontend Developer]
 duration: November 2017 - April 2021
 order: 3
@@ -25,6 +27,7 @@ screenshots: [
   /assets/images/michigan-online/screenshots/content-item-detail.png,
 ]
 read_more: [Twirlmate,Codespec]
+published: false
 ---
 
 ## Ask Me About

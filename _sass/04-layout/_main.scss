@@ -18,12 +18,31 @@
   @media #{$mq--lg} {
     padding: 0 1.5rem;
   }
+  @media #{$mq--1056} {
+    padding: 0;
+  }
   &.w-700 {
     @media #{$mq--md} {
       max-width: 700px;
     }
     @media #{$mq--lg} {
       padding: 0;
+    }
+  }
+}
+
+.nhm-prototype-wrapper {
+  @include flex($justify: center, $align: start, $wrap: wrap);
+  &.two-columns {
+    .nhm-prototype {
+      flex: 0 0 100%;
+      text-align: center;
+      @media #{$mq--lg} {
+        flex: auto;
+      }
+    }
+    @media #{$mq--lg} {
+      @include flex($justify: between, $align: start, $wrap: nowrap);
     }
   }
 }

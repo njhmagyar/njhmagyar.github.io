@@ -1,9 +1,11 @@
 ---
-name: GradeCraft
+supertitle: GradeCraft
+title: Leading an Angular 1 to Vue.js rewrite for a gameful learning management system
 permalink: projects/gradecraft/
 project_url: https://gradecraft.umich.edu/
 tagline: GradeCraft is a gameful learning management system in which learner choice and autonomy reign free. 
 stack: [Ruby/Rails, JavaScript/Vue, HTML/HAML, SASS]
+tools: [Ruby/Rails, HTML/HAML, Angular.js, Vue.js]
 roles: [Software Developer, Project Lead]
 duration: May 2021 - Present
 order: 5
@@ -12,6 +14,7 @@ thumbnail_image: /assets/images/gradecraft-thumbnail.png
 logo_image: /assets/images/gradecraft-logo.png
 hero_image: /assets/images/gradecraft-hero.png
 read_more: [Twirlmate,Codespec]
+published: false
 ---
 
 ## Ask Me About

@@ -20,21 +20,18 @@ layout: default
 <section class="nhm-wrapper">
   <h2 class="h1 text--center my-5">My Work</h2>
   <ul class="unstyled-list">
-    {% assign ordered_projects = site.projects | sort:"order" %}
+    {% assign ordered_projects = site.projects | where: 'published', true | sort:"order" %}
     {% for project in ordered_projects %}
     <li class="nhm-card--horizontal responsive-margin-bottom">
-      <a href="{{ project.url }}" class="nhm-card__image-wrapper"><img src="{{ project.thumbnail_image }}"
-          class="nhm-card__image rounded" alt="{{ project.name }}" /></a>
+      <a href="{{ project.url }}" class="nhm-card__image-wrapper">
+        <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded" alt="{{ project.title }}" /></a>
       <div>
-        <h3 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.name }}</a>
+        <h3 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a>
         </h3>
         <div class="d-flex justify-start align-center">
           <ul class="nhm-tag-list">
             {% for role in project.roles %}
             <li class="nhm-tag-list__item">{{ role }}</li>
-            {% endfor %}
-            {% for language in project.stack %}
-            <li class="nhm-tag-list__item">{{ language }}</li>
             {% endfor %}
           </ul>
         </div>
