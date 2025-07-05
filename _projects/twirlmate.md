@@ -122,17 +122,35 @@ published: true
   </div>
 </div>
 
-<div class="nhm-prototype-wrapper two-columns" id="twirlmate-prototype">
-  <div class="nhm-prototype" style="position: relative">
-    <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">Old Version (A)</p>
-    <p  style="position: absolute; top: 1.5rem; width: 100%; text-align: center">Interact with me!</p>
-    <iframe style="border: none; margin: -60px -48px 0; background: none;" width="400" height="900" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2215%3A14171&node-id=2227-21558&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2215%3A14172&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+<div id="twirlmate-prototype">
+  <div class="small-screen-visible">
+    <div class="nhm-prototype align--center" style="position: relative">
+      <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">Old Version (A)</p>
+      <p  style="position: absolute; top: .5rem; width: 100%; text-align: center">Interact with me!</p>
+      <iframe style="border: none; margin: -60px -48px 0; background: none;" width="250" height="562.5" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2215%3A14171&node-id=2227-21558&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2215%3A14172&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+    </div>
+    
+    <div class="nhm-prototype align--center" style="position: relative">
+      <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">New Version (B)</p>
+      <p  style="position: absolute; top: .5rem; width: 100%; text-align: center">Interact with me!</p>
+      <iframe style="border: none; margin: -60px -48px 0; background: none;" width="250" height="562.5" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2001%3A571&node-id=2001-572&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2001%3A572&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+    </div>
   </div>
-  
-  <div class="nhm-prototype" style="position: relative">
-    <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">New Version (B)</p>
-    <p  style="position: absolute; top: 1.5rem; width: 100%; text-align: center">Interact with me!</p>
-    <iframe style="border: none; margin: -60px -48px 0; background: none;" width="400" height="900" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2001%3A571&node-id=2001-572&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2001%3A572&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+
+  <div class="small-screen-hidden">
+    <div class="nhm-prototype-wrapper two-columns">
+      <div class="nhm-prototype" style="position: relative">
+        <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">Old Version (A)</p>
+        <p  style="position: absolute; top: 1.5rem; width: 100%; text-align: center">Interact with me!</p>
+        <iframe style="border: none; margin: -60px -48px 0; background: none;" width="400" height="900" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2215%3A14171&node-id=2227-21558&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2215%3A14172&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+      </div>
+      
+      <div class="nhm-prototype" style="position: relative">
+        <p class="h3" style="position: absolute; top: -2rem; width: 100%; text-align: center">New Version (B)</p>
+        <p  style="position: absolute; top: 1.5rem; width: 100%; text-align: center">Interact with me!</p>
+        <iframe style="border: none; margin: -60px -48px 0; background: none;" width="400" height="900" src="https://embed.figma.com/proto/VbUhHmtfWQIjdwayKFZV88/Twirlmate?page-id=2001%3A571&node-id=2001-572&viewport=-5945%2C388%2C0.52&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2001%3A572&embed-host=share&hide-ui=1" allowfullscreen></iframe>
+      </div>
+    </div>
   </div>
 </div>
 
