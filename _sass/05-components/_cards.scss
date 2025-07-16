@@ -55,6 +55,13 @@
 }
 
 .nhm-card--horizontal {
+  .nhm-card__image-wrapper {
+    @media #{$mq-700-and-below} {
+      max-width: 250px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+  }
   &.image-last--mobile {
     @media #{$mq-700-and-below} {
       @include flex($direction: column-reverse);

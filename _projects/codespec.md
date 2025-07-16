@@ -1,18 +1,18 @@
 ---
 supertitle: Codespec
-title: Designing a research-based programming practice environment
+title: Using GenAI to create programming practice problems
 permalink: projects/codespec/
 project_url: https://www.codespec.org/
-tagline: Codespec is a computer programming practice environment that supports learners of all skill levels by offering 5 ways to solve each problem.
+tagline: I designed, prompt-engineered, and built an interface for computer science instructors to create programming problems with the help of Chat GPT.
 stack: [Python/Django, JavaScript/Vue, HTML, SCSS]
 tools: [Figma, Python/Django, JavaScript/Vue, HTML, SCSS]
-roles: [Co-Founder, Lead Developer, UX Designer]
-duration: January 2021 - Present
+roles: [Solo UX Designer, Prompt Engineer, Solo Developer]
+duration: June - July 2024
 order: 2
 featured: true
-cover_image: /assets/images/codespec-cover.png
-thumbnail_image: /assets/images/codespec-thumbnail.png
-logo_image: /assets/images/codespec-logo.png
+cover_image: /assets/images/codespec-cover.svg
+thumbnail_image: /assets/images/codespec-cover.svg
+logo_image: /assets/images/codespec-cover.svg
 hero_image: /assets/images/codespec-hero.png
 screenshots: [
   /assets/images/codespec-hero.png,
@@ -25,108 +25,148 @@ screenshots: [
   /assets/images/codespec/screenshots/workbook-console.png,
   /assets/images/codespec/screenshots/survey-console.png,
 ]
-read_more: [Twirlmate,Michigan Online]
-published: false
+read_more: []
+published: true
 ---
-## The Problem
-{:.mt-3}
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/codespec-falling.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The Original Problem</h2>
+    <p class="p--lg">For novices, learning to program can be a frustrating and discouraging experience.</p>
+    <p class="p--lg">It requires mastery of many concepts: logic, syntax, data types, and more—all of which learners have to apply simultaneously.</p>
+  </div>
+</div>
 
-Learning to program comes with a unique set of challenges, including: learning to think logically/programmatically, using correct syntax, and mastering fundamental concepts such as variables and data types.
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/codespec-interface.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+  `<h2>The Original Solution</h2>
+    <p class="p--lg">
+      That's why I partnered with an academic researcher to design and build <a href="https://www.codespsec.com">Codespec</a>, 
+      a Python programming practice environment that offers learners 5 ways to solve each problem (e.g., plain English, code blocks, writing code from scratch, etc).
+    </p>
+  </div>
+</div>
 
-Most challenging of all, however, is that learners have to overcome many of these obstacles simultaneously.
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/codespec-time.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The Need for GenAI</h2>
+    <p class="p--lg">
+      Using the original interface, it took me 15 minutes on average to create a single problem. Yikes, that's a long time!
+    </p>
+    <p class="p--lg">
+      Fortunately, large language models have been found to create high quality educational questions for online learning at scale (Bulathwela, Muse, and Yilmaz <a href="https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2394886#" target="_blank">2023</a>; Wang et al. Citation <a href="https://www.tandfonline.com/doi/full/10.1080/0144929X.2024.2394886#" target="_blank">2022</a>).
+    </p>
+  </div>
+</div>
 
-## The Process
-{:.mt-3}
+<div class="nhm-card--horizontal responsive-margin-bottom image-last--mobile">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/codespec-human-in-the-loop.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The Human-in-the-Loop</h2>
+    <p class="p--lg">
+      However, in keeping with the <a href="https://cloud.google.com/discover/human-in-the-loop" target="_blank">human-in-the-loop</a> approach, I viewed GenAI as an <em>enhancement</em> of human expertise, not a <em>replacement</em>.
+    </p>
+    <p class="p--lg">I wanted instructors to guide and evaluate the content as Chat GPT created it.
+    </p>
+    <p class="p--lg">So I made a list of data points that would be human- vs AI-generated.</p>
+  </div>
+</div>
 
-### Identify the opportunity
+<div class="responsive-margin-bottom">
+  <p class="p--lg">
+    I also thought about how instructors would remain involved in reviewing/modifying the output:
+  </p>
+  <div class="bg-gray--light align--center">
+    <img src="/assets/images/codespec-loop.svg" class="mt-2 w-100" alt="" />
+  </div>
+</div>
 
-During his doctoral studies, my co-founder observed that very few educational tools existed which gently introduced learners to programming basics while also continuing to support them as they developed their confidence and expertise. 
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/codespec-authoring-choice.png" class="nhm-card__image rounded" alt="" />
+  </div>
+  <div>
+    <h2>The AI-Enhanced Experience</h2>
+    <p class="p--lg">
+      Next, I considered how this new flow would exist within the broader context of the app.
+    </p>
+    <p class="p--lg">
+      I opted to give instructors the choice: use the original flow for maximum control, or leverage generative AI.
+    </p>
+  </div>
+</div>
 
-This was not to say that separate tools didn't exist for programmers at various stages of skill; indeed, there were many. But none of them attempted to bridge the gap between novices and more experienced programmers.
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The One-Shot Prompt</h2>
+    <p class="p--lg">
+      For the prompt itself, I provided Chat GPT with detailed instructions for the task at hand, as well as an example of the desired output.
+    </p>
+  </div>
+</div>
 
-### Conceptualize a solution
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The Implementation</h2>
+    <p class="p--lg">
+      I used HTML forms to collect instructor parameters and integrated Chat GPT's API into the backend.
+    </p>
+    <p class="p--lg">
+      Then, I parsed the result, validated it, and saved it to the database for future retrieval/modification.
+    </p>
+  </div>
+</div>
 
-My co-founder envisioned a programming practice tool that brought together all the different ways learners could practice their skills. His goal was to create a scaffolded educational experience that met learners at their current skill level and provided them with opportunities to gradually stretch their abilities.
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>The Result</h2>
+    <p class="p--lg">
+      Ultimately, using Chat GPT reduced problem authoring time from 15 minutes to 30 seconds!
+    </p>
+  </div>
+</div>
 
-There were 5 problem types he sought to combine, all rooted in computer science education research: 
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div href="{{ project.url }}" class="nhm-card__image-wrapper">
+    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+  </div>
+  <div>
+    <h2>Next Steps</h2>
+    <p class="p--lg">
+      In future iterations, I'd like to optimize the user experience and final output by changing the input provided by authors versus Chat GPT.
+    </p>
+    <p class="p--lg">
+      It would also be useful to allow authors to evaluate Chat GPT's performance, so I can track user satisfaction and content quality.
+    </p>
+    <p class="p--lg">
+      Finally, I would like to add content guard rails to the prompt, to prevent inappropriate or harmful material.
+    </p>
+  </div>
+</div>
 
-- **Pseudocode:** Plain English descriptions of code blocks
-
-- **Parsons Blocks:** Mixed-up code blocks
-
-- **Faded Parsons:** Fill-in-the-blank mixed-up code blocks
-
-- **Fix Code:** Code that contains bugs
-
-- **Write Code:** Writing the code from scratch
-
-### Draw inspiration from the current landscape
-
-As the UX Designer and primary developer for the project, it was my task to bring this vision to life; to synthesize these problem solving methods into a cohesive, intuitive, engaging interface that stood on the shoulders of prior research to offer a new-and-improved learning experience.
-
-So first, I had to familiarize myself with computer science education research and the tools being developed in the field.
-
-#### Pseudocode
-
-The first problem type to incorporate was "pseudocode." The concept was inspired by Kathryn Cunningham's work on [purpose-first programming](https://dl.acm.org/doi/10.1145/3411764.3445571), which focuses on the conversational aspect of programming. In her studies, she asks learners to spend time planning out the goals and subgoals of a program before diving into the code. Her findings conclude that "learning with purpose-first programming is motivating for conversational programmers because it engenders a feeling of success."
-
-Cal Poly's [Pseudocode Standard](https://users.csc.calpoly.edu/~jdalbey/SWE/pdl_std.html) was another point of inspiration, as it provides a structured approach for describing code in human-readable English.
-
-In our implementation, learners would drag mixed-up blocks of plain English code descriptions from an area on the left side of the screen, and place them in the correct order and indentation on the right:
-
-![Pseudocode](/assets/images/codespec/problem-interface/pseudocode.gif "Pseudocode"){:.w-100.mb-3.rounded}
-
-#### Parsons Problems
-
-The next problem type, Parsons Problems, was already commonly used with novice programmers. Popularized by an open source library, [js-parsons](https://github.com/js-parsons/js-parsons), they are a staple in computer science education. 
-
-My co-founder's [own research](https://dl.acm.org/doi/fullHtml/10.1145/3564721.3564736) finds that Parsons problems "usually improve problem-solving efficiency, lower cognitive load, and most undergraduates find them useful for learning how to program."
-
-Learners start out with a set of mixed-up blocks of code on the left and must arrange them in the correct order/indentation on the right:
-
-![JS Parsons](/assets/images/codespec/problem-interface/js-parsons.png "JS Parsons"){:.w-100.rounded}
-
-Our custom implementation of Parsons problems would work in much the same way, with one key difference: learners would have complete freedom to place a block at any x-y coordinate in the solution area:
-
-![Parsons](/assets/images/codespec/problem-interface/parsons.gif "Parsons"){:.w-100.mt-1.mb-3.rounded}
-
-#### Faded Parsons Problems
-
-Nathaniel Weinman's work on [Faded Parsons problems](https://dl.acm.org/doi/10.1145/3411764.3445228) (below) defined the 3rd problem type we wanted to include. He found that "rearranging and completing partially blank lines of code into a valid program, are an effective exercise interface for teaching programming patterns, significantly surpassing the performance of the more standard approaches of code writing and code tracing exercises."
-
-![Original Faded Parsons](/assets/images/codespec/problem-interface/faded-parsons--original.png "Original Faded Parsons"){:.w-100.my-1.rounded}
-
-Our custom version of Faded Parsons problems would mirror the same style of text entry for fill-in-the-blank blocks:
-
-![Faded Parsons](/assets/images/codespec/problem-interface/faded-parsons.gif "Faded Parsons"){:.w-100.mt-1.mb-3.rounded}
-
-#### Fix Code
-
-[Jacqueline Whalley et al](https://dl.acm.org/doi/abs/10.1145/3408877.3432374) report that debugging is an often under-taught, under-practiced skill and that many novice programmers wish they were equipped with better approaches.
-
-Presenting learners with bug-ridden code and explicitly requiring them to debug it, therefore, seemed like a potentially beneficial exercise to offer:
-
-![Fix Code](/assets/images/codespec/problem-interface/fix-code.gif "Fix Code"){:.w-100.mt-1.mb-3.rounded}
-
-#### Write Code
-
-The ultimate goal for any programmer is to be able to write code on their own. So it was only logical to incorporate a completely open-ended IDE as the last problem type:
-
-![Write Code](/assets/images/codespec/problem-interface/write-code.gif "Write Code"){:.w-100.mt-1.mb-3.rounded}
-
-### 2022 Learning Levers Prize ($10,000)
-
-After months of iterative design and development work, we had an initial prototype and were awarded a $10,000 grant from the University of Michigan School of Education's Learning Levers Competition.
-
-Since then we have continued to iterate on the platform's design and data architecture, and add new features to support in-depth academic research such as workbooks, surveys and timed problems.
-
-## Next Steps
-
-We continue to follow ongoing trends in the AI space and think about the role this technology could play in Codespec's functionality.
-
-## Lessons Learned
-
-### Innovation takes many forms
-
-Doing something new doesn't always require creating a product that's unlike anything people have ever seen. Sometimes it happens when you combine existing ideas in a new way.
-{:.mb-5}
+<div class="responsive-margin-bottom align--center--700-and-up">
+  <h2>Key Takeaway</h2>
+  <p class="p--lg">
+    Prioritizing human-in-the-loop experiences in the design process is the best way to balance traditional user-centered design with modern tools.
+  </p>
+  <img src="/assets/images/construction.svg" class="mt-2 mxh-300" alt="" />
+</div>
