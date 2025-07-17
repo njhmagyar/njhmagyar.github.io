@@ -1288,7 +1288,7 @@ Expected:
                 form.style.display = 'none';
                 loadingState.style.display = 'block';
                 
-                // After 1 second, show the generated problem form
+                // After 5 seconds, show the generated problem form
                 setTimeout(function() {
                     const generatedForm = document.getElementById('generated-problem-form');
                     loadingState.style.display = 'none';
@@ -1333,7 +1333,7 @@ Expected:
                         generatedForm.style.display = 'none';
                         solutionLoadingState.style.display = 'block';
                         
-                        // After 1 second, show the solution result
+                        // After 5 seconds, show the solution result
                         setTimeout(function() {
                             solutionLoadingState.style.display = 'none';
                             document.getElementById('solution-result').style.display = 'block';
@@ -1380,7 +1380,7 @@ Expected:
                                 solutionResult.style.display = 'none';
                                 testLoadingState.style.display = 'block';
                                 
-                                // After 1 second, hide the test loading message and show test results
+                                // After 5 seconds, hide the test loading message and show test results
                                 setTimeout(function() {
                                     testLoadingState.style.display = 'none';
                                     const testResult = document.getElementById('test-result');
@@ -1446,7 +1446,7 @@ Expected:
                                         testResult.style.display = 'none';
                                         typesLoadingState.style.display = 'block';
                                         
-                                        // After 1 second, hide the types loading message and show problem solving interface
+                                        // After 5 seconds, hide the types loading message and show problem solving interface
                                         setTimeout(function() {
                                             typesLoadingState.style.display = 'none';
                                             const problemSolvingInterface = document.getElementById('problem-solving-interface');
@@ -1537,13 +1537,13 @@ Expected:
                                                 testResult.style.display = 'block';
                                                 updateProgressSteps(4); // Back to Step 4: Tests
                                             });
-                                        }, 1000);
+                                        }, 5000);
                                     });
-                                }, 1000);
+                                }, 5000);
                             });
-                        }, 1000);
+                        }, 5000);
                     });
-                }, 1000);
+                }, 5000);
             });
         });
         

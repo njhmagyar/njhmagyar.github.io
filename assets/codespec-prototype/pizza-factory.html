@@ -9,6 +9,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material-darker.min.css">
     <style>
+        /* Prototype hints styling */
+        .prototype-hint {
+            position: relative;
+            animation: gentle-pulse 2s ease-in-out infinite;
+        }
+    
+    
+        @keyframes gentle-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+    
+            100% {
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+        }
+    
+        .prototype-hint.subtle {
+            animation: subtle-glow 3s ease-in-out infinite;
+        }
+    
+        @keyframes subtle-glow {
+    
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(83, 130, 235, 0.2);
+            }
+    
+            50% {
+                box-shadow: 0 0 15px 0 rgba(83, 130, 235, 0.4);
+            }
+        }
+        .rounded {
+            border-radius: .5rem;
+        }
+    </style>
+    <style>
         /* CodeMirror styling */
         .CodeMirror {
             border: 1px solid #4B5160;
@@ -343,7 +380,7 @@
                                     </a>
                                 </li>
                                 <li class="cs-page-header__breadcrumb-list-item">
-                                    <a class="text--link no-underline" href="index.html">
+                                    <a class="text--link no-underline rounded prototype-hint" href="index.html">
                                         My Problems
                                     </a>
                                 </li>
