@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codespec - New Problem</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material-darker.min.css">
+    <style>
+        .loading-logo {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .loading-logo svg {
+            display: inline-block;
+        }
+        
+        /* Ripple animation for colored bars */
+        @keyframes ripple {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+        
+        #loading-svg #red-1 { animation: ripple 2s ease-in-out infinite; animation-delay: 0s; }
+        #loading-svg #red-2 { animation: ripple 2s ease-in-out infinite; animation-delay: 0.2s; }
+        #loading-svg #yellow { animation: ripple 2s ease-in-out infinite; animation-delay: 0.4s; }
+        #loading-svg #green { animation: ripple 2s ease-in-out infinite; animation-delay: 0.6s; }
+        #loading-svg #blue { animation: ripple 2s ease-in-out infinite; animation-delay: 0.8s; }
+        #loading-svg #violet { animation: ripple 2s ease-in-out infinite; animation-delay: 1.0s; }
+        
+        /* Solution loading animation */
+        #solution-loading-svg #solution-red-1 { animation: ripple 2s ease-in-out infinite; animation-delay: 0s; }
+        #solution-loading-svg #solution-red-2 { animation: ripple 2s ease-in-out infinite; animation-delay: 0.2s; }
+        #solution-loading-svg #solution-yellow { animation: ripple 2s ease-in-out infinite; animation-delay: 0.4s; }
+        #solution-loading-svg #solution-green { animation: ripple 2s ease-in-out infinite; animation-delay: 0.6s; }
+        #solution-loading-svg #solution-blue { animation: ripple 2s ease-in-out infinite; animation-delay: 0.8s; }
+        #solution-loading-svg #solution-violet { animation: ripple 2s ease-in-out infinite; animation-delay: 1.0s; }
+        
+        /* Test loading animation */
+        #test-loading-svg #test-red-1 { animation: ripple 2s ease-in-out infinite; animation-delay: 0s; }
+        #test-loading-svg #test-red-2 { animation: ripple 2s ease-in-out infinite; animation-delay: 0.2s; }
+        #test-loading-svg #test-yellow { animation: ripple 2s ease-in-out infinite; animation-delay: 0.4s; }
+        #test-loading-svg #test-green { animation: ripple 2s ease-in-out infinite; animation-delay: 0.6s; }
+        #test-loading-svg #test-blue { animation: ripple 2s ease-in-out infinite; animation-delay: 0.8s; }
+        #test-loading-svg #test-violet { animation: ripple 2s ease-in-out infinite; animation-delay: 1.0s; }
+        
+        /* Problem types loading animation */
+        #types-loading-svg #types-red-1 { animation: ripple 2s ease-in-out infinite; animation-delay: 0s; }
+        #types-loading-svg #types-red-2 { animation: ripple 2s ease-in-out infinite; animation-delay: 0.2s; }
+        #types-loading-svg #types-yellow { animation: ripple 2s ease-in-out infinite; animation-delay: 0.4s; }
+        #types-loading-svg #types-green { animation: ripple 2s ease-in-out infinite; animation-delay: 0.6s; }
+        #types-loading-svg #types-blue { animation: ripple 2s ease-in-out infinite; animation-delay: 0.8s; }
+        #types-loading-svg #types-violet { animation: ripple 2s ease-in-out infinite; animation-delay: 1.0s; }
+        
+        /* CodeMirror styling */
+        .CodeMirror {
+            border: 1px solid #4B5160;
+            border-radius: 5px;
+            height: auto;
+            min-height: 200px;
+            font-size: 14px;
+            line-height: 1.5;
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-gutters {
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-scroll {
+            min-height: 200px;
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-lines {
+            padding-left: 4px !important;
+        }
+        
+        /* Custom colors for comments and line numbers */
+        .CodeMirror .cm-comment {
+            color: #4B5160 !important;
+        }
+        
+        .CodeMirror-linenumber {
+            color: #4B5160 !important;
+        }
+        
+        .theme--light .CodeMirror {
+            border-color: #ddd;
+        }
+        
+        .theme--light .CodeMirror .cm-comment {
+            color: #ddd !important;
+        }
+        
+        .theme--light .CodeMirror-linenumber {
+            color: #ddd !important;
+        }
+        
+        /* Problem solving interface styles */
+        .problem-solving-tabs {
+            border: 1px solid #4B5160;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tab-content {
+            padding: 1.5rem;
+            background: #0f1525;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .run-button {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        /* Parsons problem styles */
+        .parsons-container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .parsons-column {
+            flex: 1;
+        }
+        
+        .parsons-column h4 {
+            margin: 0 0 1rem 0;
+            color: #e6e7ec;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .parsons-blocks {
+            min-height: 300px;
+            border: 2px dashed #4B5160;
+            border-radius: 4px;
+            padding: 1rem;
+        }
+        
+        .code-block {
+            background: #1e2a3a;
+            border: 1px solid #4B5160;
+            border-radius: 4px;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: move;
+            transition: all 0.2s;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .code-block:hover {
+            border-color: #5382eb;
+            background: #243447;
+        }
+        
+        .code-block.dragging {
+            opacity: 0.5;
+        }
+        
+        /* Syntax highlighting for blocks */
+        .code-block .keyword { color: #c586c0; }
+        .code-block .string { color: #ce9178; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .number { color: #b5cea8; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .variable { color: #9cdcfe; }
+        
+        /* Fill-in-the-blank styles */
+        .fill-blank {
+            display: inline-block;
+            min-width: 80px;
+            padding: 2px 8px;
+            background: #1e2a3a;
+            border: 1px solid #5382eb;
+            border-radius: 3px;
+            color: #e6e7ec;
+            font-family: inherit;
+            margin: 0 2px;
+        }
+        
+        .fill-blank:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="theme theme--default" id="body">
+    <script>
+        let body = document.querySelector("body");
+        let cachedThemeClass = localStorage.getItem("cs-theme", null);
+        if (cachedThemeClass) {
+            body.classList.add(cachedThemeClass);
+            localStorage.setItem("cs-theme", cachedThemeClass);
+        } else {
+            body.classList.add("theme--default");
+        }
+    </script>
+    <div class="base-wrapper base" data-target="main-wrapper">
+        <a class="skip-to-main" href="#main">Skip to main content</a>
+        
+        <header class="cs-header">
+            <nav class="cs-navbar console" data-target="nav-wrapper">
+                <a class="cs-navbar-brand" href="javascript:void(0);" aria-label="Codespec" data-mobile-nav-item="">
+                    <div class="logo"></div>
+                </a>
+                <button class="cs-navbar-toggler large-screen-hidden" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" data-action="nav-toggle" data-mobile-nav-item="">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="cs-navbar-nav mobile-hidden" id="navbarMenu" data-target="main-navigation">
+                    <li class="cs-nav-item">
+                        <a class="cs-nav-link" href="javascript:void(0);" data-mobile-nav-item="">
+                            Console
+                        </a>
+                    </li>
+                    
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">My Work</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Courses
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media Library
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="/" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problems
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Questions
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Surveys
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbooks
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Browse</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem Bank
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up cs-btn--primary" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Create</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Course
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link active" href="new-problem.html" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Question
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Survey
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbook
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="cs-nav-item">
+                        <button type="button" class="cs-nav-button circular ml-1--950-and-up" aria-label="Switch to lightmode">
+                            <i class="fa-solid fa-moon medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Switch to lightmode</span>
+                        </button>
+                    </li>
+                    <li class="cs-nav-item">
+                        <a href="javascript:void(0);" class="cs-nav-button circular ml-1--950-and-up no-underline" aria-label="Trash">
+                            <i class="fa-solid fa-trash-can medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Trash</span>
+                        </a>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button circular ml-1--950-and-up" data-action="account-nav-toggle" data-mobile-nav-item="">
+                            <span class="medium-screen-hidden">NH</span>
+                            <span class="cs-nav-button__text large-screen-hidden">My Account</span>
+                            <i class="fas fa-chevron-down large-screen-hidden" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu right-aligned no-border--950-and-below" data-target="account-nav" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Switch to Learner View
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    My Account
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <span aria-live="assertive" data-target="notification-list-wrapper">
+        </span>
+
+        <div class="main-wrapper">
+            <main id="main" role="main" class="">
+                <div class="cs-layout--with-sidebar__main-content__padding">
+                    <header class="cs-page-header mb-2">
+                        <nav aria-label="Breadcrumbs" class="cs-page-header__breadcrumbs">
+                            <ol class="cs-page-header__breadcrumb-list">
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="javascript:void(0);">
+                                        Console
+                                    </a>
+                                </li>
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="index.html">
+                                        My Problems
+                                    </a>
+                                </li>
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <span>New Problem</span>
+                                </li>
+                            </ol>
+                        </nav>
+                        <div class="cs-page-header__title-actions">
+                            <h1 class="m-0">New Problem</h1>
+                        </div>
+                    </header>
+                    
+                    <!-- Progress Steps -->
+                    <div class="progress-steps mb-3">
+                        <div class="step current" data-step="1">
+                            <div class="step-circle">1</div>
+                            <div class="step-label">Setup</div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step upcoming" data-step="2">
+                            <div class="step-circle">2</div>
+                            <div class="step-label">Details</div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step upcoming" data-step="3">
+                            <div class="step-circle">3</div>
+                            <div class="step-label">Solution</div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step upcoming" data-step="4">
+                            <div class="step-circle">4</div>
+                            <div class="step-label">Tests</div>
+                        </div>
+                        <div class="step-connector"></div>
+                        <div class="step upcoming" data-step="5">
+                            <div class="step-circle">5</div>
+                            <div class="step-label">Types</div>
+                        </div>
+                    </div>
+                    
+                    <form class="cs-card mb-3" id="problem-form" novalidate="">
+                        
+                        <div class="cs-field-wrapper">
+                            <label class="cs-field-label required">How do you want to create this problem?</label>
+                            <fieldset class="cs-form-fieldset cs-form-checklist">
+                                <label for="creation-method_0">
+                                    <input
+                                        name="creation-method"
+                                        id="creation-method_0"
+                                        class="browser-default-radio cs-form-checklist"
+                                        type="radio"
+                                        value="manually"
+                                        checked>
+                                    <span class="cs-radio"></span>
+                                    <span class="cs-field-label for-radio">Manually</span>
+                                </label>
+                                <label for="creation-method_1">
+                                    <input
+                                        name="creation-method"
+                                        id="creation-method_1"
+                                        class="browser-default-radio cs-form-checklist"
+                                        type="radio"
+                                        value="ai">
+                                    <span class="cs-radio prototype-hint"></span>
+                                    <span class="cs-field-label for-radio">With Artificial Intelligence</span>
+                                </label>
+                            </fieldset>
+                        </div>
+
+                        <div class="cs-field-wrapper ai-fields" style="display: none;">
+                            <label class="cs-field-label required">Theme</label>
+                            <input required="" type="text" class="cs-text-input use-sidenav-bg outline" placeholder="Enter a theme for your problem">
+                        </div>
+
+                        <div class="cs-field-wrapper w-100 ai-fields" style="display: none;">
+                            <label class="cs-field-label required">Difficulty Level</label>
+                            <select class="cs-select w-100" required="">
+                                <option value="">Select an option</option>
+                                <option value="very-easy">Very easy</option>
+                                <option value="easy">Easy</option>
+                                <option value="medium">Medium</option>
+                                <option value="hard">Hard</option>
+                                <option value="very-hard">Very hard</option>
+                            </select>
+                        </div>
+
+                        <div class="cs-field-wrapper cs-object-search-wrapper ai-fields" style="display: none;">
+                            <label class="cs-field-label followed-by-help-text">Concepts</label>
+                            <small class="d-block mb-point-five">Optional. Select up to 2 basic programming concepts that this problem will cover.</small>
+                            <ul class="cs-object-search-list inline p-1 mt-1 hide-scrollbar">
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="arrays">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Arrays</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="conditionals">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Conditionals</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="data-types">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Data Types</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="dictionaries">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Dictionaries</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="functions">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Functions</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="input-output">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Input/Output</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="lists">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Lists</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="loops">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Loops</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="object-oriented">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Object-Oriented Programming</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="recursion">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Recursion</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="strings">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Strings</span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="cs-object-search-list-item">
+                                    <div class="browser-default-checkbox cs-form-checklist">
+                                        <label>
+                                            <input class="browser-default-checkbox cs-form-checklist" type="checkbox" value="variables">
+                                            <span class="cs-checkbox"></span>
+                                            <span class="cs-field-label for-checkbox">Variables</span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="cs-field-wrapper ai-fields" style="display: none;">
+                            <label class="cs-field-label followed-by-help-text">Minimum Solution Length</label>
+                            <small class="d-block mb-point-five">Optional. Minimum number of lines the solution should have.</small>
+                            <input type="number" class="cs-text-input use-sidenav-bg outline" placeholder="e.g., 5" min="1">
+                        </div>
+
+                        <div class="cs-field-wrapper ai-fields" style="display: none;">
+                            <label class="cs-field-label followed-by-help-text">Maximum Solution Length</label>
+                            <small class="d-block mb-point-five">Optional. Maximum number of lines the solution should have.</small>
+                            <input type="number" class="cs-text-input use-sidenav-bg outline" placeholder="e.g., 20" min="1">
+                        </div>
+
+                        <div class="cs-form__actions mb-0">
+                            <button type="submit" class="cs-form__actions__save cs-btn--primary mb-0 prototype-hint">Create</button>
+                            <a class="cs-form__actions__cancel cs-btn--secondary mb-0 ml-auto" href="index.html">Cancel</a>
+                        </div>
+
+                    </form>
+                    
+                    <div id="loading-state" class="cs-empty-state" style="display: none;">
+                        <div class="cs-empty-state__content">
+                            <div class="loading-logo">
+                                <svg id="loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.3 207.38" width="120" height="80">
+                                    <path id="red-1" d="M106.61,42.03h21.49v125.94h-21.49c-5.52,0-10-4.48-10-10V52.03c0-5.52,4.48-10,10-10Z" fill="#b43429"/>
+                                    <rect id="red-2" x="128.09" y="42.03" width="31.49" height="125.94" fill="#d75140"/>
+                                    <rect id="yellow" x="159.58" y="42.03" width="31.49" height="125.94" fill="#f0be42"/>
+                                    <rect id="green" x="191.06" y="42.03" width="31.49" height="125.94" fill="#58a55b"/>
+                                    <rect id="blue" x="222.55" y="42.03" width="31.49" height="125.94" fill="#5382eb"/>
+                                    <path id="violet" d="M254.04,42.03h21.49c5.52,0,10,4.48,10,10v105.94c0,5.52-4.48,10-10,10h-21.49V42.03h0Z" fill="#5338aa"/>
+                                    <path id="bracket-left" d="M65.71,181.21c-10.26,0-17.83-2.75-22.71-8.27-4.88-5.51-6.87-13.52-5.99-24.03l2.09-24.7c.38-4.43-.07-7.66-1.33-9.69-1.27-2.02-3.68-3.04-7.22-3.04h-5.32v-16.15h5.32c3.54,0,5.95-1.04,7.22-3.14,1.26-2.09,1.71-5.29,1.33-9.59l-2.09-24.13c-.89-10.51,1.11-18.53,5.99-24.04,4.87-5.51,12.44-8.26,22.71-8.26h10.64v16.53h-9.12c-5.32,0-8.9,1.17-10.74,3.51-1.84,2.34-2.5,6.17-2,11.5l1.71,21.09c.5,5.32.28,9.82-.67,13.49-.95,3.67-2.92,6.71-5.89,9.12-2.98,2.41-7.25,4.37-12.83,5.89v-7.22c5.57,1.27,9.85,3.07,12.83,5.42,2.97,2.34,4.94,5.35,5.89,9.02.95,3.68,1.17,8.17.67,13.49l-1.71,21.66c-.38,5.32.31,9.15,2.09,11.5,1.77,2.34,5.32,3.51,10.64,3.51h9.12v16.53h-10.64.01Z" fill="#e6e7ec"/>
+                                    <path id="bracket-right" d="M315.59,181.21h-10.64v-16.53h9.12c5.32,0,8.86-1.17,10.64-3.51,1.77-2.34,2.47-6.18,2.09-11.5l-1.71-21.66c-.38-5.32-.13-9.81.76-13.49.88-3.67,2.82-6.68,5.79-9.02s7.25-4.15,12.83-5.42v7.22c-5.58-1.52-9.85-3.48-12.83-5.89-2.98-2.41-4.91-5.45-5.79-9.12-.89-3.67-1.14-8.17-.76-13.49l1.71-21.09c.5-5.32-.16-9.15-2-11.5-1.84-2.34-5.42-3.51-10.73-3.51h-9.12v-16.53h10.64c10.26,0,17.86,2.75,22.8,8.26s6.9,13.52,5.89,24.04l-2.09,24.13c-.38,4.31.06,7.5,1.33,9.59,1.26,2.09,3.67,3.14,7.22,3.14h5.32v16.15h-5.32c-3.55,0-5.96,1.02-7.22,3.04-1.27,2.03-1.71,5.26-1.33,9.69l2.09,24.7c.88,10.51-1.11,18.52-5.99,24.03s-12.44,8.27-22.7,8.27Z" fill="#e6e7ec"/>
+                                </svg>
+                            </div>
+                            <h2 id="loading-title"></h2>
+                            <p id="loading-details"></p>
+                        </div>
+                    </div>
+
+                    <form id="generated-problem-form" class="cs-card mb-3" style="display: none;">
+                        <div class="cs-field-wrapper">
+                            <label class="cs-field-label required">Title</label>
+                            <input id="problem-title" required="" type="text" class="cs-text-input use-sidenav-bg outline" value="Pizza Factory">
+                        </div>
+
+                        <div class="cs-field-wrapper">
+                            <label class="cs-field-label required">Instructions</label>
+                            <textarea id="problem-instructions" required="" class="cs-text-input use-sidenav-bg outline" rows="12">You're helping run a pizza factory! The factory keeps track of different pizza types and how many of each type they've made today.
+
+Your job is to write a program that uses a dictionary to store pizza data and perform some basic operations.
+
+Create a dictionary called `pizza_count` with the following pizza types and their counts:
+- "pepperoni": 45
+- "cheese": 32
+- "veggie": 18
+- "supreme": 23
+
+Then write code to:
+1. Print the total number of pizzas made today
+2. Print which pizza type was made the most
+3. Add 5 more "cheese" pizzas to the count
+4. Print the updated count for "cheese" pizzas
+
+Example output:
+Total pizzas made: 118
+Most popular pizza: pepperoni
+Updated cheese count: 37</textarea>
+                        </div>
+
+                        <div class="cs-form__actions mb-0">
+                            <button type="submit" class="cs-form__actions__save cs-btn--primary mb-0 prototype-hint">Save & Generate Solution</button>
+                            <button type="button" id="back-to-loading-btn" class="cs-form__actions__cancel cs-btn--secondary mb-0 ml-auto">Back</button>
+                        </div>
+                    </form>
+
+                    <div id="solution-loading-state" class="cs-empty-state" style="display: none;">
+                        <div class="cs-empty-state__content">
+                            <div class="loading-logo">
+                                <svg id="solution-loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.3 207.38" width="120" height="80">
+                                    <path id="solution-red-1" d="M106.61,42.03h21.49v125.94h-21.49c-5.52,0-10-4.48-10-10V52.03c0-5.52,4.48-10,10-10Z" fill="#b43429"/>
+                                    <rect id="solution-red-2" x="128.09" y="42.03" width="31.49" height="125.94" fill="#d75140"/>
+                                    <rect id="solution-yellow" x="159.58" y="42.03" width="31.49" height="125.94" fill="#f0be42"/>
+                                    <rect id="solution-green" x="191.06" y="42.03" width="31.49" height="125.94" fill="#58a55b"/>
+                                    <rect id="solution-blue" x="222.55" y="42.03" width="31.49" height="125.94" fill="#5382eb"/>
+                                    <path id="solution-violet" d="M254.04,42.03h21.49c5.52,0,10,4.48,10,10v105.94c0,5.52-4.48,10-10,10h-21.49V42.03h0Z" fill="#5338aa"/>
+                                    <path id="solution-bracket-left" d="M65.71,181.21c-10.26,0-17.83-2.75-22.71-8.27-4.88-5.51-6.87-13.52-5.99-24.03l2.09-24.7c.38-4.43-.07-7.66-1.33-9.69-1.27-2.02-3.68-3.04-7.22-3.04h-5.32v-16.15h5.32c3.54,0,5.95-1.04,7.22-3.14,1.26-2.09,1.71-5.29,1.33-9.59l-2.09-24.13c-.89-10.51,1.11-18.53,5.99-24.04,4.87-5.51,12.44-8.26,22.71-8.26h10.64v16.53h-9.12c-5.32,0-8.9,1.17-10.74,3.51-1.84,2.34-2.5,6.17-2,11.5l1.71,21.09c.5,5.32.28,9.82-.67,13.49-.95,3.67-2.92,6.71-5.89,9.12-2.98,2.41-7.25,4.37-12.83,5.89v-7.22c5.57,1.27,9.85,3.07,12.83,5.42,2.97,2.34,4.94,5.35,5.89,9.02.95,3.68,1.17,8.17.67,13.49l-1.71,21.66c-.38,5.32.31,9.15,2.09,11.5,1.77,2.34,5.32,3.51,10.64,3.51h9.12v16.53h-10.64.01Z" fill="#e6e7ec"/>
+                                    <path id="solution-bracket-right" d="M315.59,181.21h-10.64v-16.53h9.12c5.32,0,8.86-1.17,10.64-3.51,1.77-2.34,2.47-6.18,2.09-11.5l-1.71-21.66c-.38-5.32-.13-9.81.76-13.49.88-3.67,2.82-6.68,5.79-9.02s7.25-4.15,12.83-5.42v7.22c-5.58-1.52-9.85-3.48-12.83-5.89-2.98-2.41-4.91-5.45-5.79-9.12-.89-3.67-1.14-8.17-.76-13.49l1.71-21.09c.5-5.32-.16-9.15-2-11.5-1.84-2.34-5.42-3.51-10.73-3.51h-9.12v-16.53h10.64c10.26,0,17.86,2.75,22.8,8.26s6.9,13.52,5.89,24.04l-2.09,24.13c-.38,4.31.06,7.5,1.33,9.59,1.26,2.09,3.67,3.14,7.22,3.14h5.32v16.15h-5.32c-3.55,0-5.96,1.02-7.22,3.04-1.27,2.03-1.71,5.26-1.33,9.69l2.09,24.7c.88,10.51-1.11,18.52-5.99,24.03s-12.44,8.27-22.7,8.27Z" fill="#e6e7ec"/>
+                                </svg>
+                            </div>
+                            <h2 id="solution-loading-title">Generating solution...</h2>
+                            <p id="solution-loading-details"></p>
+                        </div>
+                    </div>
+
+                    <div id="solution-result" class="cs-card mb-3" style="display: none;">
+                        <div class="cs-field-wrapper mb-2">
+                            <h3 class="cs-field-label m-0" id="solution-problem-title">Pizza Factory</h3>
+                        </div>
+                        
+                        <div class="cs-field-wrapper mb-3">
+                            <div id="solution-problem-instructions" style="white-space: pre-line; line-height: 1.5;">You're helping run a pizza factory! The factory keeps track of different pizza types and how many of each type they've made today.
+
+Your job is to write a program that uses a dictionary to store pizza data and perform some basic operations.
+
+Create a dictionary called `pizza_count` with the following pizza types and their counts:
+- "pepperoni": 45
+- "cheese": 32
+- "veggie": 18
+- "supreme": 23
+
+Then write code to:
+1. Print the total number of pizzas made today
+2. Print which pizza type was made the most
+3. Add 5 more "cheese" pizzas to the count
+4. Print the updated count for "cheese" pizzas
+
+Example output:
+Total pizzas made: 118
+Most popular pizza: pepperoni
+Updated cheese count: 37</div>
+                        </div>
+
+                        <div class="cs-field-wrapper">
+                            <label class="cs-field-label">Solution</label>
+                            <textarea id="solution-code"># Pizza Factory Solution
+
+# Create the pizza count dictionary
+pizza_count = {
+    "pepperoni": 45,
+    "cheese": 32,
+    "veggie": 18,
+    "supreme": 23
+}
+
+# 1. Calculate and print total pizzas made
+total_pizzas = sum(pizza_count.values())
+print(f"Total pizzas made: {total_pizzas}")
+
+# 2. Find and print the most popular pizza
+most_popular = max(pizza_count, key=pizza_count.get)
+print(f"Most popular pizza: {most_popular}")
+
+# 3. Add 5 more cheese pizzas
+pizza_count["cheese"] += 5
+
+# 4. Print the updated cheese count
+print(f"Updated cheese count: {pizza_count['cheese']}")</textarea>
+                        </div>
+
+                        <div class="cs-form__actions mb-0">
+                            <button type="button" id="generate-tests-btn" class="cs-btn--primary mb-0 prototype-hint">Save & Generate Tests</button>
+                            <button type="button" id="back-to-problem-form-btn" class="cs-form__actions__cancel cs-btn--secondary mb-0 ml-auto">Back</button>
+                        </div>
+                    </div>
+
+                    <div id="test-loading-state" class="cs-empty-state" style="display: none;">
+                        <div class="cs-empty-state__content">
+                            <div class="loading-logo">
+                                <svg id="test-loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.3 207.38" width="120" height="80">
+                                    <path id="test-red-1" d="M106.61,42.03h21.49v125.94h-21.49c-5.52,0-10-4.48-10-10V52.03c0-5.52,4.48-10,10-10Z" fill="#b43429"/>
+                                    <rect id="test-red-2" x="128.09" y="42.03" width="31.49" height="125.94" fill="#d75140"/>
+                                    <rect id="test-yellow" x="159.58" y="42.03" width="31.49" height="125.94" fill="#f0be42"/>
+                                    <rect id="test-green" x="191.06" y="42.03" width="31.49" height="125.94" fill="#58a55b"/>
+                                    <rect id="test-blue" x="222.55" y="42.03" width="31.49" height="125.94" fill="#5382eb"/>
+                                    <path id="test-violet" d="M254.04,42.03h21.49c5.52,0,10,4.48,10,10v105.94c0,5.52-4.48,10-10,10h-21.49V42.03h0Z" fill="#5338aa"/>
+                                    <path id="test-bracket-left" d="M65.71,181.21c-10.26,0-17.83-2.75-22.71-8.27-4.88-5.51-6.87-13.52-5.99-24.03l2.09-24.7c.38-4.43-.07-7.66-1.33-9.69-1.27-2.02-3.68-3.04-7.22-3.04h-5.32v-16.15h5.32c3.54,0,5.95-1.04,7.22-3.14,1.26-2.09,1.71-5.29,1.33-9.59l-2.09-24.13c-.89-10.51,1.11-18.53,5.99-24.04,4.87-5.51,12.44-8.26,22.71-8.26h10.64v16.53h-9.12c-5.32,0-8.9,1.17-10.74,3.51-1.84,2.34-2.5,6.17-2,11.5l1.71,21.09c.5,5.32.28,9.82-.67,13.49-.95,3.67-2.92,6.71-5.89,9.12-2.98,2.41-7.25,4.37-12.83,5.89v-7.22c5.57,1.27,9.85,3.07,12.83,5.42,2.97,2.34,4.94,5.35,5.89,9.02.95,3.68,1.17,8.17.67,13.49l-1.71,21.66c-.38,5.32.31,9.15,2.09,11.5,1.77,2.34,5.32,3.51,10.64,3.51h9.12v16.53h-10.64.01Z" fill="#e6e7ec"/>
+                                    <path id="test-bracket-right" d="M315.59,181.21h-10.64v-16.53h9.12c5.32,0,8.86-1.17,10.64-3.51,1.77-2.34,2.47-6.18,2.09-11.5l-1.71-21.66c-.38-5.32-.13-9.81.76-13.49.88-3.67,2.82-6.68,5.79-9.02s7.25-4.15,12.83-5.42v7.22c-5.58-1.52-9.85-3.48-12.83-5.89-2.98-2.41-4.91-5.45-5.79-9.12-.89-3.67-1.14-8.17-.76-13.49l1.71-21.09c.5-5.32-.16-9.15-2-11.5-1.84-2.34-5.42-3.51-10.73-3.51h-9.12v-16.53h10.64c10.26,0,17.86,2.75,22.8,8.26s6.9,13.52,5.89,24.04l-2.09,24.13c-.38,4.31.06,7.5,1.33,9.59,1.26,2.09,3.67,3.14,7.22,3.14h5.32v16.15h-5.32c-3.55,0-5.96,1.02-7.22,3.04-1.27,2.03-1.71,5.26-1.33,9.69l2.09,24.7c.88,10.51-1.11,18.52-5.99,24.03s-12.44,8.27-22.7,8.27Z" fill="#e6e7ec"/>
+                                </svg>
+                            </div>
+                            <h2>Writing unit tests for Pizza Factory...</h2>
+                        </div>
+                    </div>
+
+                    <div id="test-result" class="cs-card mb-3" style="display: none;">
+                        <div class="cs-field-wrapper mb-2">
+                            <h3 class="cs-field-label m-0" id="test-problem-title">Pizza Factory</h3>
+                        </div>
+                        
+                        <div class="cs-field-wrapper mb-3">
+                            <div id="test-problem-instructions" style="white-space: pre-line; line-height: 1.5;">You're helping run a pizza factory! The factory keeps track of different pizza types and how many of each type they've made today.
+
+Your job is to write a program that uses a dictionary to store pizza data and perform some basic operations.
+
+Create a dictionary called `pizza_count` with the following pizza types and their counts:
+- "pepperoni": 45
+- "cheese": 32
+- "veggie": 18
+- "supreme": 23
+
+Then write code to:
+1. Print the total number of pizzas made today
+2. Print which pizza type was made the most
+3. Add 5 more "cheese" pizzas to the count
+4. Print the updated count for "cheese" pizzas
+
+Example output:
+Total pizzas made: 118
+Most popular pizza: pepperoni
+Updated cheese count: 37</div>
+                        </div>
+
+                        <div class="cs-field-wrapper mb-3">
+                            <label class="cs-field-label">Solution</label>
+                            <textarea id="test-solution-code"># Pizza Factory Solution
+
+# Create the pizza count dictionary
+pizza_count = {
+    "pepperoni": 45,
+    "cheese": 32,
+    "veggie": 18,
+    "supreme": 23
+}
+
+# 1. Calculate and print total pizzas made
+total_pizzas = sum(pizza_count.values())
+print(f"Total pizzas made: {total_pizzas}")
+
+# 2. Find and print the most popular pizza
+most_popular = max(pizza_count, key=pizza_count.get)
+print(f"Most popular pizza: {most_popular}")
+
+# 3. Add 5 more cheese pizzas
+pizza_count["cheese"] += 5
+
+# 4. Print the updated cheese count
+print(f"Updated cheese count: {pizza_count['cheese']}")</textarea>
+                        </div>
+
+                        <div class="cs-field-wrapper">
+                            <label class="cs-field-label">Unit Tests</label>
+                            <textarea id="test-unit-tests">import unittest
+from io import StringIO
+import sys
+
+class TestPizzaFactory(unittest.TestCase):
+    
+    def test_total_pizza_count(self):
+        """Test that total pizza count is calculated correctly"""
+        pizza_count = {"pepperoni": 45, "cheese": 32, "veggie": 18, "supreme": 23}
+        total_pizzas = sum(pizza_count.values())
+        self.assertEqual(total_pizzas, 118)
+    
+    def test_most_popular_pizza(self):
+        """Test that the most popular pizza is identified correctly"""
+        pizza_count = {"pepperoni": 45, "cheese": 32, "veggie": 18, "supreme": 23}
+        most_popular = max(pizza_count, key=pizza_count.get)
+        self.assertEqual(most_popular, "pepperoni")
+    
+    def test_cheese_update(self):
+        """Test that cheese count is updated correctly after adding 5"""
+        pizza_count = {"pepperoni": 45, "cheese": 32, "veggie": 18, "supreme": 23}
+        pizza_count["cheese"] += 5
+        self.assertEqual(pizza_count["cheese"], 37)
+
+if __name__ == '__main__':
+    unittest.main()</textarea>
+                        </div>
+
+                        <div class="cs-form__actions mb-0">
+                            <button type="button" id="generate-types-btn" class="cs-btn--primary mb-0 prototype-hint">Save & Generate Problem Types</button>
+                            <button type="button" id="back-to-solution-btn" class="cs-form__actions__cancel cs-btn--secondary mb-0 ml-auto">Back</button>
+                        </div>
+                    </div>
+
+                    <div id="types-loading-state" class="cs-empty-state" style="display: none;">
+                        <div class="cs-empty-state__content">
+                            <div class="loading-logo">
+                                <svg id="types-loading-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 381.3 207.38" width="120" height="80">
+                                    <path id="types-red-1" d="M106.61,42.03h21.49v125.94h-21.49c-5.52,0-10-4.48-10-10V52.03c0-5.52,4.48-10,10-10Z" fill="#b43429"/>
+                                    <rect id="types-red-2" x="128.09" y="42.03" width="31.49" height="125.94" fill="#d75140"/>
+                                    <rect id="types-yellow" x="159.58" y="42.03" width="31.49" height="125.94" fill="#f0be42"/>
+                                    <rect id="types-green" x="191.06" y="42.03" width="31.49" height="125.94" fill="#58a55b"/>
+                                    <rect id="types-blue" x="222.55" y="42.03" width="31.49" height="125.94" fill="#5382eb"/>
+                                    <path id="types-violet" d="M254.04,42.03h21.49c5.52,0,10,4.48,10,10v105.94c0,5.52-4.48,10-10,10h-21.49V42.03h0Z" fill="#5338aa"/>
+                                    <path id="types-bracket-left" d="M65.71,181.21c-10.26,0-17.83-2.75-22.71-8.27-4.88-5.51-6.87-13.52-5.99-24.03l2.09-24.7c.38-4.43-.07-7.66-1.33-9.69-1.27-2.02-3.68-3.04-7.22-3.04h-5.32v-16.15h5.32c3.54,0,5.95-1.04,7.22-3.14,1.26-2.09,1.71-5.29,1.33-9.59l-2.09-24.13c-.89-10.51,1.11-18.53,5.99-24.04,4.87-5.51,12.44-8.26,22.71-8.26h10.64v16.53h-9.12c-5.32,0-8.9,1.17-10.74,3.51-1.84,2.34-2.5,6.17-2,11.5l1.71,21.09c.5,5.32.28,9.82-.67,13.49-.95,3.67-2.92,6.71-5.89,9.12-2.98,2.41-7.25,4.37-12.83,5.89v-7.22c5.57,1.27,9.85,3.07,12.83,5.42,2.97,2.34,4.94,5.35,5.89,9.02.95,3.68,1.17,8.17.67,13.49l-1.71,21.66c-.38,5.32.31,9.15,2.09,11.5,1.77,2.34,5.32,3.51,10.64,3.51h9.12v16.53h-10.64.01Z" fill="#e6e7ec"/>
+                                    <path id="types-bracket-right" d="M315.59,181.21h-10.64v-16.53h9.12c5.32,0,8.86-1.17,10.64-3.51,1.77-2.34,2.47-6.18,2.09-11.5l-1.71-21.66c-.38-5.32-.13-9.81.76-13.49.88-3.67,2.82-6.68,5.79-9.02s7.25-4.15,12.83-5.42v7.22c-5.58-1.52-9.85-3.48-12.83-5.89-2.98-2.41-4.91-5.45-5.79-9.12-.89-3.67-1.14-8.17-.76-13.49l1.71-21.09c.5-5.32-.16-9.15-2-11.5-1.84-2.34-5.42-3.51-10.73-3.51h-9.12v-16.53h10.64c10.26,0,17.86,2.75,22.8,8.26s6.9,13.52,5.89,24.04l-2.09,24.13c-.38,4.31.06,7.5,1.33,9.59,1.26,2.09,3.67,3.14,7.22,3.14h5.32v16.15h-5.32c-3.55,0-5.96,1.02-7.22,3.04-1.27,2.03-1.71,5.26-1.33,9.69l2.09,24.7c.88,10.51-1.11,18.52-5.99,24.03s-12.44,8.27-22.7,8.27Z" fill="#e6e7ec"/>
+                                </svg>
+                            </div>
+                            <h2>Generating 5 problem types...</h2>
+                            <p>Pseudocode, Blocks, Fill-in-the-blank Blocks, Fix Code, and Write Code</p>
+                        </div>
+                    </div>
+
+                    <div id="problem-solving-interface" class="mb-3" style="display: none;">
+                        <div class="cs-field-wrapper mb-2">
+                            <h3 class="cs-field-label m-0">Pizza Factory</h3>
+                        </div>
+                        
+                        <div class="cs-field-wrapper mb-3">
+                            <div style="white-space: pre-line; line-height: 1.5;">You're helping run a pizza factory! The factory keeps track of different pizza types and how many of each type they've made today.
+
+Your job is to write a program that uses a dictionary to store pizza data and perform some basic operations.
+
+Create a dictionary called `pizza_count` with the following pizza types and their counts:
+- "pepperoni": 45
+- "cheese": 32
+- "veggie": 18
+- "supreme": 23
+
+Then write code to:
+1. Print the total number of pizzas made today
+2. Print which pizza type was made the most
+3. Add 5 more "cheese" pizzas to the count
+4. Print the updated count for "cheese" pizzas
+
+Example output:
+Total pizzas made: 118
+Most popular pizza: pepperoni
+Updated cheese count: 37</div>
+                        </div>
+
+                        <div class="problem-solving-tabs problem-types-tabs">
+                            <div class="cs-tab-list">
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn active" data-tab="pseudocode">Pseudocode</button>
+                                </div>
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn" data-tab="blocks">Blocks</button>
+                                </div>
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn" data-tab="fill-blank">Fill-in-the-Blank</button>
+                                </div>
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn" data-tab="fix-code">Fix Code</button>
+                                </div>
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn" data-tab="write-code">Write Code</button>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content">
+                                <!-- Pseudocode Tab -->
+                                <div id="pseudocode-panel" class="tab-panel active">
+                                    <div class="parsons-container">
+                                        <div class="parsons-column">
+                                            <h4>Available Steps</h4>
+                                            <div class="parsons-blocks" id="pseudocode-source">
+                                                <div class="code-block" draggable="true">Add 5 more cheese pizzas to the count</div>
+                                                <div class="code-block" draggable="true">Create a dictionary with pizza types and counts</div>
+                                                <div class="code-block" draggable="true">Print the updated cheese count</div>
+                                                <div class="code-block" draggable="true">Find and print the most popular pizza</div>
+                                                <div class="code-block" draggable="true">Calculate and print the total number of pizzas</div>
+                                            </div>
+                                        </div>
+                                        <div class="parsons-column">
+                                            <h4>Your Solution (drag steps here)</h4>
+                                            <div class="parsons-blocks" id="pseudocode-target"></div>
+                                        </div>
+                                    </div>
+                                    <button class="cs-btn--primary run-button">Run</button>
+                                </div>
+
+                                <!-- Blocks Tab -->
+                                <div id="blocks-panel" class="tab-panel">
+                                    <div class="parsons-container">
+                                        <div class="parsons-column">
+                                            <h4>Available Code Blocks</h4>
+                                            <div class="parsons-blocks" id="blocks-source">
+                                                <div class="code-block" draggable="true"><span class="variable">pizza_count</span>[<span class="string">"cheese"</span>] += <span class="number">5</span></div>
+                                                <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Updated cheese count: {pizza_count['cheese']}"</span>)</div>
+                                                <div class="code-block" draggable="true"><span class="variable">most_popular</span> = <span class="function">max</span>(<span class="variable">pizza_count</span>, <span class="variable">key</span>=<span class="variable">pizza_count</span>.<span class="function">get</span>)</div>
+                                                <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Total pizzas made: {total_pizzas}"</span>)</div>
+                                                <div class="code-block" draggable="true"><span class="variable">total_pizzas</span> = <span class="function">sum</span>(<span class="variable">pizza_count</span>.<span class="function">values</span>())</div>
+                                                <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Most popular pizza: {most_popular}"</span>)</div>
+                                                <div class="code-block" draggable="true"><span class="variable">pizza_count</span> = {<span class="string">"pepperoni"</span>: <span class="number">45</span>, <span class="string">"cheese"</span>: <span class="number">32</span>, <span class="string">"veggie"</span>: <span class="number">18</span>, <span class="string">"supreme"</span>: <span class="number">23</span>}</div>
+                                            </div>
+                                        </div>
+                                        <div class="parsons-column">
+                                            <h4>Your Solution (drag blocks here)</h4>
+                                            <div class="parsons-blocks" id="blocks-target"></div>
+                                        </div>
+                                    </div>
+                                    <button class="cs-btn--primary run-button">Run</button>
+                                </div>
+
+                                <!-- Fill-in-the-Blank Blocks Tab -->
+                                <div id="fill-blank-panel" class="tab-panel">
+                                    <div class="parsons-container">
+                                        <div class="parsons-column">
+                                            <h4>Available Code Blocks</h4>
+                                            <div class="parsons-blocks" id="fill-blank-source">
+                                                <div class="code-block" draggable="true">pizza_count[<input class="fill-blank" placeholder="key">] += <input class="fill-blank" placeholder="number"></div>
+                                                <div class="code-block" draggable="true">print(f"Updated cheese count: {pizza_count[<input class="fill-blank" placeholder="key">]}")</div>
+                                                <div class="code-block" draggable="true"><input class="fill-blank" placeholder="variable"> = max(pizza_count, key=pizza_count.get)</div>
+                                                <div class="code-block" draggable="true">print(f"Total pizzas made: {<input class="fill-blank" placeholder="variable">}")</div>
+                                                <div class="code-block" draggable="true"><input class="fill-blank" placeholder="variable"> = sum(pizza_count.values())</div>
+                                                <div class="code-block" draggable="true">print(f"Most popular pizza: {<input class="fill-blank" placeholder="variable">}")</div>
+                                                <div class="code-block" draggable="true">pizza_count = {"pepperoni": 45, "cheese": 32, "veggie": 18, "supreme": 23}</div>
+                                            </div>
+                                        </div>
+                                        <div class="parsons-column">
+                                            <h4>Your Solution (drag blocks here)</h4>
+                                            <div class="parsons-blocks" id="fill-blank-target"></div>
+                                        </div>
+                                    </div>
+                                    <button class="cs-btn--primary run-button">Run</button>
+                                </div>
+
+                                <!-- Fix Code Tab -->
+                                <div id="fix-code-panel" class="tab-panel">
+                                    <div class="cs-field-wrapper">
+                                        <label class="cs-field-label">Fix the bugs in this code:</label>
+                                        <textarea id="fix-code-editor"># Pizza Factory Solution (contains bugs!)
+
+# Create the pizza count dictionary
+pizza_count = {
+    "pepperoni": 45,
+    "cheese": 32,
+    "veggie": 18,
+    "supreme": 23
+}
+
+# 1. Calculate and print total pizzas made
+total_pizzas = sum(pizza_count.keys())  # Bug: should be values()
+print(f"Total pizzas made: {total_pizzas}")
+
+# 2. Find and print the most popular pizza
+most_popular = min(pizza_count, key=pizza_count.get)  # Bug: should be max()
+print(f"Most popular pizza: {most_popular}")
+
+# 3. Add 5 more cheese pizzas
+pizza_count["cheese"] = 5  # Bug: should be +=
+
+# 4. Print the updated cheese count
+print(f"Updated cheese count: {pizza_count['cheese']}")</textarea>
+                                    </div>
+                                    <button class="cs-btn--primary run-button">Run</button>
+                                </div>
+
+                                <!-- Write Code Tab -->
+                                <div id="write-code-panel" class="tab-panel">
+                                    <div class="cs-field-wrapper">
+                                        <label class="cs-field-label">Write your solution from scratch:</label>
+                                        <textarea id="write-code-editor"># Write your Pizza Factory solution here
+
+</textarea>
+                                    </div>
+                                    <button class="cs-btn--primary run-button">Run</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-solving-tabs feedback-tabs mt-3">
+                            <div class="cs-tab-list">
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn active" data-tab="feedback">Feedback & Results</button>
+                                </div>
+                                <div class="cs-tab-list__item">
+                                    <button class="cs-tab-list__btn" data-tab="unit-tests">Unit Tests</button>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content">
+                                <!-- Feedback Tab -->
+                                <div id="feedback-panel" class="tab-panel active">
+                                    <div class="cs-empty-state">
+                                        <div class="cs-empty-state__content">
+                                            <p>View feedback here after running your solution</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Unit Tests Tab -->
+                                <div id="unit-tests-panel" class="tab-panel">
+                                    <div class="cs-field-wrapper">
+                                        <label class="cs-field-label">Unit Tests</label>
+                                        <textarea id="unit-tests-viewer">Test 1: Basic Dictionary Creation
+Input: Create pizza_count dictionary with pepperoni: 45, cheese: 32, veggie: 18, supreme: 23
+Expected: Dictionary created successfully
+
+Test 2: Calculate Total Pizzas
+Input: sum(pizza_count.values())
+Expected: 118
+
+Test 3: Find Most Popular Pizza
+Input: max(pizza_count, key=pizza_count.get)
+Expected: "pepperoni"
+
+Test 4: Update Cheese Count
+Input: pizza_count["cheese"] += 5
+Expected: pizza_count["cheese"] = 37
+
+Test 5: Verify Final State
+Input: Print all values
+Expected: 
+  Total pizzas made: 118
+  Most popular pizza: pepperoni
+  Updated cheese count: 37</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cs-form__actions mb-0 mt-3">
+                            <button type="button" id="save-exit-btn" class="cs-btn--primary mb-0 prototype-hint">Save & Exit</button>
+                            <button type="button" id="back-to-tests-btn" class="cs-form__actions__cancel cs-btn--secondary mb-0 ml-auto">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script type="module" src="./core.js"></script>
+    <script type="module" src="./forms.js"></script>
+    <script type="module" src="./navigation.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Handle showing/hiding AI fields based on creation method selection
+        // Function to update progress steps
+        function updateProgressSteps(currentStep) {
+            const steps = document.querySelectorAll('.step');
+            
+            steps.forEach((step, index) => {
+                const stepNumber = index + 1;
+                step.classList.remove('completed', 'current', 'upcoming');
+                
+                if (stepNumber < currentStep) {
+                    step.classList.add('completed');
+                    step.style.cursor = 'pointer';
+                } else if (stepNumber === currentStep) {
+                    step.classList.add('current');
+                    step.style.cursor = 'default';
+                } else {
+                    step.classList.add('upcoming');
+                    step.style.cursor = 'not-allowed';
+                }
+            });
+        }
+        
+        // Function to navigate to a specific step
+        function navigateToStep(targetStep) {
+            // Hide all forms and sections
+            const allSections = [
+                document.getElementById('problem-form'),
+                document.getElementById('loading-state'),
+                document.getElementById('generated-problem-form'),
+                document.getElementById('solution-loading-state'),
+                document.getElementById('solution-result'),
+                document.getElementById('test-loading-state'),
+                document.getElementById('test-result'),
+                document.getElementById('types-loading-state'),
+                document.getElementById('problem-solving-interface')
+            ];
+            
+            allSections.forEach(section => {
+                if (section) section.style.display = 'none';
+            });
+            
+            // Show the appropriate form/section based on target step
+            switch(targetStep) {
+                case 1:
+                    document.getElementById('problem-form').style.display = 'block';
+                    break;
+                case 2:
+                    document.getElementById('generated-problem-form').style.display = 'block';
+                    break;
+                case 3:
+                    document.getElementById('solution-result').style.display = 'block';
+                    break;
+                case 4:
+                    document.getElementById('test-result').style.display = 'block';
+                    break;
+                case 5:
+                    document.getElementById('problem-solving-interface').style.display = 'block';
+                    break;
+            }
+            
+            updateProgressSteps(targetStep);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click event listeners to progress steps
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                step.addEventListener('click', function() {
+                    const stepNumber = index + 1;
+                    const currentStepElement = document.querySelector('.step.current');
+                    const currentStepNumber = currentStepElement ? 
+                        Array.from(document.querySelectorAll('.step')).indexOf(currentStepElement) + 1 : 1;
+                    
+                    // Only allow navigation to completed steps (left of current)
+                    if (stepNumber < currentStepNumber) {
+                        navigateToStep(stepNumber);
+                    }
+                });
+            });
+            
+            const radioButtons = document.querySelectorAll('input[name="creation-method"]');
+            const aiFields = document.querySelectorAll('.ai-fields');
+            
+            function toggleAIFields() {
+                const selectedValue = document.querySelector('input[name="creation-method"]:checked').value;
+                aiFields.forEach(field => {
+                    if (selectedValue === 'ai') {
+                        field.style.display = 'block';
+                    } else {
+                        field.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Add event listeners to radio buttons
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', toggleAIFields);
+            });
+            
+            // Initialize on page load
+            toggleAIFields();
+            
+            // Limit concepts selection to 2
+            const conceptCheckboxes = document.querySelectorAll('.cs-object-search-wrapper input[type="checkbox"]');
+            
+            function limitConceptSelection() {
+                const checkedConceptBoxes = document.querySelectorAll('.cs-object-search-wrapper input[type="checkbox"]:checked');
+                conceptCheckboxes.forEach(checkbox => {
+                    if (checkedConceptBoxes.length >= 2 && !checkbox.checked) {
+                        checkbox.disabled = true;
+                    } else {
+                        checkbox.disabled = false;
+                    }
+                });
+            }
+            
+            // Add event listeners to concept checkboxes
+            conceptCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', limitConceptSelection);
+            });
+            
+            // Store original form data for later use
+            let originalFormData = {};
+            
+            // Handle form submission and loading state
+            const form = document.getElementById('problem-form');
+            const loadingState = document.getElementById('loading-state');
+            const loadingTitle = document.getElementById('loading-title');
+            const loadingDetails = document.getElementById('loading-details');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Prevent actual form submission
+                
+                // Get form values
+                const creationMethod = document.querySelector('input[name="creation-method"]:checked').value;
+                
+                if (creationMethod === 'ai') {
+                    const theme = document.querySelector('input[placeholder="Enter a theme for your problem"]').value || 'general programming';
+                    const difficulty = document.querySelector('.cs-select').value || 'medium';
+                    const selectedConcepts = Array.from(document.querySelectorAll('.cs-object-search-wrapper input[type="checkbox"]:checked'))
+                        .map(cb => cb.nextElementSibling.nextElementSibling.textContent.toLowerCase());
+                    const minLength = document.querySelector('input[placeholder="e.g., 5"]').value;
+                    const maxLength = document.querySelector('input[placeholder="e.g., 20"]').value;
+                    
+                    // Build the loading message
+                    const difficultyText = difficulty.replace('-', ' ');
+                    const article = difficultyText.charAt(0).match(/[aeiou]/i) ? 'an' : 'a';
+                    
+                    const title = `Creating ${article} ${difficultyText} problem about ${theme}!`;
+                    let details = '';
+                    
+                    // Add concepts sentence
+                    if (selectedConcepts.length > 0) {
+                        details += `Learners will need knowledge of ${selectedConcepts.join(' and ')}.`;
+                    }
+                    
+                    // Add solution length sentence
+                    if (minLength || maxLength) {
+                        if (details) details += ' ';
+                        if (minLength && maxLength) {
+                            details += `They'll work with solutions between ${minLength} and ${maxLength} lines long.`;
+                        } else if (minLength) {
+                            details += `They'll work with solutions at least ${minLength} lines long.`;
+                        } else if (maxLength) {
+                            details += `They'll work with solutions at most ${maxLength} lines long.`;
+                        }
+                    }
+                    
+                    loadingTitle.textContent = title;
+                    loadingDetails.textContent = details;
+                    
+                    // Store form data for later use
+                    originalFormData = {
+                        concepts: selectedConcepts,
+                        minLength: minLength,
+                        maxLength: maxLength
+                    };
+                } else {
+                    loadingTitle.textContent = 'Redirecting to manual problem creation...';
+                    loadingDetails.textContent = '';
+                }
+                
+                // Hide form and show loading state
+                form.style.display = 'none';
+                loadingState.style.display = 'block';
+                
+                // After 1 second, show the generated problem form
+                setTimeout(function() {
+                    const generatedForm = document.getElementById('generated-problem-form');
+                    loadingState.style.display = 'none';
+                    generatedForm.style.display = 'block';
+                    updateProgressSteps(2); // Step 2: Details
+                    
+                    // Add back button functionality for the generated problem form
+                    const backToLoadingBtn = document.getElementById('back-to-loading-btn');
+                    backToLoadingBtn.addEventListener('click', function() {
+                        generatedForm.style.display = 'none';
+                        form.style.display = 'block';
+                        updateProgressSteps(1); // Back to Step 1: Setup
+                    });
+                    
+                    // Add event listener to the generated form once it's shown
+                    generatedForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        const solutionLoadingState = document.getElementById('solution-loading-state');
+                        const solutionLoadingDetails = document.getElementById('solution-loading-details');
+                        
+                        // Build solution loading message
+                        let solutionMessage = '';
+                        if (originalFormData.concepts && originalFormData.concepts.length > 0) {
+                            solutionMessage += `Writing code that demonstrates ${originalFormData.concepts.join(' and ')}.`;
+                        }
+                        
+                        if (originalFormData.minLength || originalFormData.maxLength) {
+                            if (solutionMessage) solutionMessage += ' ';
+                            if (originalFormData.minLength && originalFormData.maxLength) {
+                                solutionMessage += `Solution will be between ${originalFormData.minLength} and ${originalFormData.maxLength} lines.`;
+                            } else if (originalFormData.minLength) {
+                                solutionMessage += `Solution will be at least ${originalFormData.minLength} lines.`;
+                            } else if (originalFormData.maxLength) {
+                                solutionMessage += `Solution will be at most ${originalFormData.maxLength} lines.`;
+                            }
+                        }
+                        
+                        solutionLoadingDetails.textContent = solutionMessage;
+                        
+                        // Hide form and show solution loading
+                        generatedForm.style.display = 'none';
+                        solutionLoadingState.style.display = 'block';
+                        
+                        // After 1 second, show the solution result
+                        setTimeout(function() {
+                            solutionLoadingState.style.display = 'none';
+                            document.getElementById('solution-result').style.display = 'block';
+                            updateProgressSteps(3); // Step 3: Solution
+                            
+                            // Initialize CodeMirror for the solution code (only if not already initialized)
+                            const solutionTextarea = document.getElementById('solution-code');
+                            if (!solutionTextarea.nextSibling || !solutionTextarea.nextSibling.classList || !solutionTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                const codeMirrorEditor = CodeMirror.fromTextArea(solutionTextarea, {
+                                    mode: 'python',
+                                    theme: 'material-darker',
+                                    lineNumbers: true,
+                                    readOnly: false,
+                                    lineWrapping: true,
+                                    indentUnit: 4,
+                                    tabSize: 4,
+                                    indentWithTabs: false,
+                                    smartIndent: true,
+                                    electricChars: true,
+                                    autoCloseBrackets: true,
+                                    matchBrackets: true,
+                                    showCursorWhenSelecting: true
+                                });
+                                
+                                // Auto-resize the editor
+                                codeMirrorEditor.setSize(null, 'auto');
+                            }
+                            
+                            // Add back button functionality for the solution result
+                            const backToProblemFormBtn = document.getElementById('back-to-problem-form-btn');
+                            backToProblemFormBtn.addEventListener('click', function() {
+                                document.getElementById('solution-result').style.display = 'none';
+                                document.getElementById('generated-problem-form').style.display = 'block';
+                                updateProgressSteps(2); // Back to Step 2: Details
+                            });
+                            
+                            // Add event listener to the "Save & Generate Tests" button
+                            const generateTestsBtn = document.getElementById('generate-tests-btn');
+                            generateTestsBtn.addEventListener('click', function() {
+                                const testLoadingState = document.getElementById('test-loading-state');
+                                const solutionResult = document.getElementById('solution-result');
+                                
+                                // Hide solution result and show test loading
+                                solutionResult.style.display = 'none';
+                                testLoadingState.style.display = 'block';
+                                
+                                // After 1 second, hide the test loading message and show test results
+                                setTimeout(function() {
+                                    testLoadingState.style.display = 'none';
+                                    const testResult = document.getElementById('test-result');
+                                    testResult.style.display = 'block';
+                                    updateProgressSteps(4); // Step 4: Tests
+                                    
+                                    // Initialize CodeMirror for the read-only solution (only if not already initialized)
+                                    const testSolutionTextarea = document.getElementById('test-solution-code');
+                                    if (!testSolutionTextarea.nextSibling || !testSolutionTextarea.nextSibling.classList || !testSolutionTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                        const testSolutionEditor = CodeMirror.fromTextArea(testSolutionTextarea, {
+                                            mode: 'python',
+                                            theme: 'material-darker',
+                                            lineNumbers: true,
+                                            readOnly: true,
+                                            lineWrapping: true,
+                                            indentUnit: 4,
+                                            tabSize: 4,
+                                            indentWithTabs: false,
+                                            smartIndent: true,
+                                            electricChars: true,
+                                            matchBrackets: true,
+                                            showCursorWhenSelecting: false
+                                        });
+                                        testSolutionEditor.setSize(null, 'auto');
+                                    }
+                                    
+                                    // Initialize CodeMirror for the editable unit tests (only if not already initialized)
+                                    const testUnitTestsTextarea = document.getElementById('test-unit-tests');
+                                    if (!testUnitTestsTextarea.nextSibling || !testUnitTestsTextarea.nextSibling.classList || !testUnitTestsTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                        const testUnitTestsEditor = CodeMirror.fromTextArea(testUnitTestsTextarea, {
+                                            mode: 'python',
+                                            theme: 'material-darker',
+                                            lineNumbers: true,
+                                            readOnly: false,
+                                            lineWrapping: true,
+                                            indentUnit: 4,
+                                            tabSize: 4,
+                                            indentWithTabs: false,
+                                            smartIndent: true,
+                                            electricChars: true,
+                                            autoCloseBrackets: true,
+                                            matchBrackets: true,
+                                            showCursorWhenSelecting: true
+                                        });
+                                        testUnitTestsEditor.setSize(null, 'auto');
+                                    }
+                                    
+                                    // Add back button functionality for the test result
+                                    const backToSolutionBtn = document.getElementById('back-to-solution-btn');
+                                    backToSolutionBtn.addEventListener('click', function() {
+                                        document.getElementById('test-result').style.display = 'none';
+                                        document.getElementById('solution-result').style.display = 'block';
+                                        updateProgressSteps(3); // Back to Step 3: Solution
+                                    });
+                                    
+                                    // Add event listener to the "Save & Generate Problem Types" button
+                                    const generateTypesBtn = document.getElementById('generate-types-btn');
+                                    generateTypesBtn.addEventListener('click', function() {
+                                        const typesLoadingState = document.getElementById('types-loading-state');
+                                        const testResult = document.getElementById('test-result');
+                                        
+                                        // Hide test result and show types loading
+                                        testResult.style.display = 'none';
+                                        typesLoadingState.style.display = 'block';
+                                        
+                                        // After 1 second, hide the types loading message and show problem solving interface
+                                        setTimeout(function() {
+                                            typesLoadingState.style.display = 'none';
+                                            const problemSolvingInterface = document.getElementById('problem-solving-interface');
+                                            problemSolvingInterface.style.display = 'block';
+                                            updateProgressSteps(5); // Step 5: Types
+                                            
+                                            // Store CodeMirror editors for later refresh
+                                            window.problemSolvingEditors = {};
+                                            
+                                            // Initialize CodeMirror editors for Fix Code and Write Code tabs
+                                            const fixCodeTextarea = document.getElementById('fix-code-editor');
+                                            if (!fixCodeTextarea.nextSibling || !fixCodeTextarea.nextSibling.classList || !fixCodeTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                                window.problemSolvingEditors.fixCode = CodeMirror.fromTextArea(fixCodeTextarea, {
+                                                    mode: 'python',
+                                                    theme: 'material-darker',
+                                                    lineNumbers: true,
+                                                    readOnly: false,
+                                                    lineWrapping: true,
+                                                    indentUnit: 4,
+                                                    tabSize: 4,
+                                                    indentWithTabs: false,
+                                                    smartIndent: true,
+                                                    electricChars: true,
+                                                    autoCloseBrackets: true,
+                                                    matchBrackets: true,
+                                                    showCursorWhenSelecting: true
+                                                });
+                                                window.problemSolvingEditors.fixCode.setSize(null, 'auto');
+                                            }
+                                            
+                                            const writeCodeTextarea = document.getElementById('write-code-editor');
+                                            if (!writeCodeTextarea.nextSibling || !writeCodeTextarea.nextSibling.classList || !writeCodeTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                                window.problemSolvingEditors.writeCode = CodeMirror.fromTextArea(writeCodeTextarea, {
+                                                    mode: 'python',
+                                                    theme: 'material-darker',
+                                                    lineNumbers: true,
+                                                    readOnly: false,
+                                                    lineWrapping: true,
+                                                    indentUnit: 4,
+                                                    tabSize: 4,
+                                                    indentWithTabs: false,
+                                                    smartIndent: true,
+                                                    electricChars: true,
+                                                    autoCloseBrackets: true,
+                                                    matchBrackets: true,
+                                                    showCursorWhenSelecting: true
+                                                });
+                                                window.problemSolvingEditors.writeCode.setSize(null, 'auto');
+                                            }
+                                            
+                                            // Initialize tab functionality
+                                            initializeProblemSolvingTabs();
+                                            
+                                            // Initialize feedback/results tabs
+                                            initializeFeedbackTabs();
+                                            
+                                            // Initialize unit tests viewer
+                                            const unitTestsTextarea = document.getElementById('unit-tests-viewer');
+                                            if (!unitTestsTextarea.nextSibling || !unitTestsTextarea.nextSibling.classList || !unitTestsTextarea.nextSibling.classList.contains('CodeMirror')) {
+                                                window.problemSolvingEditors.unitTests = CodeMirror.fromTextArea(unitTestsTextarea, {
+                                                    mode: 'text',
+                                                    theme: 'material-darker',
+                                                    lineNumbers: true,
+                                                    readOnly: true,
+                                                    lineWrapping: true,
+                                                    showCursorWhenSelecting: false
+                                                });
+                                                window.problemSolvingEditors.unitTests.setSize(null, 'auto');
+                                            }
+                                            
+                                            // Initialize drag and drop for Parsons problems
+                                            initializeParsonsProblems();
+                                            
+                                            // Add event listeners for Save & Exit and Back buttons
+                                            const saveExitBtn = document.getElementById('save-exit-btn');
+                                            const backToTestsBtn = document.getElementById('back-to-tests-btn');
+                                            
+                                            saveExitBtn.addEventListener('click', function() {
+                                                window.location.href = 'pizza-factory.html';
+                                            });
+                                            
+                                            backToTestsBtn.addEventListener('click', function() {
+                                                const problemSolvingInterface = document.getElementById('problem-solving-interface');
+                                                const testResult = document.getElementById('test-result');
+                                                
+                                                // Hide problem solving interface and show test result
+                                                problemSolvingInterface.style.display = 'none';
+                                                testResult.style.display = 'block';
+                                                updateProgressSteps(4); // Back to Step 4: Tests
+                                            });
+                                        }, 1000);
+                                    });
+                                }, 1000);
+                            });
+                        }, 1000);
+                    });
+                }, 1000);
+            });
+        });
+        
+        // Tab functionality for problem solving interface
+        function initializeProblemSolvingTabs() {
+            const problemTabsContainer = document.querySelector('.problem-types-tabs');
+            const tabButtons = problemTabsContainer.querySelectorAll('.cs-tab-list__btn');
+            const problemPanelIds = ['pseudocode-panel', 'blocks-panel', 'fill-blank-panel', 'fix-code-panel', 'write-code-panel'];
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panels in this container only
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    problemPanelIds.forEach(panelId => {
+                        const panel = document.getElementById(panelId);
+                        if (panel) panel.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button and corresponding panel
+                    this.classList.add('active');
+                    document.getElementById(targetTab + '-panel').classList.add('active');
+                    
+                    // Refresh CodeMirror editors when their tabs become visible
+                    if (targetTab === 'fix-code' && window.problemSolvingEditors && window.problemSolvingEditors.fixCode) {
+                        setTimeout(() => {
+                            window.problemSolvingEditors.fixCode.refresh();
+                        }, 10);
+                    } else if (targetTab === 'write-code' && window.problemSolvingEditors && window.problemSolvingEditors.writeCode) {
+                        setTimeout(() => {
+                            window.problemSolvingEditors.writeCode.refresh();
+                        }, 10);
+                    }
+                });
+            });
+        }
+        
+        // Tab functionality for feedback and results interface
+        function initializeFeedbackTabs() {
+            const feedbackTabsContainer = document.querySelector('.feedback-tabs');
+            const feedbackTabButtons = feedbackTabsContainer.querySelectorAll('.cs-tab-list__btn');
+            const feedbackPanelIds = ['feedback-panel', 'unit-tests-panel'];
+            
+            feedbackTabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and panels in this container only
+                    feedbackTabButtons.forEach(btn => btn.classList.remove('active'));
+                    feedbackPanelIds.forEach(panelId => {
+                        const panel = document.getElementById(panelId);
+                        if (panel) panel.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button and corresponding panel
+                    this.classList.add('active');
+                    document.getElementById(targetTab + '-panel').classList.add('active');
+                    
+                    // Refresh unit tests CodeMirror when unit tests tab becomes visible
+                    if (targetTab === 'unit-tests' && window.problemSolvingEditors && window.problemSolvingEditors.unitTests) {
+                        setTimeout(() => {
+                            window.problemSolvingEditors.unitTests.refresh();
+                        }, 10);
+                    }
+                });
+            });
+        }
+        
+        // Drag and drop functionality for Parsons problems
+        function initializeParsonsProblems() {
+            const dragContainers = ['pseudocode', 'blocks', 'fill-blank'];
+            
+            dragContainers.forEach(containerType => {
+                const sourceBlocks = document.querySelectorAll(`#${containerType}-source .code-block`);
+                const targetContainer = document.getElementById(`${containerType}-target`);
+                
+                // Add drag event listeners to source blocks
+                sourceBlocks.forEach(block => {
+                    block.addEventListener('dragstart', handleDragStart);
+                    block.addEventListener('dragend', handleDragEnd);
+                });
+                
+                // Add drop event listeners to target container
+                targetContainer.addEventListener('dragover', handleDragOver);
+                targetContainer.addEventListener('drop', handleDrop);
+                targetContainer.addEventListener('dragenter', handleDragEnter);
+                
+                // Also make target blocks draggable back to source
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        mutation.addedNodes.forEach(function(node) {
+                            if (node.nodeType === 1 && node.classList.contains('code-block')) {
+                                node.addEventListener('dragstart', handleDragStart);
+                                node.addEventListener('dragend', handleDragEnd);
+                            }
+                        });
+                    });
+                });
+                
+                observer.observe(targetContainer, { childList: true });
+            });
+        }
+        
+        let draggedElement = null;
+        
+        function handleDragStart(e) {
+            draggedElement = this;
+            this.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.outerHTML);
+        }
+        
+        function handleDragEnd(e) {
+            this.classList.remove('dragging');
+        }
+        
+        function handleDragEnter(e) {
+            e.preventDefault();
+        }
+        
+        function handleDragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+        
+        function handleDrop(e) {
+            e.preventDefault();
+            
+            if (draggedElement && this.classList.contains('parsons-blocks')) {
+                // Clone the dragged element
+                const clonedElement = draggedElement.cloneNode(true);
+                
+                // Add event listeners to the cloned element
+                clonedElement.addEventListener('dragstart', handleDragStart);
+                clonedElement.addEventListener('dragend', handleDragEnd);
+                
+                // If dropping into target area, remove from source
+                if (this.id.includes('target')) {
+                    // Remove original from source if it came from source
+                    if (draggedElement.parentNode.id.includes('source')) {
+                        draggedElement.remove();
+                    } else {
+                        // If moving within target or from target to target, just move
+                        draggedElement.remove();
+                    }
+                    this.appendChild(clonedElement);
+                } else {
+                    // If dropping back to source, remove from target
+                    if (draggedElement.parentNode.id.includes('target')) {
+                        draggedElement.remove();
+                        this.appendChild(clonedElement);
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Prototype hints styling */
+        .prototype-hint {
+            position: relative;
+            animation: gentle-pulse 2s ease-in-out infinite;
+        }
+        
+        
+        @keyframes gentle-pulse {
+            0% { 
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            100% { 
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+        }
+        
+        .prototype-hint.subtle {
+            animation: subtle-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtle-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(83, 130, 235, 0.2); }
+            50% { box-shadow: 0 0 15px 0 rgba(83, 130, 235, 0.4); }
+        }
+        
+        /* Progress Steps */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0.5rem 0.5rem;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .step-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 11px;
+            margin-bottom: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step-label {
+            font-size: 10px;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .step-connector {
+            flex: 1;
+            height: 2px;
+            margin: 0 0.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Step States */
+        .step.completed .step-circle {
+            background: #4B5160;
+            border: 2px solid #4B5160;
+            color: white;
+        }
+        
+        .step.completed .step-label {
+            color: #4B5160;
+        }
+        
+        .step.current .step-circle {
+            background: #ea8f9b;
+            border: 2px solid #ea8f9b;
+            color: white;
+            box-shadow: 0 0 0 3px rgba(234, 143, 155, 0.2);
+        }
+        
+        .step.current .step-label {
+            color: #ea8f9b;
+            font-weight: 600;
+        }
+        
+        .step.upcoming .step-circle {
+            background: #1e2a3a;
+            border: 2px solid #4B5160;
+            color: #8d95a5;
+        }
+        
+        .step.upcoming .step-label {
+            color: #8d95a5;
+        }
+        
+        /* Hover effects for clickable steps */
+        .step.completed:hover .step-circle {
+            background: #ea8f9b;
+            border-color: #ea8f9b;
+            transform: scale(1.05);
+        }
+        
+        .step.completed:hover .step-label {
+            color: #ea8f9b;
+        }
+        
+        .step.upcoming {
+            opacity: 0.6;
+        }
+        
+        /* Connector States */
+        .step.completed + .step-connector {
+            background: #ea8f9b;
+        }
+        
+        .step.current + .step-connector {
+            background: linear-gradient(to right, #ea8f9b 0%, #4B5160 100%);
+        }
+        
+        .step.upcoming + .step-connector {
+            background: #4B5160;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .progress-steps {
+                padding: 0.375rem 0.25rem;
+            }
+            
+            .step-circle {
+                width: 24px;
+                height: 24px;
+                font-size: 10px;
+            }
+            
+            .step-label {
+                font-size: 9px;
+            }
+            
+            .step-connector {
+                margin: 0 0.25rem;
+            }
+        }
+    </style>
+</body>
+</html>

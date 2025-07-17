@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codespec - My Problems</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+</head>
+<body class="theme theme--default" id="body">
+    <script>
+        let body = document.querySelector("body");
+        let cachedThemeClass = localStorage.getItem("cs-theme", null);
+        if (cachedThemeClass) {
+            body.classList.add(cachedThemeClass);
+            localStorage.setItem("cs-theme", cachedThemeClass);
+        } else {
+            body.classList.add("theme--default");
+        }
+    </script>
+    <div class="base-wrapper base" data-target="main-wrapper">
+        <a class="skip-to-main" href="#main">Skip to main content</a>
+        
+        <header class="cs-header">
+            <nav class="cs-navbar console" data-target="nav-wrapper">
+                <a class="cs-navbar-brand" href="javascript:void(0);" aria-label="Codespec" data-mobile-nav-item="">
+                    <div class="logo"></div>
+                </a>
+                <button class="cs-navbar-toggler large-screen-hidden" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" data-action="nav-toggle" data-mobile-nav-item="">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="cs-navbar-nav mobile-hidden" id="navbarMenu" data-target="main-navigation">
+                    <li class="cs-nav-item">
+                        <a class="cs-nav-link" href="javascript:void(0);" data-mobile-nav-item="">
+                            Console
+                        </a>
+                    </li>
+                    
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">My Work</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Courses
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media Library
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link active" href="/" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problems
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Questions
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Surveys
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbooks
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Browse</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem Bank
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up cs-btn--primary" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Create</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Course
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="/" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Question
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Survey
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbook
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="cs-nav-item">
+                        <button type="button" class="cs-nav-button circular ml-1--950-and-up" aria-label="Switch to lightmode">
+                            <i class="fa-solid fa-moon medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Switch to lightmode</span>
+                        </button>
+                    </li>
+                    <li class="cs-nav-item">
+                        <a href="javascript:void(0);" class="cs-nav-button circular ml-1--950-and-up no-underline" aria-label="Trash">
+                            <i class="fa-solid fa-trash-can medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Trash</span>
+                        </a>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button circular ml-1--950-and-up" data-action="account-nav-toggle" data-mobile-nav-item="">
+                            <span class="medium-screen-hidden">NH</span>
+                            <span class="cs-nav-button__text large-screen-hidden">My Account</span>
+                            <i class="fas fa-chevron-down large-screen-hidden" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu right-aligned no-border--950-and-below" data-target="account-nav" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Switch to Learner View
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    My Account
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <span aria-live="assertive" data-target="notification-list-wrapper">
+        </span>
+
+        <div class="main-wrapper">
+            <main id="main" role="main" class="">
+                <div class="cs-layout--with-sidebar__main-content__padding">
+                    <header class="cs-page-header mb-2">
+                        <nav aria-label="Breadcrumbs" class="cs-page-header__breadcrumbs">
+                            <ol class="cs-page-header__breadcrumb-list">
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="javascript:void(0);">
+                                        Console
+                                    </a>
+                                </li>
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="/">
+                                        My Problems
+                                    </a>
+                                </li>
+                            </ol>
+                        </nav>
+                        <div class="cs-page-header__title-actions">
+                            <h1 class="m-0">My Problems</h1>
+                            <div>
+                                <a href="new-problem.html" class="cs-btn--primary mr-1 prototype-hint">New Problem</a>
+                                <a href="javascript:void(0);" class="cs-btn--secondary">Upload Problems</a>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="cs-empty-state">
+                        <p>Problems will appear here after you create them!</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="module" src="./core.js"></script>
+    <script type="module" src="./forms.js"></script>
+    <script type="module" src="./navigation.js"></script>
+    <script src="script.js"></script>
+    <style>
+        /* Prototype hints styling */
+        .prototype-hint {
+            position: relative;
+            animation: gentle-pulse 2s ease-in-out infinite;
+        }
+        
+        
+        @keyframes gentle-pulse {
+            0% { 
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            100% { 
+                box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+            }
+        }
+        
+        .prototype-hint.subtle {
+            animation: subtle-glow 3s ease-in-out infinite;
+        }
+        
+        @keyframes subtle-glow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(83, 130, 235, 0.2); }
+            50% { box-shadow: 0 0 15px 0 rgba(83, 130, 235, 0.4); }
+        }
+    </style>
+</body>
+</html>

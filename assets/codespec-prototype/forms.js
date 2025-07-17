@@ -1,0 +1,1 @@
+const e=document.querySelectorAll("[data-file-input]"),t=document.querySelectorAll("[data-target='custom-file-input']");e&&e.forEach((e=>{e.addEventListener("change",(e=>{const t=e.target.files[0].name;e.target.nextElementSibling.textContent=t}))})),t&&t.forEach((e=>{e.addEventListener("click",(e=>{e.target.previousElementSibling.click()}))}));

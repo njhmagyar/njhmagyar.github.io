@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codespec - Pizza Factory</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/material-darker.min.css">
+    <style>
+        /* CodeMirror styling */
+        .CodeMirror {
+            border: 1px solid #4B5160;
+            border-radius: 5px;
+            height: auto;
+            min-height: 200px;
+            font-size: 14px;
+            line-height: 1.5;
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-gutters {
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-scroll {
+            min-height: 200px;
+            background: #0f1525 !important;
+        }
+        
+        .CodeMirror-lines {
+            padding-left: 4px !important;
+        }
+        
+        /* Custom colors for comments and line numbers */
+        .CodeMirror .cm-comment {
+            color: #4B5160 !important;
+        }
+        
+        .CodeMirror-linenumber {
+            color: #4B5160 !important;
+        }
+        
+        .theme--light .CodeMirror {
+            border-color: #ddd;
+        }
+        
+        .theme--light .CodeMirror .cm-comment {
+            color: #ddd !important;
+        }
+        
+        .theme--light .CodeMirror-linenumber {
+            color: #ddd !important;
+        }
+        
+        /* Problem solving interface styles */
+        .problem-solving-tabs {
+            border: 1px solid #4B5160;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .tab-content {
+            padding: 1.5rem;
+            background: #0f1525;
+            min-height: 400px;
+            position: relative;
+        }
+        
+        .run-button {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+        }
+        
+        .tab-panel {
+            display: none;
+        }
+        
+        .tab-panel.active {
+            display: block;
+        }
+        
+        /* Parsons problem styles */
+        .parsons-container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .parsons-column {
+            flex: 1;
+        }
+        
+        .parsons-column h4 {
+            margin: 0 0 1rem 0;
+            color: #e6e7ec;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .parsons-blocks {
+            min-height: 300px;
+            border: 2px dashed #4B5160;
+            border-radius: 4px;
+            padding: 1rem;
+        }
+        
+        .code-block {
+            background: #1e2a3a;
+            border: 1px solid #4B5160;
+            border-radius: 4px;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            cursor: move;
+            transition: all 0.2s;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .code-block:hover {
+            border-color: #5382eb;
+            background: #243447;
+        }
+        
+        .code-block.dragging {
+            opacity: 0.5;
+        }
+        
+        /* Syntax highlighting for blocks */
+        .code-block .keyword { color: #c586c0; }
+        .code-block .string { color: #ce9178; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .number { color: #b5cea8; }
+        .code-block .function { color: #dcdcaa; }
+        .code-block .variable { color: #9cdcfe; }
+        
+        /* Fill-in-the-blank styles */
+        .fill-blank {
+            display: inline-block;
+            min-width: 80px;
+            padding: 2px 8px;
+            background: #1e2a3a;
+            border: 1px solid #5382eb;
+            border-radius: 3px;
+            color: #e6e7ec;
+            font-family: inherit;
+            margin: 0 2px;
+        }
+        
+        .fill-blank:focus {
+            outline: none;
+            border-color: #64b5f6;
+            box-shadow: 0 0 0 2px rgba(100, 181, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="theme theme--default" id="body">
+    <script>
+        let body = document.querySelector("body");
+        let cachedThemeClass = localStorage.getItem("cs-theme", null);
+        if (cachedThemeClass) {
+            body.classList.add(cachedThemeClass);
+            localStorage.setItem("cs-theme", cachedThemeClass);
+        } else {
+            body.classList.add("theme--default");
+        }
+    </script>
+    <div class="base-wrapper base" data-target="main-wrapper">
+        <a class="skip-to-main" href="#main">Skip to main content</a>
+        
+        <header class="cs-header">
+            <nav class="cs-navbar console" data-target="nav-wrapper">
+                <a class="cs-navbar-brand" href="javascript:void(0);" aria-label="Codespec" data-mobile-nav-item="">
+                    <div class="logo"></div>
+                </a>
+                <button class="cs-navbar-toggler large-screen-hidden" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation" data-action="nav-toggle" data-mobile-nav-item="">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="cs-navbar-nav mobile-hidden" id="navbarMenu" data-target="main-navigation">
+                    <li class="cs-nav-item">
+                        <a class="cs-nav-link" href="javascript:void(0);" data-mobile-nav-item="">
+                            Console
+                        </a>
+                    </li>
+                    
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">My Work</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Courses
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media Library
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link active" href="/" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problems
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Questions
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Surveys
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbooks
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Browse</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem Bank
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button mr-2--950-and-up cs-btn--primary" data-mobile-nav-item="" data-action="submenu-toggle">
+                            <span class="cs-nav-button__text">Create</span>
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu left-aligned no-border--950-and-below" data-target="submenu" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon blue-bg mr-point-five"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                    Course
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon purple-bg mr-point-five"><i class="fa-solid fa-image" aria-hidden="true"></i></span>
+                                    Media
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="new-problem.html" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon pink-bg mr-point-five"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                                    Problem
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon orange-bg mr-point-five"><i class="fa-solid fa-spell-check" aria-hidden="true"></i></span>
+                                    Question
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon yellow-bg mr-point-five"><i class="fa-solid fa-clipboard" aria-hidden="true"></i></span>
+                                    Survey
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a class="cs-nav__mini-menu-item__link" href="javascript:void(0);" data-mobile-nav-item="">
+                                    <span class="cs-content-type-icon green-bg mr-point-five"><i class="fa-solid fa-book" aria-hidden="true"></i></span>
+                                    Workbook
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="cs-nav-item">
+                        <button type="button" class="cs-nav-button circular ml-1--950-and-up" aria-label="Switch to lightmode">
+                            <i class="fa-solid fa-moon medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Switch to lightmode</span>
+                        </button>
+                    </li>
+                    <li class="cs-nav-item">
+                        <a href="javascript:void(0);" class="cs-nav-button circular ml-1--950-and-up no-underline" aria-label="Trash">
+                            <i class="fa-solid fa-trash-can medium-screen-hidden" aria-hidden="true"></i>
+                            <span class="cs-nav-button__text large-screen-hidden">Trash</span>
+                        </a>
+                    </li>
+                    <li class="cs-nav-item has-menu">
+                        <button class="cs-nav-button circular ml-1--950-and-up" data-action="account-nav-toggle" data-mobile-nav-item="">
+                            <span class="medium-screen-hidden">NH</span>
+                            <span class="cs-nav-button__text large-screen-hidden">My Account</span>
+                            <i class="fas fa-chevron-down large-screen-hidden" aria-hidden="true"></i>
+                        </button>
+                        <ul class="cs-nav__mini-menu right-aligned no-border--950-and-below" data-target="account-nav" hidden="">
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Switch to Learner View
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    My Account
+                                </a>
+                            </li>
+                            <li class="cs-nav__mini-menu-item">
+                                <a href="javascript:void(0);" class="cs-nav__mini-menu-item__link">
+                                    Log Out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <span aria-live="assertive" data-target="notification-list-wrapper">
+        </span>
+
+        <div class="main-wrapper">
+            <main id="main" role="main" class="">
+                <div class="cs-layout--with-sidebar__main-content__padding">
+                    <header class="cs-page-header mb-2">
+                        <nav aria-label="Breadcrumbs" class="cs-page-header__breadcrumbs">
+                            <ol class="cs-page-header__breadcrumb-list">
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="javascript:void(0);">
+                                        Console
+                                    </a>
+                                </li>
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <a class="text--link no-underline" href="index.html">
+                                        My Problems
+                                    </a>
+                                </li>
+                                <li class="cs-page-header__breadcrumb-list-item">
+                                    <span>Pizza Factory</span>
+                                </li>
+                            </ol>
+                        </nav>
+                        <div class="cs-page-header__title-actions">
+                            <h1 class="m-0">Pizza Factory</h1>
+                            <div>
+                                <button class="cs-btn--secondary">Edit</button>
+                            </div>
+                        </div>
+                    </header>
+                    
+                    <div class="cs-field-wrapper mb-3">
+                        <div style="white-space: pre-line; line-height: 1.5;">You're helping run a pizza factory! The factory keeps track of different pizza types and how many of each type they've made today.
+
+Your job is to write a program that uses a dictionary to store pizza data and perform some basic operations.
+
+Create a dictionary called `pizza_count` with the following pizza types and their counts:
+- "pepperoni": 45
+- "cheese": 32
+- "veggie": 18
+- "supreme": 23
+
+Then write code to:
+1. Print the total number of pizzas made today
+2. Print which pizza type was made the most
+3. Add 5 more "cheese" pizzas to the count
+4. Print the updated count for "cheese" pizzas
+
+Example output:
+Total pizzas made: 118
+Most popular pizza: pepperoni
+Updated cheese count: 37</div>
+                    </div>
+
+                    <div class="problem-solving-tabs problem-types-tabs">
+                        <div class="cs-tab-list">
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn active" data-tab="pseudocode">Pseudocode</button>
+                            </div>
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn" data-tab="blocks">Blocks</button>
+                            </div>
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn" data-tab="fill-blank">Fill-in-the-Blank</button>
+                            </div>
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn" data-tab="fix-code">Fix Code</button>
+                            </div>
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn" data-tab="write-code">Write Code</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <!-- Pseudocode Tab -->
+                            <div id="pseudocode-panel" class="tab-panel active">
+                                <div class="parsons-container">
+                                    <div class="parsons-column">
+                                        <h4>Available Steps</h4>
+                                        <div class="parsons-blocks" id="pseudocode-source">
+                                            <div class="code-block" draggable="true">Add 5 more cheese pizzas to the count</div>
+                                            <div class="code-block" draggable="true">Create a dictionary with pizza types and counts</div>
+                                            <div class="code-block" draggable="true">Print the updated cheese count</div>
+                                            <div class="code-block" draggable="true">Find and print the most popular pizza</div>
+                                            <div class="code-block" draggable="true">Calculate and print the total number of pizzas</div>
+                                        </div>
+                                    </div>
+                                    <div class="parsons-column">
+                                        <h4>Your Solution (drag steps here)</h4>
+                                        <div class="parsons-blocks" id="pseudocode-target"></div>
+                                    </div>
+                                </div>
+                                <button class="cs-btn--primary run-button">Run</button>
+                            </div>
+
+                            <!-- Blocks Tab -->
+                            <div id="blocks-panel" class="tab-panel">
+                                <div class="parsons-container">
+                                    <div class="parsons-column">
+                                        <h4>Available Code Blocks</h4>
+                                        <div class="parsons-blocks" id="blocks-source">
+                                            <div class="code-block" draggable="true"><span class="variable">pizza_count</span>[<span class="string">"cheese"</span>] += <span class="number">5</span></div>
+                                            <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Updated cheese count: {pizza_count['cheese']}"</span>)</div>
+                                            <div class="code-block" draggable="true"><span class="variable">most_popular</span> = <span class="function">max</span>(<span class="variable">pizza_count</span>, <span class="variable">key</span>=<span class="variable">pizza_count</span>.<span class="function">get</span>)</div>
+                                            <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Total pizzas made: {total_pizzas}"</span>)</div>
+                                            <div class="code-block" draggable="true"><span class="variable">total_pizzas</span> = <span class="function">sum</span>(<span class="variable">pizza_count</span>.<span class="function">values</span>())</div>
+                                            <div class="code-block" draggable="true"><span class="function">print</span>(<span class="string">f"Most popular pizza: {most_popular}"</span>)</div>
+                                            <div class="code-block" draggable="true"><span class="variable">pizza_count</span> = {<span class="string">"pepperoni"</span>: <span class="number">45</span>, <span class="string">"cheese"</span>: <span class="number">32</span>, <span class="string">"veggie"</span>: <span class="number">18</span>, <span class="string">"supreme"</span>: <span class="number">23</span>}</div>
+                                        </div>
+                                    </div>
+                                    <div class="parsons-column">
+                                        <h4>Your Solution (drag blocks here)</h4>
+                                        <div class="parsons-blocks" id="blocks-target"></div>
+                                    </div>
+                                </div>
+                                <button class="cs-btn--primary run-button">Run</button>
+                            </div>
+
+                            <!-- Fill-in-the-Blank Blocks Tab -->
+                            <div id="fill-blank-panel" class="tab-panel">
+                                <div class="parsons-container">
+                                    <div class="parsons-column">
+                                        <h4>Available Code Blocks</h4>
+                                        <div class="parsons-blocks" id="fill-blank-source">
+                                            <div class="code-block" draggable="true">pizza_count[<input class="fill-blank" placeholder="key">] += <input class="fill-blank" placeholder="number"></div>
+                                            <div class="code-block" draggable="true">print(f"Updated cheese count: {pizza_count[<input class="fill-blank" placeholder="key">]}")</div>
+                                            <div class="code-block" draggable="true"><input class="fill-blank" placeholder="variable"> = max(pizza_count, key=pizza_count.get)</div>
+                                            <div class="code-block" draggable="true">print(f"Total pizzas made: {<input class="fill-blank" placeholder="variable">}")</div>
+                                            <div class="code-block" draggable="true"><input class="fill-blank" placeholder="variable"> = sum(pizza_count.values())</div>
+                                            <div class="code-block" draggable="true">print(f"Most popular pizza: {<input class="fill-blank" placeholder="variable">}")</div>
+                                            <div class="code-block" draggable="true">pizza_count = {"pepperoni": 45, "cheese": 32, "veggie": 18, "supreme": 23}</div>
+                                        </div>
+                                    </div>
+                                    <div class="parsons-column">
+                                        <h4>Your Solution (drag blocks here)</h4>
+                                        <div class="parsons-blocks" id="fill-blank-target"></div>
+                                    </div>
+                                </div>
+                                <button class="cs-btn--primary run-button">Run</button>
+                            </div>
+
+                            <!-- Fix Code Tab -->
+                            <div id="fix-code-panel" class="tab-panel">
+                                <div class="cs-field-wrapper">
+                                    <label class="cs-field-label">Fix the bugs in this code:</label>
+                                    <textarea id="fix-code-editor"># Pizza Factory Solution (contains bugs!)
+
+# Create the pizza count dictionary
+pizza_count = {
+    "pepperoni": 45,
+    "cheese": 32,
+    "veggie": 18,
+    "supreme": 23
+}
+
+# 1. Calculate and print total pizzas made
+total_pizzas = sum(pizza_count.keys())  # Bug: should be values()
+print(f"Total pizzas made: {total_pizzas}")
+
+# 2. Find and print the most popular pizza
+most_popular = min(pizza_count, key=pizza_count.get)  # Bug: should be max()
+print(f"Most popular pizza: {most_popular}")
+
+# 3. Add 5 more cheese pizzas
+pizza_count["cheese"] = 5  # Bug: should be +=
+
+# 4. Print the updated cheese count
+print(f"Updated cheese count: {pizza_count['cheese']}")</textarea>
+                                </div>
+                                <button class="cs-btn--primary run-button">Run</button>
+                            </div>
+
+                            <!-- Write Code Tab -->
+                            <div id="write-code-panel" class="tab-panel">
+                                <div class="cs-field-wrapper">
+                                    <label class="cs-field-label">Write your solution from scratch:</label>
+                                    <textarea id="write-code-editor"># Write your Pizza Factory solution here
+
+</textarea>
+                                </div>
+                                <button class="cs-btn--primary run-button">Run</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problem-solving-tabs feedback-tabs mt-3">
+                        <div class="cs-tab-list">
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn active" data-tab="feedback">Feedback & Results</button>
+                            </div>
+                            <div class="cs-tab-list__item">
+                                <button class="cs-tab-list__btn" data-tab="unit-tests">Unit Tests</button>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content">
+                            <!-- Feedback Tab -->
+                            <div id="feedback-panel" class="tab-panel active">
+                                <div class="cs-empty-state">
+                                    <div class="cs-empty-state__content">
+                                        <p>View feedback here after running your solution</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Unit Tests Tab -->
+                            <div id="unit-tests-panel" class="tab-panel">
+                                <div class="cs-field-wrapper">
+                                    <label class="cs-field-label">Unit Tests</label>
+                                    <textarea id="unit-tests-viewer">Test 1: Basic Dictionary Creation
+Input: Create pizza_count dictionary with pepperoni: 45, cheese: 32, veggie: 18, supreme: 23
+Expected: Dictionary created successfully
+
+Test 2: Calculate Total Pizzas
+Input: sum(pizza_count.values())
+Expected: 118
+
+Test 3: Find Most Popular Pizza
+Input: max(pizza_count, key=pizza_count.get)
+Expected: "pepperoni"
+
+Test 4: Update Cheese Count
+Input: pizza_count["cheese"] += 5
+Expected: pizza_count["cheese"] = 37
+
+Test 5: Verify Final State
+Input: Print all values
+Expected: 
+  Total pizzas made: 118
+  Most popular pizza: pepperoni
+  Updated cheese count: 37</textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/python/python.min.js"></script>
+    <script type="module" src="./core.js"></script>
+    <script type="module" src="./forms.js"></script>
+    <script type="module" src="./navigation.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize CodeMirror for solution
+            const solutionTextarea = document.getElementById('solution-code');
+            const solutionEditor = CodeMirror.fromTextArea(solutionTextarea, {
+                mode: 'python',
+                theme: 'material-darker',
+                lineNumbers: true,
+                readOnly: true,
+                lineWrapping: true,
+                indentUnit: 4,
+                tabSize: 4,
+                indentWithTabs: false,
+                smartIndent: true,
+                electricChars: true,
+                matchBrackets: true,
+                showCursorWhenSelecting: false
+            });
+            solutionEditor.setSize(null, 'auto');
+
+            // Initialize CodeMirror for unit tests
+            const unitTestsTextarea = document.getElementById('unit-tests-code');
+            const unitTestsEditor = CodeMirror.fromTextArea(unitTestsTextarea, {
+                mode: 'python',
+                theme: 'material-darker',
+                lineNumbers: true,
+                readOnly: true,
+                lineWrapping: true,
+                indentUnit: 4,
+                tabSize: 4,
+                indentWithTabs: false,
+                smartIndent: true,
+                electricChars: true,
+                matchBrackets: true,
+                showCursorWhenSelecting: false
+            });
+            unitTestsEditor.setSize(null, 'auto');
+        });
+    </script>
+</body>
+</html>

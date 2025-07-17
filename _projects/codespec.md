@@ -106,6 +106,21 @@ published: true
   </div>
 </div>
 
+<div class="responsive-margin-bottom">
+  <h2>Interactive Prototype</h2>
+  <p class="p--lg">
+    Below is an interactive prototype of the AI-enhanced problem creation flow. This demonstrates how instructors would navigate through the system to create programming problems with GenAI assistance.
+  </p>
+  <div class="prototype-container bg-gray--light p-2 rounded" style="position: relative;">
+    <!-- Dark background to prevent white flash -->
+    <div style="position: absolute; top: 2rem; left: 2rem; right: 2rem; height: 600px; background: #171e32; border-radius: 8px; z-index: 1;"></div>
+    <iframe src="/assets/codespec-prototype/index.html" width="100%" height="600" frameborder="0" style="border-radius: 8px; position: relative; z-index: 2;"></iframe>
+  </div>
+  <p class="text--small text--gray mt-1">
+    <em>Note: This is a functional prototype built with HTML, CSS, and JavaScript to demonstrate the user interface and flow.</em>
+  </p>
+</div>
+
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div href="{{ project.url }}" class="nhm-card__image-wrapper">
     <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
