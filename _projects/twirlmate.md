@@ -10,9 +10,9 @@ tools: [Figma, Google Forms, Usability Testing]
 duration: June - July 2025
 order: 1
 featured: true
-cover_image: /assets/images/twirlmate-cover.svg
-thumbnail_image: /assets/images/twirlmate-cover.svg
-logo_image: /assets/images/twirlmate-cover.svg
+cover_image: /assets/images/twirlmate/twirlmate-cover-new-2.png
+thumbnail_image: /assets/images/twirlmate/twirlmate-cover-new-2.png
+logo_image: /assets/images/twirlmate/twirlmate-cover-new-2.png
 hero_image: /assets/images/twirlmate/twirlmate-cover-4-mobile.png
 screenshots: [
   /assets/images/twirlmate/prototype/prototype-1.png,
