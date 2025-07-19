@@ -68,12 +68,9 @@
     }
   }
   @media #{$mq--md} {
-    @include flex($justify: flex-start, $align: flex-start, $wrap: nowrap);
+    @include flex($justify: flex-start, $align: flex-start, $wrap: nowrap, $gap: 2rem);
     &:nth-child(even) {
       flex-direction: row-reverse;
-      .nhm-card__image {
-        margin: 0 0 0 1rem;
-      }
     }
   }
 }

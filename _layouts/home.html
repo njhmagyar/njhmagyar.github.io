@@ -36,6 +36,10 @@ layout: default
           </ul>
         </div>
         <p>{{ project.tagline }}</p>
+        <a href="{{ project.url }}" class="nhm-btn--blue mt-1">View Case Study</a>
+        {% if project.project_url %}
+        <a href="{{ project.project_url }}" class="nhm-btn--outline--blue ml-1">Go to Live Site</a>
+        {% endif %}
       </div>
     </li>
     {% endfor %}

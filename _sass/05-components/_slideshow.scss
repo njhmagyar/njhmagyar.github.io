@@ -12,8 +12,8 @@
   img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
-    object-position: top center;
+    object-fit: contain;
+    object-position: center;
     @media #{$mq--sm} {
       height: 400px !important;
     }
