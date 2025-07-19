@@ -297,7 +297,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/twirlmate-a-b.svg" class="nhm-card__image" alt="" />
+    <img src="/assets/images/twirlmate-celebrate.svg" class="mxh-300 nhm-card__image" alt="" />
   </div>
   <div>
     <h2>Measuring Usability</h2>
