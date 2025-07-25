@@ -84,6 +84,18 @@ published: true
 
 <h2 class="align--center responsive-margin-bottom">How I Made It Happen</h2>
 
+<div class="responsive-margin-bottom">
+  <h2>Define Personas</h2>
+  <p class="p--lg">
+    I started by defining my target users: computer science educators and researchers struggling to generate
+    high-quality practice problems due to limited time or knowledge.
+  </p>
+  <p class="p--lg">
+    Despite differences in programming experience, both personas are open to using new tools and would like to maximize output while minimizing time investment.
+  </p>
+  <img src="/assets/images/codespec/codespec-personas.png" class="w-100" alt="" />
+</div>
+
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div href="{{ project.url }}" class="nhm-card__image-wrapper">
     <img src="/assets/images/codespec-human-in-the-loop.svg" class="mxh-300 nhm-card__image" alt="" />
