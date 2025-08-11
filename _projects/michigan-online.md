@@ -54,6 +54,18 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
+    <img src="/assets/images/construction.svg" class="nhm-card__image mxh-300" alt="" />
+  </div>
+  <div>
+    <h2>Why It Matters</h2>
+    <p class="p--lg">
+      A well-designed review section contributes to an organization/product's overall reputation, increasing consumer trust in the quality of their purchase. Visibility into the full array of reviews (not just the most positive ones) improves the credibility of reviews as well.
+    </p>
+  </div>
+</div>
+
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+  <div class="nhm-card__image-wrapper">
     <img src="/assets/images/michigan-online/michigan-online--after.gif" class="nhm-card__image" alt="" />
   </div>
   <div>
@@ -88,16 +100,14 @@ published: true
   <img src="/assets/images/michigan-online/michigan-online--skillshare.png" class="d-block w-100 mb-3" alt="" />
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
-  <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
-  </div>
-  <div>
-    <h2>Prototyping</h2>
-    <p class="p--lg">
-      I then explored two approaches: one that kept all rating and review information on the main course page, and one that separated the exploration experience into two pages (offering surface level information on the main page and a list of full reviews on a different page).
-    </p>
-  </div>
+<div class="responsive-margin-bottom">
+  <h2>Prototyping</h2>
+  <p class="p--lg">
+    I then explored two approaches: one that kept all rating and review information on the main course page, and one that separated the exploration experience into two pages (offering surface-level information on the main page and a list of full reviews on a different page).
+  </p>
+  <p class="p--lg">
+    The first design minimized clicks but increased scrolling on the page as a whole. The second design provided a more progressive exploration of the reviews, but obscured the full set of reviews behind an additional click that some users might miss.
+  </p>
 </div>
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
