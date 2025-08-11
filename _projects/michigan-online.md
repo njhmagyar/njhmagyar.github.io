@@ -54,12 +54,12 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/construction.svg" class="nhm-card__image mxh-300" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--why-it-matters.png" class="nhm-card__image mw-300 mx-auto" alt="" />
   </div>
   <div>
     <h2>Why It Matters</h2>
     <p class="p--lg">
-      A well-designed review section contributes to an organization/product's overall reputation, increasing consumer trust in the quality of their purchase. Visibility into the full array of reviews (not just the most positive ones) improves the credibility of reviews as well.
+      A well-designed review section contributes to an organization/product's overall <strong>reputation</strong>, and increases consumer <strong>trust</strong> in the quality of their purchase. Visibility into the full array of reviews (not just the most positive ones) also improves the <strong>credibility</strong> of reviews.
     </p>
   </div>
 </div>
@@ -108,45 +108,67 @@ published: true
   <p class="p--lg">
     The first design minimized clicks but increased scrolling on the page as a whole. The second design provided a more progressive exploration of the reviews, but obscured the full set of reviews behind an additional click that some users might miss.
   </p>
+  <img src="/assets/images/michigan-online/michigan-online--prototypes.png" class="d-block w-100 mb-3" alt="" />
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--usability-findings.png" class="nhm-card__image" alt="" />
   </div>
   <div>
     <h2>Usability Testing</h2>
     <p class="p--lg">
       After that, I conducted 5 usability tests with undergraduate students who were experienced with online learning. Findings included:
     </p> 
-    <ul>
-      <li>
-        <p class="p--lg">
-          Participants were often most interested in seeing the reviews associated with the lowest ratings. “Why didn’t someone like this course?”
-        </p>
-      </li>
-      <li>
-        <p class="p--lg">
-          Participants were okay with going to a second page to see all reviews, as it made the main course page less overwhelming.
-        </p>
-      </li>
-      <li>
-        <p class="p--lg">
-          Some participants expressed interest in knowing more about the people who wrote reviews, and being able to see more descriptive rating/review information about the course (similar to Skillshare).
-        </p>
-      </li>
-    </ul>
   </div>
 </div>
 
+<div class="responsive-margin-bottom">
+<ul>
+  <li>
+    <p class="p--lg">
+      Participants were okay with going to a second page to see all reviews, as it made the main course page less overwhelming.
+    </p>
+  </li>
+  <li>
+    <p class="p--lg">
+      Participants were sometimes unaware that the histogram and star ratings were interactive. One person also suggested displaying the percentage of total ratings each level represented.
+    </p>
+  </li>
+  <li>
+    <p class="p--lg">
+      Some participants expressed interest in knowing more about the people who wrote reviews, in order to determine if the feedback was coming from a person similar to them.
+    </p>
+  </li>
+</ul>
+</div>
+
+
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--ideal-version.png" class="nhm-card__image" alt="" />
   </div>
   <div>
     <h2>Final Iteration</h2>
     <p class="p--lg">
-      Ultimately, I went with the version that splits the experience into two pages, one for seeing a subset of the most recent reviews by rating level on the main course page and another for seeing all reviews.
+      In the last iteration of the project, I incorporated user feedback to better communicate each rating's interactivity and proportion.
     </p> 
+    <h3>Unexpected Constraint</h3>
+    <p class="p--lg">
+      I experimented with adding more biographical information about each reviewer, but due to data limitaitons I was unable to provide these details. We source our reviews from 3rd party platforms who don't pass that info to us (e.g., Coursera).
+    </p> 
+  </div>
+</div>
+
+<div class="responsive-margin-bottom align--center">
+  <div>
+    <h2>The Result</h2>
+    <p class="p--lg align--left">
+    The outcome of this effort was a more interactive, transparent course rating section that allowed prospective learners to explore the full set of reviews for a given learning experience.
+    </p>
+    <p class="p--lg align--left">
+    Now that the design is implemented, I'd like to collect quantitative measurements of user satisfaction, and monitor click-through rates between the course and review pages to guage usage.
+    </p>
+    <img src="/assets/images/michigan-online/michigan-online--cover.png" class="d-block mw-700 mx-auto nhm-card__image mt-5" alt="" />
   </div>
 </div>
