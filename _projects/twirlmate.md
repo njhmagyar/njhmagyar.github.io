@@ -50,7 +50,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/twirlmate/twirlmate-mobile-ta-da-new.png" class="mxh-500 w-auto nhm-card__image" alt="" />
+    <img src="/assets/images/twirlmate/twirlmate-mobile-ta-da-new.png" class="mxh-500--responsive w-auto nhm-card__image" alt="" />
   </div>
   <div>
     <h2>The Goals</h2>
@@ -313,7 +313,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-wrapper align--center--700-and-up responsive-margin-bottom">
+<div class="align--center--700-and-up responsive-margin-bottom">
   <h2>The Result</h2>
   <p class="p--lg">
     By leveraging user feedback and thoughtfully evaluating the current state of the app,

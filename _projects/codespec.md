@@ -119,7 +119,7 @@ published: true
 <h2 class="align--center responsive-margin-bottom">How I Made It Happen</h2>
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
-<div class="nhm-card__image-wrapper">
+  <div class="nhm-card__image-wrapper">
     <img src="/assets/images/construction.svg" class="mxh-300 nhm-card__image" alt="" />
   </div>
   <div>
@@ -172,8 +172,8 @@ published: true
 </div>
 
 <div class="responsive-margin-bottom">
-  <div class="bg-gray--light align--center">
-    <img src="/assets/images/codespec-loop.svg" class="mt-2 w-100" alt="" />
+  <div class="bg-gray--light align--center rounded">
+    <img src="/assets/images/codespec-loop.svg" class="w-100" alt="" />
   </div>
 </div>
 
@@ -206,7 +206,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-wrapper responsive-margin-bottom">
+<div class="responsive-margin-bottom">
   <p class="p--lg">
     "Using HTML, CSS, and JavaScript, I want to prototype a wizard flow
     for authoring programming practice problems with GenAI. The interface should look and feel like Codespec's

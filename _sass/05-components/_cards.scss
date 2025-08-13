@@ -77,8 +77,10 @@
 }
 
 .responsive-margin-bottom {
-  margin-bottom: 6rem;
-
+  margin-bottom: 3rem;
+  @media #{$mq--sm} {
+    margin-bottom: 6rem;
+  }
   @media #{$mq--md} {
     margin-bottom: 12rem;
   }
@@ -122,6 +124,12 @@
 .nhm-card__image {
   width: 100%;
   min-height: 200px;
+  &.object-fit--contain {
+    object-fit: contain;
+  }
+  &.object-fit--cover {
+    object-fit: cover;
+  }
   &.mxh-200 {
     max-height: 200px;
     object-fit: cover;

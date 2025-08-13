@@ -7,10 +7,7 @@ layout: default
     <div class="nhm-hero mobile-image-first py-5">
       <div class="nhm-hero__text">
         <h1 class="nhm-mega-font">Hi! I'm Nathan.</h1>
-        <p class="p--lg">I'm passionate about education and using my
-          skills as a full stack developer, UX designer,
-          and researcher to create beautiful, engaging
-          experiences for learners.
+        <p class="p--lg">I'm a product designer and full stack developer with 7+ years of experience transforming complex workflows into delightful, intuitive experiences for users.
         </p>
       </div>
       <img class="nhm-hero__image mb-2--700-and-below" src="/assets/images/nhm-wave.svg" alt="">
@@ -24,7 +21,7 @@ layout: default
     {% for project in ordered_projects %}
     <li class="nhm-card--horizontal responsive-margin-bottom">
       <a href="{{ project.url }}" class="nhm-card__image-wrapper">
-        <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded" alt="{{ project.title }}" /></a>
+        <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" /></a>
         <div>
         <h3 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a>
         </h3>
@@ -36,9 +33,9 @@ layout: default
           </ul>
         </div>
         <p>{{ project.tagline }}</p>
-        <a href="{{ project.url }}" class="nhm-btn--blue mt-1">View Case Study</a>
+        <a href="{{ project.url }}" class="nhm-btn--blue my-1 mr-1">View Case Study</a>
         {% if project.project_url %}
-        <a href="{{ project.project_url }}" class="nhm-btn--outline--blue ml-1">Go to Live Site</a>
+        <a href="{{ project.project_url }}" class="nhm-btn--outline--blue mb-1">Go to Live Site</a>
         {% endif %}
       </div>
     </li>

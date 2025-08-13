@@ -257,6 +257,15 @@ td.small-screen-hidden {
 .mxh-500 {
   max-height: 500px;
 }
+.mxh-500--responsive {
+  max-height: 200px;
+  @media #{$mq--md} {
+    max-height: 300px;
+  }
+  @media #{$mq--lg} {
+    max-height: 500px;
+  }
+}
 
 .w-auto {width: auto !important; }
 .w-50 { width: 50%; }

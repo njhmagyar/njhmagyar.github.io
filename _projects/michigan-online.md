@@ -42,7 +42,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/michigan-online/michigan-online--problem.png" class="nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--problem.png" class="nhm-card__image object-fit--contain" alt="" />
   </div>
   <div>
     <h2>The Problem</h2>
@@ -66,7 +66,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/michigan-online/michigan-online--after.gif" class="nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--after.gif" class="nhm-card__image object-fit--contain" alt="" />
   </div>
   <div>
     <h2>The Goals</h2>
@@ -113,7 +113,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/michigan-online/michigan-online--usability-findings.png" class="nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--usability-findings.png" class="nhm-card__image object-fit--contain" alt="" />
   </div>
   <div>
     <h2>Usability Testing</h2>
@@ -146,7 +146,7 @@ published: true
 
 <div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
   <div class="nhm-card__image-wrapper">
-    <img src="/assets/images/michigan-online/michigan-online--ideal-version.png" class="nhm-card__image" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--ideal-version.png" class="nhm-card__image object-fit--contain" alt="" />
   </div>
   <div>
     <h2>Final Iteration</h2>
@@ -169,6 +169,6 @@ published: true
     <p class="p--lg align--left">
     Now that the design is implemented, I'd like to collect quantitative measurements of user satisfaction, and monitor click-through rates between the course and review pages to guage usage.
     </p>
-    <img src="/assets/images/michigan-online/michigan-online--cover.png" class="d-block mw-700 mx-auto nhm-card__image mt-5" alt="" />
+    <img src="/assets/images/michigan-online/michigan-online--cover.png" class="d-block mw-700 mx-auto nhm-card__image object-fit--contain mt-5" alt="" />
   </div>
 </div>
