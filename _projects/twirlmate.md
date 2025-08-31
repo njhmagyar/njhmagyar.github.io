@@ -26,17 +26,17 @@ prototype_id: "twirlmate-prototype"
 published: true
 ---
 <div class="nhm-wrapper responsive-margin-bottom">
-  <img class="d-block w-100" src="{{ page.hero_image }}" alt="">
+  <img class="d-block w-100 fade-in-up" src="{{ page.hero_image }}" alt="">
 </div>
 
 <div class="nhm-wrapper responsive-margin-bottom">
-  <p class="align--center p--lg mw-680 mx-auto">
+  <p class="align--center p--lg mw-680 mx-auto fade-in-up animation-delay-1">
     Twirlmate is a webapp where parents and 
     coaches register their athletes for baton twirling competitions.
   </p>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-2">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate-old-flow.svg" class="mxh-300 nhm-card__image" alt="" />
   </div>
@@ -48,7 +48,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-3">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-mobile-ta-da-new.png" class="mxh-500--responsive w-auto nhm-card__image" alt="" />
   </div>
@@ -62,7 +62,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-4">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-impact.png" class="nhm-card__image" alt="" />
   </div>
@@ -83,7 +83,7 @@ published: true
   </div>
 </div>
 
-<h2 class="align--center">What was the difference?</h2>
+<h2 class="align--center fade-in-up animation-delay-5">What was the difference?</h2>
 {% if page.screenshots %}
   <div class="nhm-wrapper responsive-margin-bottom">
     <div class="slideshow-container mb-2">
@@ -106,9 +106,9 @@ published: true
   </div>
   {% endif %}
 
-<h2 class="align--center responsive-margin-bottom">How I Made It Happen</h2>
+<h2 class="align--center responsive-margin-bottom fade-in-up">How I Made It Happen</h2>
 
-<div class="nhm-card--horizontal image-last--mobile mb-3">
+<div class="nhm-card--horizontal image-last--mobile mb-3 fade-in-up animation-delay-1">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-spacing.svg" class="mxh-300 nhm-card__image" alt="" />
   </div>
@@ -121,11 +121,11 @@ published: true
   </div>
 </div>
 
-<img class="w-100 d-block mb-1 border-1-gray-tag rounded box-shadow" src="/assets/images/twirlmate/twirlmate-color.png" alt="" />
-<img class="w-100 d-block mb-1 border-1-gray-tag rounded box-shadow" src="/assets/images/twirlmate/twirlmate-typography.png" alt="" />
-<img class="w-100 d-block border-1-gray-tag rounded box-shadow responsive-margin-bottom" src="/assets/images/twirlmate/twirlmate-inputs.png" alt="" />
+<img class="w-100 d-block mb-1 border-1-gray-tag rounded box-shadow fade-in-up animation-delay-2" src="/assets/images/twirlmate/twirlmate-color.png" alt="" />
+<img class="w-100 d-block mb-1 border-1-gray-tag rounded box-shadow fade-in-up animation-delay-3" src="/assets/images/twirlmate/twirlmate-typography.png" alt="" />
+<img class="w-100 d-block border-1-gray-tag rounded box-shadow responsive-margin-bottom fade-in-up animation-delay-4" src="/assets/images/twirlmate/twirlmate-inputs.png" alt="" />
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-5">
   <div class="nhm-card__image-wrapper">
       <img src="/assets/images/twirlmate/twirlmate-v1-prototype.png" class="mxh-300 nhm-card__image border-1-gray-tag rounded box-shadow" alt="" />
   </div>
@@ -144,7 +144,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up">
   <div class="nhm-card__image-wrapper">
       <img src="/assets/images/twirlmate/twirlmate-v1-evaluation.svg" class="w-auto nhm-card__image" alt="" />
   </div>
@@ -170,7 +170,7 @@ published: true
   </div>
 </div>
 
-<div class="responsive-margin-bottom align--center--700-and-up">
+<div class="responsive-margin-bottom align--center--700-and-up fade-in-up animation-delay-1">
   <h2>Reduce Scrolling</h2>
   <p class="p--lg align--left">
     I experimented with different layouts and image ratios to find the right
@@ -181,7 +181,7 @@ published: true
   <img src="/assets/images/twirlmate/twirlmate-header-redesign.png" class="w-100" alt="" />
 </div>
 
-<div class="responsive-margin-bottom align--center--700-and-up">
+<div class="responsive-margin-bottom align--center--700-and-up fade-in-up animation-delay-2">
   <h2>Add Helpful Confirmation Info</h2>
   <p class="p--lg align--left">
     During the checkout process, users have two opportunities to review their purchase. Still,
@@ -192,7 +192,7 @@ published: true
   <img src="/assets/images/twirlmate/twirlmate-confirmation-page.png" class="w-100" alt="" />
 </div>
 
-<div class="responsive-margin-bottom align--center--700-and-up">
+<div class="responsive-margin-bottom align--center--700-and-up fade-in-up animation-delay-3">
   <h2>Fix the Main Problem</h2>
   <p class="p--lg align--left">
     Finally, the most important issue: providing new users with smooth path between setting
@@ -207,7 +207,7 @@ published: true
   <img src="/assets/images/twirlmate/twirlmate-main-problem-fix.png" class="w-100" alt="" />
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-4">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-research-design.png" class="nhm-card__image" alt="" />
   </div>
@@ -234,12 +234,12 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal responsive-margin-bottom">
+<div class="nhm-card--horizontal responsive-margin-bottom fade-in-up animation-delay-5">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-recruitment.png" class="nhm-card__image rounded" alt="" />
   </div>
   <div>
-  `<h2 class="mt-0">Recruit Participants</h2>
+  <h2 class="mt-0">Recruit Participants</h2>
     <p class="p--lg">
       My recruitment criteria were baton twirling parents or coaches
       who have been active in the sport this past year and preferably hadn't used Twirlmate before.
@@ -253,7 +253,7 @@ published: true
 </div>
 
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-notes.png" class="nhm-card__image" alt="" />
   </div>
@@ -276,7 +276,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-1">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate/twirlmate-welcome-v1.png" class="nhm-card__image" alt="" />
   </div>
@@ -295,7 +295,7 @@ published: true
   </div>
 </div>
 
-<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom">
+<div class="nhm-card--horizontal image-last--mobile responsive-margin-bottom fade-in-up animation-delay-2">
   <div class="nhm-card__image-wrapper">
     <img src="/assets/images/twirlmate-celebrate.svg" class="mxh-300 nhm-card__image" alt="" />
   </div>
@@ -313,7 +313,7 @@ published: true
   </div>
 </div>
 
-<div class="align--center--700-and-up responsive-margin-bottom">
+<div class="align--center--700-and-up responsive-margin-bottom fade-in-up animation-delay-3">
   <h2>The Result</h2>
   <p class="p--lg">
     By leveraging user feedback and thoughtfully evaluating the current state of the app,
@@ -323,7 +323,7 @@ published: true
   <img class="d-block w-100" src="{{ page.hero_image }}" alt="">
 </div>
 
-<div class="responsive-margin-bottom align--center--700-and-up">
+<div class="responsive-margin-bottom align--center--700-and-up fade-in-up animation-delay-4">
   <h2>Want to see more?</h2>
   <a class="nhm-btn--blue" href="https://www.twirlmate.com/" target="_blank">
     View the Live Site
