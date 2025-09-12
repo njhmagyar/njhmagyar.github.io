@@ -2,39 +2,32 @@
 layout: default
 permalink: pretty
 ---
-<article class="pb-152px">
-  <div class="nhm-wrapper responsive-margin-bottom">
-    <div class="nhm-hero mobile-image-first pt-5 align--left">
-      <div class="nhm-hero__text fade-in-up">
+<article class="pb-152px" data-project-detail>
+  <div class="nhm-wrapper responsive-margin-bottom mw-56rem">
+    <div class="pt-5">
+      <div class="fade-in-up">
         <p>{{ page.supertitle }}</p>
         <h1 class="mt-0">{{ page.title }}</h1>
-        <p>
-          {{ page.tagline }}
-        </p>
-        <ul class="unstyled-list nhm-tag-list">
-          {% for role in page.roles %}
-          <li class="nhm-tag-list__item">
-            <p class="my-0 text--small">{{ role }}</p>
-          </li>
-          {% endfor %}
-          {% for tool in page.tools %}
-          <li class="nhm-tag-list__item">
-            <p class="my-0 text--small">{{ tool }}</p>
-          </li>
-          {% endfor %}
-          <li class="nhm-tag-list__item">
-            <p class="my-0 text--small">{{ page.duration }}</p>
-          </li>
-        </ul>
-        {% if page.project_url %}
-        <a href="{{ page.project_url }}" class="nhm-btn--blue mt-1">View Live Site</a>
-        {% endif %}
+        <div class="fade-in-up animation-delay-1">
+          <img class="w-100 rounded" src="{{ page.cover_image }}" alt="">
+        </div>
       </div>
-      <img class="nhm-hero__image mb-2--700-and-below mw-43 rounded fade-in-up animation-delay-1" src="{{ page.logo_image }}" alt="">
     </div>
   </div>
     
-  <div class="nhm-wrapper">{{ content }}</div>
+  <div class="nhm-wrapper mw-56rem">
+
+    <div class="responsive-margin-bottom fade-in-up">
+      <h2 data-sidebar class="mb-0">Overview</h2>
+      <p class="mt-1">{{ page.overview }}</p>
+      <h3 class="mb-0">Where</h3>
+      <p class="mt-1">{{ page.where }}</p>
+      <h3 class="mb-0">My Role</h3>
+      <p class="mt-1">{{ page.role }}</p>
+    </div>
+
+    {{ content }}
+  </div>
 
   <!-- {% if page.read_more%}
   <h2 class="text--center mt-5 mb-2">Other Work</h2>

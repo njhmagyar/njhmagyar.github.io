@@ -21,7 +21,7 @@ layout: default
     {% for project in ordered_projects %}
     <li class="nhm-card--horizontal responsive-margin-bottom fade-in-up animation-delay-{% cycle '3', '4', '5' %}">
       <a href="{{ project.url }}" class="nhm-card__image-wrapper">
-        <img src="{{ project.thumbnail_image }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" /></a>
+        <img src="{{ project.cover_image }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" /></a>
         <div>
         <h3 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a>
         </h3>

@@ -136,6 +136,14 @@
   }
 }
 
+.nhm-image-wrapper {
+  background: $gray--bg;
+  border: 1px solid $gray--tag;
+  border-radius: 4px;
+  @include flex($justify: center, $align: center);
+  padding: 3rem;
+}
+
 .nhm-tag {
   background: $gray--tag;
   font-size: 13px;

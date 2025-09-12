@@ -5,11 +5,6 @@
   @media #{$mq--lg} {
     @include flex($justify: center);
     padding: 0 1.5rem;
-    max-width: 1056px;
-    margin: 0 auto;
-  }
-  @media #{$mq--1056} {
-    padding: 0;
   }
 }
 
