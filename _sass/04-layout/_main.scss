@@ -133,6 +133,157 @@
       max-width: 43%;
     }
   }
+  
+  // SVG animations for nhm-wave.svg
+  #icon-figma {
+    animation: float 2.5s ease-in-out infinite;
+    transform-origin: center;
+    #sparkle-1 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite;
+      opacity: 0;
+    }
+  
+    #sparkle-2 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite;
+      opacity: 0;
+    }
+  }
+  
+  #icon-css {
+    animation: float 2.5s ease-in-out infinite 0.5s;
+    transform-origin: center;
+    #sparkle-1-3 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite 0.5s;
+      opacity: 0;
+    }
+  
+    #sparkle-2-3 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite 0.5s;
+      opacity: 0;
+    }
+  }
+  
+  #icon-illustrator {
+    animation: float 2.5s ease-in-out infinite 1s;
+    transform-origin: center;
+    #sparkle-1-5 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite 1s;
+      opacity: 0;
+    }
+  
+    #sparkle-2-5 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite 1s;
+      opacity: 0;
+    }
+  }
+  
+  #icon-js {
+    animation: float 2.5s ease-in-out infinite 1.5s;
+    transform-origin: center;
+    #sparkle-1-6 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite 1.5s;
+      opacity: 0;
+    }
+  
+    #sparkle-2-6 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite 1.5s;
+      opacity: 0;
+    }
+  }
+  
+  #icon-python {
+    animation: float 2.5s ease-in-out infinite 0.8s;
+    transform-origin: center;
+    #sparkle-1-4 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite 0.8s;
+      opacity: 0;
+    }
+  
+    #sparkle-2-4 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite 0.8s;
+      opacity: 0;
+    }
+  }
+
+  #icon-a11y {
+    animation: float 2.5s ease-in-out infinite 1s;
+    transform-origin: center;
+    #sparkle-1-2 {
+      animation: sparkle-heartbeat-1 3s ease-in-out infinite 1s;
+      opacity: 0;
+    }
+  
+    #sparkle-2-2 {
+      animation: sparkle-heartbeat-2 3s ease-in-out infinite 1s;
+      opacity: 0;
+    }
+  }
+  
+  #right-arm {
+    animation: wave 2.5s linear infinite;
+    transform-origin: 90px 170px; // Origin at shoulder
+  }
+
+  #blink-top {
+    animation: blink-top 3s ease-in-out infinite;
+    transform-origin: center;
+  }
+
+  #blink-bottom {
+    animation: blink-bottom 3s ease-in-out infinite;
+    transform-origin: center;
+  }
+}
+
+// Keyframe animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+}
+
+@keyframes blink-top {
+  0%, 85%, 100% {
+    transform: translateY(0);
+  }
+  92.5% {
+    transform: translateY(12px);
+  }
+}
+
+@keyframes blink-bottom {
+  0%, 85%, 100% {
+    transform: translateY(0);
+  }
+  92.5% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes sparkle-heartbeat-1 {
+  0% { opacity: 0; }
+  40% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+@keyframes sparkle-heartbeat-2 {
+  0% { opacity: 0; }
+  60% { opacity: 0.8; }
+  90% { opacity: 0.8; }
+  100% { opacity: 0; }
 }
 
 
