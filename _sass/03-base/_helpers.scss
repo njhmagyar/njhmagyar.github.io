@@ -229,6 +229,7 @@ td.small-screen-hidden {
 }
 
 .rounded { border-radius: $card-radius; }
+.rounded--mobile { border-radius: 1.5rem; }
 .rounded--mega { border-radius: 1.5rem; }
 .rounded--top-left { border-top-left-radius: $card-radius; }
 .rounded--top-right { border-top-right-radius: $card-radius; }
@@ -427,4 +428,7 @@ td.small-screen-hidden {
 
 .border-1-gray-tag {
   border: 1px solid $gray--tag;
+}
+.border--mobile {
+  border: 6px solid black;
 }

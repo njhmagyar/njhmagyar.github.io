@@ -9,11 +9,12 @@ where: Twirlmate / 2025
 role: As founder and product owner, I leveraged my unique technical-design background to identify and solve a critical user experience bottleneck while ensuring development feasibility.
 order: 1
 featured: true
-cover_image: /assets/images/twirlmate/twirlmate-cover-4-mobile.svg
+cover_image: /assets/images/twirlmate/twirlmate-cover-4-mobile-2.svg
 read_more: []
 published: true
 ---
 
+<img src="/assets/images/twirlmate/twirlmate-welcome-login.svg" class="w-100 rounded responsive-margin-bottom" alt="" />
 <div class="responsive-margin-bottom">
   <h2 data-sidebar>Context</h2>
   <ul class="nhm-card-grid three-columns">
@@ -39,15 +40,14 @@ published: true
   </ol>
   <p>This fragmented experience meant parents spent hours on the registration process, directors struggled to manage payments and communicate with attendees, and our community missed out on opportunities due to poor communication or experience design.</p>
   <p>I built Twirlmate to solve a problem I knew intimately: bringing contest discovery, registration, payment, and communication into one consistent, modern platform designed specifically for our sport's unique needs.</p>
+  <img src="/assets/images/twirlmate/twirlmate-context.svg" class="w-100 rounded" alt="" />
 
 </div>
 
 <div class="responsive-margin-bottom">
   <div>
     <h2 data-sidebar>The Problem</h2>
-    <div class="nhm-image-wrapper">
-      <img src="/assets/images/twirlmate-old-flow.svg" class="mxh-300 nhm-card__image" alt="" />
-    </div>
+    <img src="/assets/images/twirlmate/twirlmate-problem.svg" class="w-100 rounded" alt="" />
     <p>
       During Twirlmate's first year, I provided all customer support, giving me direct insight into user pain points. The data revealed a critical gap in our user experience:
     </p>
@@ -98,6 +98,9 @@ published: true
 
 <div class="responsive-margin-bottom">
   <h2 data-sidebar>Principles</h2>
+  <div class="nhm-image-wrapper" style="background-image: url('/assets/images/twirlmate/twirlmate-bg.svg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <img src="/assets/images/twirlmate/twirlmate-progressive-disclosure.gif" class="mxh-300 rounded--mobile border--mobile" alt="" />
+  </div>
   <p><strong>Meet Users Where They Are</strong> - Since attendees expect to enter athlete information during registration, I integrated account creation directly into the registration flow rather than treating it as a separate step.</p>
   <p><strong>Enable Seamless Editing</strong> - Users needed to modify athlete and team details without losing their registration progress, so I built inline editing capabilities that kept them in flow.</p>
   <p><strong>Reveal Complexity Gradually</strong> - While the new flow handles more functionality, I used progressive disclosure to show only what users need at each step, maintaining a clean interface.</p>
@@ -131,8 +134,8 @@ published: true
 
 <div class="responsive-margin-bottom">
   <h2 data-sidebar>Challenges</h2>
-  <div class="nhm-image-wrapper">
-    <img src="/assets/images/twirlmate/twirlmate-mobile-ta-da-new.svg" class="mw-300" alt="" />
+  <div class="nhm-image-wrapper py-5" style="background-image: url('/assets/images/twirlmate/twirlmate-bg-2.svg'); background-size: cover; background-position: center;">
+    {% include baton-button.html %}
   </div>
   <p>Contest registration is typically seen as a tedious chore involving complex data entry in a specific sequence. Users needed to stay engaged while providing detailed information about athletes, events, and teams—all while feeling confident they were making the right choices.</p>
   <h3>My Design Approach</h3>
@@ -157,9 +160,7 @@ published: true
 
 <div class="responsive-margin-bottom">
   <h2 data-sidebar>The Result</h2>
-  <div class="nhm-image-wrapper">
-    <img src="/assets/images/twirlmate/twirlmate-impact.svg" class="mw-300" alt="" />
-  </div>
+  <img src="/assets/images/twirlmate/twirlmate-cover-4-mobile-2.svg" class="w-100 rounded" alt="" />
   <p class="">By eliminating the gap between account creation and registration, I transformed a frustrating user experience into a streamlined process:</p>
   <ul>
     <li><p class="my-0"><strong>Usability improved 33%:</strong> SUS score increased from 67 to 89</p></li>
@@ -184,7 +185,7 @@ published: true
   </p>
 </div>
 
-<div class="align--center responsive-margin-bottom --700-and-up">
+<div class="align--center responsive-margin-bottom">
   <h2>Want to see more?</h2>
   <a class="nhm-btn--blue" href="https://www.twirlmate.com/" target="_blank">
     View the Live Site
