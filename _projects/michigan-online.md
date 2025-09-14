@@ -124,11 +124,11 @@ published: true
 
 <div class="responsive-margin-bottom ">
   <h2 data-sidebar>The Result</h2>
-  <img src="/assets/images/michigan-online/michigan-online--cover.png" class="d-block mw-700 mx-auto nhm-card__image object-fit--contain mt-5" alt="" />
   <p>
   The outcome of this effort was a more interactive, transparent course rating section that allowed prospective learners to explore the full set of reviews for a given learning experience.
   </p>
   <p>
   Now that the design is implemented, I'd like to collect quantitative measurements of user satisfaction, and monitor click-through rates between the course and review pages to guage usage.
   </p>
+  <img src="/assets/images/michigan-online/michigan-online--cover.png" class="mt-5 w-100" alt="" />
 </div>
