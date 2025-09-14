@@ -108,8 +108,6 @@ published: true
 
 
 <div class="responsive-margin-bottom">
-  <h3>Unexpected Constraint</h3>
-  <img src="/assets/images/michigan-online/michigan-online--ideal-version.png" class="nhm-card__image object-fit--contain" alt="" />
 </div>
 
 <div class="responsive-margin-bottom">
@@ -117,6 +115,8 @@ published: true
   <p class="">
     In the last iteration of the project, I incorporated user feedback to better communicate each rating's interactivity and proportion.
   </p> 
+  <img src="/assets/images/michigan-online/michigan-online--ideal-version.png" class="nhm-card__image object-fit--contain" alt="" />
+  <h4>Unexpected Constraint</h4>
   <p class="">
     I experimented with adding more biographical information about each reviewer, but due to data limitaitons I was unable to provide these details. We source our reviews from 3rd party platforms who don't pass that info to us (e.g., Coursera).
   </p> 
