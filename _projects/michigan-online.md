@@ -27,7 +27,7 @@ screenshots: [
   /assets/images/michigan-online/screenshots/content-item-detail.png,
 ]
 read_more: [Twirlmate,Codespec]
-published: false
+published: true
 ---
 
 <div class="nhm-wrapper responsive-margin-bottom">

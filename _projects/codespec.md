@@ -27,7 +27,7 @@ screenshots: [
 ]
 read_more: []
 prototype_id: "codespec-prototype"
-published: false
+published: true
 ---
 <div class="responsive-margin-bottom" id="codespec-prototype">
   <div class="prototype-container" style="position: relative;">
