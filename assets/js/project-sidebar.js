@@ -8,20 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const headings = document.querySelectorAll('.nhm-wrapper [data-sidebar]');
   if (headings.length === 0) return;
 
-  // Create sidebar container
-  const sidebar = document.createElement('aside');
-  sidebar.className = 'project-sidebar';
-  sidebar.innerHTML = `
-    <nav class="project-sidebar__nav">
-      <ul class="project-sidebar__list"></ul>
-    </nav>
-  `;
-
-  // Insert sidebar after the hero section
-  const heroWrapper = document.querySelector('.nhm-wrapper');
-  heroWrapper.parentNode.insertBefore(sidebar, heroWrapper.nextSibling);
-
-  const sidebarList = sidebar.querySelector('.project-sidebar__list');
+  const sidebarList = document.querySelector('.project-sidebar__list');
   const sidebarItems = [];
 
   // Generate unique IDs and create navigation items

@@ -1,13 +1,31 @@
+.nhm-project-wrapper {
+
+}
+
+.nhm-project__article {
+  // @media (min-width: 1200px) {
+  //   width: calc(100% - 220px - 1rem);
+  //   margin-left: calc(220px + 1rem);
+  // }
+  // @media (min-width: 1400px) {
+  //   width: calc(100% - 250px - 1rem);
+  //   margin-left: calc(250px + 1rem);
+  // }
+}
+
+.nhm-project__aside {
+
+}
+
 // Project sidebar navigation
 .project-sidebar {
   display: none;
 
-  // Show on large viewports only (1200px+)
-  @media (min-width: 1200px) {
+  @media (min-width: 1580px) {
     display: block;
     position: fixed;
     top: 50%;
-    left: 2rem;
+    left: .5rem;
     transform: translateY(-50%);
     width: 220px;
     max-height: 100vh;
@@ -27,12 +45,6 @@
       background: rgba(0, 0, 0, 0.2);
       border-radius: 2px;
     }
-  }
-
-  // Adjust for extra large screens
-  @media (min-width: 1400px) {
-    left: .5rem;
-    width: 250px;
   }
 }
 
@@ -93,16 +105,9 @@
 }
 
 // Ensure sidebar doesn't interfere with content
-@media (min-width: 1200px) {
+@media (min-width: 1580px) {
   [data-project-detail] .nhm-wrapper {
     margin-left: 280px; // Account for sidebar width + padding
     max-width: calc(100% - 320px); // Account for sidebar + margins
-  }
-}
-
-@media (min-width: 1400px) {
-  [data-project-detail] .nhm-wrapper {
-    margin-left: 320px; // Account for larger sidebar
-    max-width: calc(100% - 380px); // Account for larger sidebar + margins
   }
 }

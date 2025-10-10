@@ -2,57 +2,66 @@
 layout: default
 permalink: pretty
 ---
-<article class="pb-152px" data-project-detail>
-  <div class="nhm-wrapper responsive-margin-bottom mw-56rem">
-    <div class="pt-5">
-      <div class="fade-in-up">
-        <p>{{ page.supertitle }}</p>
-        <h1 class="mt-0">{{ page.title }}</h1>
-        <div class="fade-in-up animation-delay-1">
-          {% if page.cover_video %}
-          <video class="w-100 rounded" src="{{ page.cover_video }}" alt="" autoplay muted loop playsinline></video>
-          {% else %}
-          <img class="w-100 rounded" src="{{ page.cover_image }}" alt="">
-          {% endif %}
+<div class="nhm-project-wrapper nhm-wrapper">
+  <article class="nhm-project__article pb-152px" data-project-detail>
+    <div class="responsive-margin-bottom">
+      <div class="pt-5">
+        <div class="fade-in-up">
+          <p>{{ page.supertitle }}</p>
+          <h1 class="mt-0">{{ page.title }}</h1>
+          <div class="fade-in-up animation-delay-1">
+            {% if page.cover_video %}
+            <video class="w-100 rounded" src="{{ page.cover_video }}" alt="" autoplay muted loop playsinline></video>
+            {% else %}
+            <img class="w-100 rounded" src="{{ page.cover_image }}" alt="">
+            {% endif %}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-    
-  <div class="nhm-wrapper mw-56rem">
-
-    <div class="responsive-margin-bottom fade-in-up">
-      <h2 data-sidebar class="mb-0">Overview</h2>
-      <p class="mt-1">{{ page.overview }}</p>
-      <h3 class="mb-0">Where</h3>
-      <p class="mt-1">{{ page.where }}</p>
-      <h3 class="mb-0">My Role</h3>
-      <p class="mt-1">{{ page.role }}</p>
-    </div>
-
-    {{ content }}
-  </div>
-
-  <!-- {% if page.read_more%}
-  <h2 class="text--center mt-5 mb-2">Other Work</h2>
-  <ul class="nhm-card-grid two-columns">
-    {% for project_name in page.read_more %}
-    {% assign project = site.projects | where_exp:"project", "project.supertitle == project_name" | first %}
-    <li class="nhm-card-grid__item">
-      <a href="{{ project.url }}">
-        <img class="mw-100p rounded" src="{{ project.cover_image }}" alt="" />
-      </a>
-      <h3><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a></h3>
-      <div class="d-flex justify-start align-center">
-        <ul class="nhm-tag-list">
-          {% for role in project.roles %}
-          <li class="nhm-tag-list__item">{{ role }}</li>
-          {% endfor %}
-        </ul>
+      
+    <div>
+  
+      <div class="responsive-margin-bottom fade-in-up">
+        <h2 data-sidebar class="mb-0">Overview</h2>
+        <p class="mt-1">{{ page.overview }}</p>
+        <h3 class="mb-0">Where</h3>
+        <p class="mt-1">{{ page.where }}</p>
+        <h3 class="mb-0">My Role</h3>
+        <p class="mt-1">{{ page.role }}</p>
       </div>
-      <p>{{ project.tagline }}</p>
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %} -->
-</article>
+  
+      {{ content }}
+    </div>
+  
+    <!-- {% if page.read_more%}
+    <h2 class="text--center mt-5 mb-2">Other Work</h2>
+    <ul class="nhm-card-grid two-columns">
+      {% for project_name in page.read_more %}
+      {% assign project = site.projects | where_exp:"project", "project.supertitle == project_name" | first %}
+      <li class="nhm-card-grid__item">
+        <a href="{{ project.url }}">
+          <img class="mw-100p rounded" src="{{ project.cover_image }}" alt="" />
+        </a>
+        <h3><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a></h3>
+        <div class="d-flex justify-start align-center">
+          <ul class="nhm-tag-list">
+            {% for role in project.roles %}
+            <li class="nhm-tag-list__item">{{ role }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <p>{{ project.tagline }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %} -->
+  </article>
+  <aside class="nhm-project__aside">
+   <div class="project-sidebar">
+      <nav class="project-sidebar__nav">
+        <ul class="project-sidebar__list"></ul>
+      </nav>
+   </div>
+  </aside>
+</div>
