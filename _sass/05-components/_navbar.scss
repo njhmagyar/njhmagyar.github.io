@@ -4,7 +4,6 @@
 
   @media #{$mq--lg} {
     @include flex($justify: center);
-    padding: 0 1.5rem;
   }
 }
 
