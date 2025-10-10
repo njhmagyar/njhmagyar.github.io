@@ -1,6 +1,6 @@
 ---
 supertitle: Twirlmate
-title: 'Bridging the UX Gulf: How Eliminating a 4-Click Gap Improved Usability by 33%'
+title: 'Multi-step flow streamlining'
 permalink: projects/twirlmate/
 project_url: https://www.twirlmate.com/
 tagline: 'I redesigned a mobile registration experience, transforming a disjointed onboarding flow into a seamless customer journey; achieving a usability score of 89 (well above the industry average of 67) and reducing average time between sign up and checkout from 8 to 5 minutes.'
@@ -10,6 +10,7 @@ role: As founder and product owner, I leveraged my unique technical-design backg
 order: 1
 featured: true
 cover_image: /assets/images/twirlmate/twirlmate-cover-4-mobile-2.svg
+cover_video: /assets/videos/twirlmate-1.mp4
 read_more: []
 published: true
 ---

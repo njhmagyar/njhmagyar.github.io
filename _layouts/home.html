@@ -7,7 +7,7 @@ layout: default
     <div class="nhm-hero mobile-image-first py-5">
       <div class="nhm-hero__text fade-in-up">
         <h1 class="nhm-mega-font">Hi! I'm Nathan.</h1>
-        <p class="p--lg">I'm a product designer and full stack developer with 7+ years of experience transforming complex workflows into delightful, intuitive experiences for users.
+        <p class="p--lg">I'm a product designer and full stack developer with 8 years of experience transforming complex workflows into delightful, intuitive experiences for users.
         </p>
       </div>
       {% include nhm-wave.html %}
@@ -15,13 +15,17 @@ layout: default
   </div>
 </section>
 <section class="nhm-wrapper">
-  <h2 class="h1 text--center my-5 fade-in-up animation-delay-2">My Work</h2>
   <ul class="unstyled-list">
     {% assign ordered_projects = site.projects | where: 'published', true | sort:"order" %}
     {% for project in ordered_projects %}
     <li class="nhm-card--horizontal responsive-margin-bottom fade-in-up animation-delay-{% cycle '3', '4', '5' %}">
       <a href="{{ project.url }}" class="nhm-card__image-wrapper">
-        <img src="{{ project.cover_image }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" /></a>
+        {% if project.cover_video %}
+        <video src="{{ project.cover_video }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" autoplay muted loop playsinline></video>
+        {% else %}
+        <img src="{{ project.cover_image }}" class="nhm-card__image rounded object-fit--contain" alt="{{ project.title }}" />
+        {% endif %}
+      </a>
         <div>
         <h3 class="mt-0"><a href="{{ project.url }}" class="text--black hover--blue no-underline">{{ project.title }}</a>
         </h3>
