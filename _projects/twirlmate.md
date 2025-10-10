@@ -1,6 +1,6 @@
 ---
 supertitle: Twirlmate
-title: 'They came to pay. We kept them on their way.'
+title: 'Reducing friction in a multi-step flow.'
 permalink: projects/twirlmate/
 project_url: https://www.twirlmate.com/
 tagline: 'I redesigned a mobile registration experience, transforming a disjointed onboarding flow into a seamless customer journey; achieving a usability score of 89 (well above the industry average of 67) and reducing average time between sign up and checkout from 8 to 5 minutes.'
