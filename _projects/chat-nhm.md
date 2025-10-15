@@ -5,7 +5,7 @@ permalink: projects/chat-nhm/
 tagline: I'm in the process of planning, designing, and building an interactive portfolio experience where reviewers will converse with a voice clone of myself to learn about my skills and experience.
 overview:  Chat NHM will be an AI-powered portfolio using voice cloning to create personalized, interactive experiences for hiring managers and collaborators.
 where: Personal Project / October 2025
-role: An AI enthusiast, I'm experimenting with OpenAI APIs, Eleven Labs voice cloning, and best practices for designing AI-driven experiences.
+role: As an AI enthusiast, I'm experimenting with OpenAI APIs, Eleven Labs voice cloning, and best practices for designing AI-driven experiences.
 order: 4
 featured: false
 cover_image: /assets/images/chat-nhm/chat-nhm.png
