@@ -55,34 +55,10 @@
 }
 
 .nhm-card--horizontal {
-  .nhm-card__image-wrapper {
-    @media #{$mq-700-and-below} {
-      max-width: 250px;
-      margin: 0 auto 2rem;
-      text-align: center;
-      
-    }
-  }
-  &.image-last--mobile {
-    @media #{$mq-700-and-below} {
-      @include flex($direction: column-reverse);
-    }
-  }
+  margin: 4rem 0;
   @media #{$mq--md} {
+    margin: 10rem 0;
     @include flex($justify: flex-start, $align: flex-start, $wrap: nowrap, $gap: 2rem);
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-  }
-}
-
-.responsive-margin-bottom {
-  margin-bottom: 3rem;
-  @media #{$mq--sm} {
-    margin-bottom: 6rem;
-  }
-  @media #{$mq--md} {
-    margin-bottom: 12rem;
   }
 }
 
@@ -119,6 +95,10 @@
     margin: 0 1rem 0 0;
     flex: 0 0 50%;
   }
+  &:hover + .nhm-card__body .text--link,
+  &:focus + .nhm-card__body .text--link {
+    color: $fuscia;
+  }
 }
 
 .nhm-card__image {
@@ -133,6 +113,15 @@
   &.mxh-200 {
     max-height: 200px;
     object-fit: cover;
+  }
+}
+
+.nhm-card__body {
+  color: $black;
+  text-decoration: none;
+  &:hover .text--link,
+  &:focus .text--link {
+    color: $fuscia;
   }
 }
 

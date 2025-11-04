@@ -137,6 +137,10 @@ p, .p   {
   text-decoration: underline;
   &:hover, &:focus {
     color: $fuscia;
+    outline: none;
+  }
+  &.no-underline {
+    text-decoration: none;
   }
 }
 
@@ -179,6 +183,10 @@ p, .p   {
   &:hover {
     color: $blue;
   }
+}
+
+.text--secondary {
+  color: $black--secondary;
 }
 
 .nhm-event-name {

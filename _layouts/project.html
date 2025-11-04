@@ -4,11 +4,9 @@ permalink: pretty
 ---
 <div class="nhm-project-wrapper nhm-wrapper">
   <article class="nhm-project__article pb-152px" data-project-detail>
-    <div class="responsive-margin-bottom">
-      <div class="pt-5">
+    <div class="mb-4">
+      <div class="pt-2">
         <div class="fade-in-up">
-          <p>{{ page.supertitle }}</p>
-          <h1 class="mt-0">{{ page.title }}</h1>
           <div class="fade-in-up animation-delay-1">
             {% if page.cover_video %}
             <video class="w-100 rounded" src="{{ page.cover_video }}" alt="" autoplay muted loop playsinline></video>
@@ -16,19 +14,19 @@ permalink: pretty
             <img class="w-100 rounded" src="{{ page.cover_image }}" alt="">
             {% endif %}
           </div>
+          <p class="mw-700 mx-auto mb-0 mt-4">{{ page.supertitle }}</p>
+          <h1 class="mw-700 mx-auto mt-0">{{ page.title }}</h1>
         </div>
       </div>
     </div>
       
     <div>
   
-      <div class="responsive-margin-bottom fade-in-up">
+      <div class="mw-700 mx-auto mb-4 fade-in-up">
         <h2 data-sidebar class="mb-0">Overview</h2>
-        <p class="mt-1">{{ page.overview }}</p>
-        <h3 class="mb-0">Where</h3>
-        <p class="mt-1">{{ page.where }}</p>
-        <h3 class="mb-0">My Role</h3>
-        <p class="mt-1">{{ page.role }}</p>
+        <p class="text--secondary mt-1">{{ page.overview }}</p>
+        <p class="text--secondary mt-1"><span class="text--black text--bold">Where:</span> {{ page.where }}</p>
+        <p class="text--secondary mt-1"><span class="text--black text--bold">My Role:</span> {{ page.role }}</p>
       </div>
   
       {{ content }}
