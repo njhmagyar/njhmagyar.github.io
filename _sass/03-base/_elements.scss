@@ -20,10 +20,6 @@ a {
 }
 
 input, a, textarea, button, summary {
-  &:focus {
-    outline: none;
-    box-shadow: inset 0 0 0 2px $fuscia;
-  }
   &.regular-box-shadow-focus:focus {
     box-shadow: 0 0 0 2px $blue;
   }
